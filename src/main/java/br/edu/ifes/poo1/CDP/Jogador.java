@@ -9,5 +9,15 @@ package br.edu.ifes.poo1.CDP;
  * @author 20121BSI0082
  */
 public class Jogador {
-    //Testee
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    
 }
