@@ -10,4 +10,7 @@ package br.edu.ifes.poo1.CDP.Pecas;
  */
 public class Torre {
     
+    class capturar{
+        
+    }
 }

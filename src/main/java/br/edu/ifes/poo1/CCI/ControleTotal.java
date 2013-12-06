@@ -9,5 +9,6 @@ package br.edu.ifes.poo1.CCI;
  * @author 20121BSI0082
  */
 public class ControleTotal {
+    //ExibeMEnu
     
 }
