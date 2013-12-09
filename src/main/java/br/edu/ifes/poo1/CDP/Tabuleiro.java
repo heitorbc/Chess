@@ -18,8 +18,19 @@ public class Tabuleiro {
     public Tabuleiro() {
         for (int coluna = 1; coluna <= 8; coluna++) {
             for (int linha = 1; linha <= 8; linha++) {
-                    tabuleiro.put(""+coluna+linha, null);
+                    tabuleiro.put(""+coluna+linha,null);
             }
         }
+    }
+    
+    public void instaciaPecas(Map<String, Posicao> tab ){
+        
+    
+    } 
+    
+    public void instaciaTorres(Map<String, Posicao> tab){
+              
+        tab.put("11", null);
+        
     }
 }

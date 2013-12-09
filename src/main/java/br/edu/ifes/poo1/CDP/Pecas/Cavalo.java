@@ -4,14 +4,17 @@
  */
 package br.edu.ifes.poo1.CDP.Pecas;
 
+import br.edu.ifes.poo1.CDP.PecaAbstrata;
+import br.edu.ifes.poo1.util.Cor;
+
 /**
  *
  * @author 20121BSI0082
  */
-public class Cavalo {
- 
-    //Cor
-    public void teste(){
-        System.out.println("Heelo");
+public class Cavalo extends PecaAbstrata{
+
+    public Cavalo(Cor cor) {
+        super(cor);
     }
+    
 }

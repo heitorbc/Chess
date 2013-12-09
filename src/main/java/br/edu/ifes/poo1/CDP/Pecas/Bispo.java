@@ -4,10 +4,17 @@
  */
 package br.edu.ifes.poo1.CDP.Pecas;
 
+import br.edu.ifes.poo1.CDP.PecaAbstrata;
+import br.edu.ifes.poo1.util.Cor;
+
 /**
  *
  * @author 20121BSI0082
  */
-public class Bispo {
+public class Bispo extends PecaAbstrata{
+
+    public Bispo(Cor cor) {
+        super(cor);
+    }
     
 }

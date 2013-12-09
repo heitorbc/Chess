@@ -8,10 +8,7 @@ package br.edu.ifes.poo1.CGT;
  *
  * @author 20121BSI0082
  */
-public class Controle {
-   
-    
-    
+public class Controle {  
   /*  public class voltarJogada(){
         
     }

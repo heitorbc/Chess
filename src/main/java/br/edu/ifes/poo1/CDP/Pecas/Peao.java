@@ -4,11 +4,19 @@
  */
 package br.edu.ifes.poo1.CDP.Pecas;
 
+import br.edu.ifes.poo1.CDP.PecaAbstrata;
+import br.edu.ifes.poo1.util.Cor;
+
 /**
  *
  * @author 20121BSI0082
  */
-public class Peao {
+public class Peao extends PecaAbstrata {
+
+    public Peao(Cor cor) {
+        super(cor);
+    }
+}
    //O controle verifica se pode andar.
     
     //public boolean andar(String posicaoAtual, String novaPosicao){
@@ -20,7 +28,6 @@ public class Peao {
            
       // }else{
           //Anda uma posicao
-       }
            
    //}
     

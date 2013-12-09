@@ -4,10 +4,16 @@
  */
 package br.edu.ifes.poo1.CDP.Pecas;
 
+import br.edu.ifes.poo1.CDP.PecaAbstrata;
+import br.edu.ifes.poo1.util.Cor;
+
 /**
  *
  * @author 20121BSI0082
  */
-public class Rei {
-    
+public class Rei extends PecaAbstrata{
+
+    public Rei(Cor cor) {
+        super(cor);
+    }
 }
