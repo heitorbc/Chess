@@ -1,5 +1,6 @@
 package br.edu.ifes.poo1.xadrez;
 
+import br.edu.ifes.poo1.CIH.Principal;
 import br.edu.ifes.poo1.util.Cor;
 
 /**
@@ -14,5 +15,6 @@ public class App
         System.out.println(Cor.BRANCO);
         System.out.println(Cor.PRETO);  
         System.out.println();
+        new Principal().show();
     }
 }
