@@ -6,10 +6,18 @@
 
 package br.edu.ifes.poo1.CDP;
 
+import br.edu.ifes.poo1.util.Cor;
+
 /**
  *
  * @author Henrique
  */
-public class Peca {
+public interface Peca {
+    public Cor getCor();
+
+    public boolean andar(String posicaoAtual, String proximaPosicao);
     
+    public boolean capturar(String posicaoAtual, String proximaPosicao);
+
+
 }
