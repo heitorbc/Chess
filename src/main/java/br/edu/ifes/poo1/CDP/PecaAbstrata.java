@@ -7,24 +7,51 @@
 package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
 
 /**
  *
  * @author Henrique
  */
-public class PecaAbstrata {
-    protected Cor cor;
-  
-    public PecaAbstrata(Cor cor) {
+public abstract class PecaAbstrata implements Peca{
+    private Cor cor;
+    private PecaNome nome;
+
+    public PecaAbstrata(Cor cor, PecaNome nome) {
         this.cor = cor;
-    }   
-    
+        this.nome = nome;
+    }
+
+    @Override
     public Cor getCor() {
-        return cor;
+        return this.cor;
     }
 
     public void setCor(Cor cor) {
         this.cor = cor;
-    }   
+    }
+
+    public PecaNome getNome() {
+        return nome;
+    }
+
+    public void setNome(PecaNome nome) {
+        this.nome = nome;
+    }
+    
+    
+    
+    /**
+     *
+     * @return
+     */
+    @Override
+    public abstract boolean andar(String posicaoAtual, String proximaPosicao);
+    
+    
+    @Override
+    public abstract boolean capturar(String posicaoAtual, String proximaPosicao);
+
+    
     
 }

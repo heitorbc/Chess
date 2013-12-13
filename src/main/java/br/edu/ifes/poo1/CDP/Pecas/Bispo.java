@@ -6,6 +6,7 @@ package br.edu.ifes.poo1.CDP.Pecas;
 
 import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
 
 /**
  *
@@ -14,7 +15,17 @@ import br.edu.ifes.poo1.util.Cor;
 public class Bispo extends PecaAbstrata{
 
     public Bispo(Cor cor) {
-        super(cor);
+        super(cor, PecaNome.BISPO);
+    }
+
+    @Override
+    public boolean andar(String posicaoAtual, String proximaPosicao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean capturar(String posicaoAtual, String proximaPosicao) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

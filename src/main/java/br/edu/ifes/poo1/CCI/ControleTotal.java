@@ -10,5 +10,7 @@ package br.edu.ifes.poo1.CCI;
  */
 public class ControleTotal {
     //ExibeMEnu
-    
+    /*Pega os dados do usuários
+    A cci chama alguma coisa do CGT
+    */
 }

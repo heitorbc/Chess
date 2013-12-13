@@ -12,5 +12,7 @@ public class Controle {
   /*  public class voltarJogada(){
         
     }
+    
+    
     */
 }
