@@ -26,6 +26,7 @@ public class Tabuleiro {
     public Tabuleiro() {
         for (int coluna = 1; coluna <= 8; coluna++) {
             for (int linha = 1; linha <= 8; linha++) {
+                tabuleiro.put(""+coluna+linha,null);                
                 //INSERINDO PECAS DE FIGURAS BRANCOS
                 if(linha==1){
                     if((coluna==1)||(coluna==8)){
@@ -50,7 +51,7 @@ public class Tabuleiro {
                 }
                 
                 //INSERINDO PEOES PRETOS
-                if(linha==6){
+                if(linha==7){
                     tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
                 }
                 //INSERINDO PECAS DE FIGURAS PRETAS
@@ -65,13 +66,13 @@ public class Tabuleiro {
                         tabuleiro.put(""+coluna+linha,new Bispo(Cor.PRETO));
                     }
                     if(coluna==4){
-                        tabuleiro.put(""+coluna+linha,new Rei(Cor.PRETO));
-                    }
-                    if(coluna==5){
                         tabuleiro.put(""+coluna+linha,new Rainha(Cor.PRETO));
                     }
+                    if(coluna==5){
+                        tabuleiro.put(""+coluna+linha,new Rei(Cor.PRETO));
+                    }
                 }
-                tabuleiro.put(""+coluna+linha,null);
+                
                 
                     
             }
