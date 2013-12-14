@@ -20,12 +20,12 @@ public class Rainha extends PecaAbstrata{
             
     @Override
     public boolean andar(String posicaoAtual, String proximaPosicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
 
     @Override
     public boolean capturar(String posicaoAtual, String proximaPosicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
     
     
