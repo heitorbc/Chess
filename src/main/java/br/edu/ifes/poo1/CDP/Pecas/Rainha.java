@@ -16,6 +16,7 @@ public class Rainha extends PecaAbstrata{
 
     public Rainha(Cor cor) {
         super(cor, PecaNome.RAINHA);
+        desenhoTabuleiro = "R";
     }
             
     @Override

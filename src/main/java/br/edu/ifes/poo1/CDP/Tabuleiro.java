@@ -11,7 +11,6 @@ import br.edu.ifes.poo1.CDP.Pecas.Rainha;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.util.Cor;
-import br.edu.ifes.poo1.util.PecaNome;
 import java.util.HashMap;
 
 /**

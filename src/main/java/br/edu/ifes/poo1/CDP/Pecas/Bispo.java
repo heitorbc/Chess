@@ -16,6 +16,7 @@ public class Bispo extends PecaAbstrata{
 
     public Bispo(Cor cor) {
         super(cor, PecaNome.BISPO);
+        desenhoTabuleiro = "B";
     }
 
     @Override

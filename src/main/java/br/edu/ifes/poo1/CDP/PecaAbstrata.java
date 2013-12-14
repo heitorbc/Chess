@@ -15,7 +15,20 @@ import br.edu.ifes.poo1.util.PecaNome;
  */
 public abstract class PecaAbstrata implements Peca{
     private Cor cor;
-    private PecaNome nome;
+    protected PecaNome nome;
+    protected String desenhoTabuleiro;
+        
+    
+    //Desenho no tabuleiro
+    public String getDesenhoTabuleiro() {
+        return desenhoTabuleiro;
+    }
+
+    public void setDesenhoTabuleiro(String desenhoTabuleiro) {
+        this.desenhoTabuleiro = desenhoTabuleiro;
+    }
+
+
 
     public PecaAbstrata(Cor cor, PecaNome nome) {
         this.cor = cor;

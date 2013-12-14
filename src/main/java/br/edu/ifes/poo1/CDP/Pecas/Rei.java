@@ -16,6 +16,7 @@ public class Rei extends PecaAbstrata{
 
     public Rei(Cor cor) {
         super(cor,PecaNome.REI);
+        desenhoTabuleiro = "K";
     }
 
     @Override

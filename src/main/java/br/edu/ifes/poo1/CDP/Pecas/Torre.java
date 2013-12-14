@@ -16,6 +16,7 @@ public class Torre extends PecaAbstrata {
 
     public Torre(Cor cor) {
         super(cor, PecaNome.TORRE);
+        desenhoTabuleiro = "T";
     }  
 
     @Override

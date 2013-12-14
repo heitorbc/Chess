@@ -17,6 +17,7 @@ public class Peao extends PecaAbstrata {
 
     public Peao(Cor cor) {
         super(cor, PecaNome.PEAO);
+        desenhoTabuleiro = "P";
     }
 
     //Preto ou branco

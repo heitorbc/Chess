@@ -16,6 +16,7 @@ public class Cavalo extends PecaAbstrata{
 
     public Cavalo(Cor cor) {
         super(cor, PecaNome.CAVALO);
+        desenhoTabuleiro = "C";
     }
     
     
