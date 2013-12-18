@@ -7,6 +7,7 @@
 package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
 
 /**
  *
@@ -14,10 +15,10 @@ import br.edu.ifes.poo1.util.Cor;
  */
 public interface Peca {
     public Cor getCor();
-
-    public boolean andar(String posicaoAtual, String proximaPosicao);
     
-    public boolean capturar(String posicaoAtual, String proximaPosicao);
-
-
+    //public PecaNome getPecaNome();
+    
+    public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao);
+    
+    public boolean podeCapturar(String posicaoAtual, String proximaPosicao);
 }

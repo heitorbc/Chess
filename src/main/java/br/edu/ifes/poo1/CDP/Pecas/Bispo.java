@@ -16,16 +16,15 @@ public class Bispo extends PecaAbstrata{
 
     public Bispo(Cor cor) {
         super(cor, PecaNome.BISPO);
-        desenhoTabuleiro = "B";
     }
 
     @Override
-    public boolean andar(String posicaoAtual, String proximaPosicao) {
+    public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean capturar(String posicaoAtual, String proximaPosicao) {
+    public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
