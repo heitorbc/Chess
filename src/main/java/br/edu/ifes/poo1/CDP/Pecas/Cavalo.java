@@ -16,18 +16,15 @@ public class Cavalo extends PecaAbstrata{
 
     public Cavalo(Cor cor) {
         super(cor, PecaNome.CAVALO);
-        desenhoTabuleiro = "C";
     }
-    
-    
-    
+    //Verifica se pode andar a quantidade solicitada    
     @Override
-    public boolean andar(String posicaoAtual, String proximaPosicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
+        
     }
 
     @Override
-    public boolean capturar(String posicaoAtual, String proximaPosicao) {
+    public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

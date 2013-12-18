@@ -11,11 +11,18 @@ package br.edu.ifes.poo1.util;
  * @author Henrique
  */
 public enum PecaNome {
-    BISPO("b"),CAVALO("c"),PEAO("p"),RAINHA("r"),REI("r"),TORRE("t");
-    
-    public String apelidoPeca;
+    BISPO(" B "),CAVALO(" C "),PEAO(" P "),DAMA(" D "),REI(" K "),TORRE(" T ");
 
-    PecaNome(String apelido) {
+    public String getApelidoPeca() {
+        return apelidoPeca;
+    }
+    
+    private final String apelidoPeca;
+
+    private PecaNome(String apelido) {
         apelidoPeca = apelido;
-    }       
+    }
+    private String apelidoPeca(){
+        return this.apelidoPeca;
+    }
 }

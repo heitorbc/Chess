@@ -14,7 +14,7 @@ import br.edu.ifes.poo1.util.PecaNome;
  * @author Henrique
  */
 public abstract class PecaAbstrata implements Peca{
-    private Cor cor;
+    protected Cor cor;
     protected PecaNome nome;
     protected String desenhoTabuleiro;
         
@@ -27,8 +27,6 @@ public abstract class PecaAbstrata implements Peca{
     public void setDesenhoTabuleiro(String desenhoTabuleiro) {
         this.desenhoTabuleiro = desenhoTabuleiro;
     }
-
-
 
     public PecaAbstrata(Cor cor, PecaNome nome) {
         this.cor = cor;
@@ -43,9 +41,9 @@ public abstract class PecaAbstrata implements Peca{
     public void setCor(Cor cor) {
         this.cor = cor;
     }
-
+    
     public PecaNome getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(PecaNome nome) {
@@ -53,18 +51,10 @@ public abstract class PecaAbstrata implements Peca{
     }
     
     
-    
-    /**
-     *
-     * @return
-     */
     @Override
-    public abstract boolean andar(String posicaoAtual, String proximaPosicao);
+    public abstract boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao);
     
     
     @Override
-    public abstract boolean capturar(String posicaoAtual, String proximaPosicao);
-
-    
-    
+    public abstract boolean podeCapturar(String posicaoAtual, String proximaPosicao);    
 }

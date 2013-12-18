@@ -7,10 +7,11 @@ package br.edu.ifes.poo1.CDP;
 import br.edu.ifes.poo1.CDP.Pecas.Bispo;
 import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
 import br.edu.ifes.poo1.CDP.Pecas.Peao;
-import br.edu.ifes.poo1.CDP.Pecas.Rainha;
+import br.edu.ifes.poo1.CDP.Pecas.Dama;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
 import java.util.HashMap;
 
 /**
@@ -20,7 +21,7 @@ import java.util.HashMap;
 public class Tabuleiro {
     
     
-    private final HashMap<String, Peca> tabuleiro = new HashMap<>();
+    private final HashMap<String, PecaAbstrata> tabuleiro = new HashMap<>();
 
     public Tabuleiro() {
         for (int coluna = 1; coluna <= 8; coluna++) {
@@ -41,7 +42,7 @@ public class Tabuleiro {
                         tabuleiro.put(""+coluna+linha,new Rei(Cor.BRANCO));
                     }
                     if(coluna==5){
-                        tabuleiro.put(""+coluna+linha,new Rainha(Cor.BRANCO));
+                        tabuleiro.put(""+coluna+linha,new Dama(Cor.BRANCO));
                     }
                 }
                 //INSERINDO PEOES BRANCOS
@@ -65,23 +66,18 @@ public class Tabuleiro {
                         tabuleiro.put(""+coluna+linha,new Bispo(Cor.PRETO));
                     }
                     if(coluna==4){
-                        tabuleiro.put(""+coluna+linha,new Rainha(Cor.PRETO));
+                        tabuleiro.put(""+coluna+linha,new Dama(Cor.PRETO));
                     }
                     if(coluna==5){
                         tabuleiro.put(""+coluna+linha,new Rei(Cor.PRETO));
                     }
-                }
-                
-                
-                    
+                }                    
             }
         }
     }
     
-    public Peca retornaPeca(String posicao){
+    public PecaAbstrata retornaPeca(String posicao){
         return tabuleiro.get(posicao);
         
-    }
-
-    
+    }   
 }
