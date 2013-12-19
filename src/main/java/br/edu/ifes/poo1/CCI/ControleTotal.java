@@ -61,43 +61,55 @@ public class ControleTotal {
         }
         //MOVIMENTAÇÂO NORMAL
         if (jog.length() == 4) {
-            String posAtual = jog.charAt(0) + jog.charAt(1) + "";
-            String posProx = jog.charAt(2) + jog.charAt(3) + "";
-            Peca peca = tabuleiro.retornaPeca(posAtual);
-            if (peca == Peao) {
+            String posAtual = ""+jog.charAt(0)+jog.charAt(1);
+            System.out.println(posAtual+" - "+tabuleiro.retornaPeca(posAtual));
+            String posProx = ""+ jog.charAt(2) + jog.charAt(3);
+            System.out.println(posProx+" - "+tabuleiro.retornaPeca(posProx));
+            System.out.println(posProx);
+            String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
+            if (peca == " P ") {//PEAO
                 //analiza se PEAO pode andar
-
-                //movimenta ou captura
+                //if(tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx)==true){
+                    //movimenta
+                    System.out.println("pode movimentaar");
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    
+                    iniciaJogada();
+                //}else{
+                    System.out.println("##ERRO##: Movimento Inválido");
+                    imprimeJogada();
+                //}
+                
                 
             } else {
-                if (peca == Torre) {
-                    //analiza se PEAO pode andar
+                if (peca == " T ") {//TORRE
+                    //analiza se TORRE pode andar
 
-                    //movimenta ou captura
+                    //movimenta 
                     
                 } else {
-                    if (peca == Cavalo) {
-                        //analiza se PEAO pode andar
+                    if (peca == " C ") {//CAVALO
+                        //analiza se CAVALO pode andar
 
-                        //movimenta ou captura
+                        //movimenta 
                         
                     } else {
-                        if (peca == Bispo) {
-                            //analiza se PEAO pode andar
+                        if (peca == " B ") {//BISPO
+                            //analiza se BISPO pode andar
 
-                            //movimenta ou captura
+                            //movimenta 
                             
                         } else {
-                            if (peca == Dama) {
-                                //analiza se PEAO pode andar
+                            if (peca == " D ") {//DAMA
+                                //analiza se DAMA pode andar
 
-                                //movimenta ou captura
+                                //movimenta 
                                 
                             } else {
-                                if (peca == Rei) {
-                                    //analiza se PEAO pode andar
+                                if (peca == " R ") {//REI
+                                    //analiza se REI pode andar
 
-                                    //movimenta ou captura
+                                    //movimenta 
                                     
                                 }
                             }

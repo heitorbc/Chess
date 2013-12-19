@@ -80,4 +80,10 @@ public class Tabuleiro {
         return tabuleiro.get(posicao);
         
     }   
+    
+    public void trocaPeca(String posAtual,String posProx){
+        PecaAbstrata aux = retornaPeca(posAtual);
+        tabuleiro.remove(posAtual);
+        tabuleiro.put(posProx, aux);
+    }
 }

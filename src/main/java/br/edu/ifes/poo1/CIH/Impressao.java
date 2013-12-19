@@ -19,7 +19,7 @@ public class Impressao {
        
     for (int linha = 1; linha <= 8; linha++) {
         for (int coluna = 1; coluna <= 8; coluna++) {
-            System.out.print(""+linha+coluna+" - ");
+            System.out.print(""+coluna+linha+" - ");
                 if(tab.retornaPeca(""+coluna+linha) == null){
                     //Imprimi null ou barra
                     //System.out.print(tab.retornaPeca(""+coluna+linha));

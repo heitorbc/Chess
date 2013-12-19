@@ -18,18 +18,17 @@ public class App
     {
         Tabuleiro tab = new Tabuleiro();
         Jogador jogador = new Jogador();
-                
-        jogador.criaJogador("Heitor");
-        System.out.println(jogador.retornaPontos("Heitor"));
-        jogador.addPontuacao("Heitor", "v");
-        System.out.println(jogador.hashCode());
-        System.out.println(jogador.retornaPontos("Heitor"));
+//        
+//        jogador.criaJogador("Heitor");
+//        System.out.println(jogador.retornaPontos("Heitor"));
+//        jogador.addPontuacao("Heitor", "v");
+//        System.out.println(jogador.retornaPontos("Heitor"));
         
         //System.out.println(PecaNome.BISPO.getApelidoPeca());
         
                 
-        ControleTotal controlTotal = new ControleTotal(tab);
-        controlTotal.iniciaMenu();
+        ControleTotal controleTotal = new ControleTotal(tab);
+        controleTotal.iniciaMenu();
         
     }
 }
