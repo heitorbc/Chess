@@ -4,8 +4,6 @@
  */
 package br.edu.ifes.poo1.CIH;
 
-import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
-import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 
 /**
@@ -13,33 +11,32 @@ import br.edu.ifes.poo1.CDP.Tabuleiro;
  * @author Henrique
  */
 public class Impressao {
-    /*
-       public void imprimeLinha(Tabuleiro tab){
-        for (int i = 1; i <= 8; i++) {
-            if(tab.retornaPeca("1"+i)==Torre){
-                System.out.println("Torre |");
-            }
-            if(tab.retornaPeca("1"+i)==Cavalo){
-                System.out.println("Cavalo |");
-            }
-        }
     
-    }
-*/
-     
+    
+    public void Impressao(){
+    
+    Tabuleiro tab = new Tabuleiro();
+    
+    for (int linha = 1; linha <= 8; linha++) {
+        for (int coluna = 1; coluna <= 8; coluna++) {
+            System.out.print(""+linha+coluna+" - ");
+                if(tab.retornaPeca(""+coluna+linha) == null){
+                    //Imprimi null ou barra
+                    //System.out.print(tab.retornaPeca(""+coluna+linha));
+                    System.out.print("[ ]");
+                }else{
+                    System.out.print(tab.retornaPeca(""+coluna+linha).getNome().getApelidoPeca());
+                }
+                System.out.print(" | ");
+            }
+            System.out.println("\n");
+        }       
 }    
+}
 
-
-
-//imprimeMenu
- 
     
     
-    /* Printscreen, comunicação com usuário.
-    
-    
-    
-    *1ºFAzer as peças
+    /*1ºFAzer as peças
      * 2ºFazer o tabuleiro
      * 3ºComeçar a criar o controle, validando as jogadas.
      * 4º

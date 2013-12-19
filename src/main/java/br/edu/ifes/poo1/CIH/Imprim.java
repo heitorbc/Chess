@@ -8,7 +8,7 @@ package br.edu.ifes.poo1.CIH;
  *
  * @author 20121BSI0082
  */
-public class Imprime {
+public class Imprim {
     //imprimeMenu
     
     /*1ºFAzer as peças

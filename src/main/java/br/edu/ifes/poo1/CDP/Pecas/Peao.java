@@ -46,6 +46,7 @@ public class Peao extends PecaAbstrata {
         //Captura pela diagonal, a direita.
         return false;
     }    
+    
     /*   //Peao ComoAndar incompleto
     public String comoAndar(String posicaoAtual, String proximaPosicao){
         if (podeAndar(posicaoAtual, proximaPosicao)){
@@ -53,4 +54,4 @@ public class Peao extends PecaAbstrata {
         }
         return null;
     }  */
-}   
+}
