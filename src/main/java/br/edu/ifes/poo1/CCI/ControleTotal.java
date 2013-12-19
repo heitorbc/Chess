@@ -39,9 +39,9 @@ public class ControleTotal {
     public void controlaJogadas(String jog){
         String posAtual=jog.charAt(0)+jog.charAt(1)+"";
         String posProx=jog.charAt(2)+jog.charAt(3)+"";
-        if(retornaPeca(posAtual)==Peao){
+        //if(retornaPeca(posAtual)==Peao){
             
-        }
+        //}
         
         
     }
