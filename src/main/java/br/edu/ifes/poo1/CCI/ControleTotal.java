@@ -4,7 +4,13 @@
  */
 package br.edu.ifes.poo1.CCI;
 
+import br.edu.ifes.poo1.CDP.Peca;
+import br.edu.ifes.poo1.CDP.Pecas.Bispo;
+import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
+import br.edu.ifes.poo1.CDP.Pecas.Dama;
 import br.edu.ifes.poo1.CDP.Pecas.Peao;
+import br.edu.ifes.poo1.CDP.Pecas.Rei;
+import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Principal;
@@ -43,11 +49,66 @@ public class ControleTotal {
     }
 
     public void controlaJogadas(String jog) {
-        String posAtual = jog.charAt(0) + jog.charAt(1) + "";
-        String posProx = jog.charAt(2) + jog.charAt(3) + "";
-        //if(retornaPeca(posAtual)==Peao){
+        //roqueMenor
+        if (jog.length() == 3) {
 
-        //}
+        }
+        //roque Maior
+        if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
+
+        } else {
+            //JOGADA DE CAPTURA
+        }
+        //MOVIMENTAÇÂO NORMAL
+        if (jog.length() == 4) {
+            String posAtual = jog.charAt(0) + jog.charAt(1) + "";
+            String posProx = jog.charAt(2) + jog.charAt(3) + "";
+            Peca peca = tabuleiro.retornaPeca(posAtual);
+            if (peca == Peao) {
+                //analiza se PEAO pode andar
+
+                //movimenta ou captura
+                
+            } else {
+                if (peca == Torre) {
+                    //analiza se PEAO pode andar
+
+                    //movimenta ou captura
+                    
+                } else {
+                    if (peca == Cavalo) {
+                        //analiza se PEAO pode andar
+
+                        //movimenta ou captura
+                        
+                    } else {
+                        if (peca == Bispo) {
+                            //analiza se PEAO pode andar
+
+                            //movimenta ou captura
+                            
+                        } else {
+                            if (peca == Dama) {
+                                //analiza se PEAO pode andar
+
+                                //movimenta ou captura
+                                
+                            } else {
+                                if (peca == Rei) {
+                                    //analiza se PEAO pode andar
+
+                                    //movimenta ou captura
+                                    
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
+
     }
 
     public void iniciaJogada() {
@@ -67,12 +128,44 @@ public class ControleTotal {
         System.out.println("3 - Sair");
     }
 
-    private void processaMenu(int dado) {
-        if((dado>=1)&&dado<=3){
+    private void imprimeModoJogo() {
+        System.out.println("##    MENU    ##");
+        System.out.println("##TIPO DE JOGO##");
+        System.out.println("1 - Humano vs Humano");
+        System.out.println("2 - Humano vs Computador");
+        System.out.println("3 - Sair");
+    }
+
+    private void processaModoJogo(int dado) {
+        if ((dado >= 1) && dado <= 3) {
 
             switch (dado) {
                 case 1:
                     iniciaJogada();
+                    break;
+                case 2:
+                    System.out.println("##ERRO##: Móduo Inativo!!");
+                    iniciaMenu();
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+
+            }
+        } else {
+            System.out.println("##ERRO##: Entrada Inválida!!");
+            iniciaMenu();
+        }
+    }
+
+    private void processaMenu(int dado) {
+        if ((dado >= 1) && dado <= 3) {
+
+            switch (dado) {
+                case 1:
+                    imprimeModoJogo();
+                    int comando = scanner.nextInt();
+                    processaModoJogo(comando);
                     break;
                 case 2:
                     //exibeDados();
@@ -82,7 +175,7 @@ public class ControleTotal {
                     break;
 
             }
-        }else{
+        } else {
             System.out.println("##ERRO##: Entrada Inválida!!");
             iniciaMenu();
         }

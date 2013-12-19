@@ -22,6 +22,7 @@ public class App
         jogador.criaJogador("Heitor");
         System.out.println(jogador.retornaPontos("Heitor"));
         jogador.addPontuacao("Heitor", "v");
+        System.out.println(jogador.hashCode());
         System.out.println(jogador.retornaPontos("Heitor"));
         
         //System.out.println(PecaNome.BISPO.getApelidoPeca());
