@@ -68,7 +68,7 @@ public class ControleTotal {
     }
 
     private void processaMenu(int dado) {
-        try {
+        if((dado>=1)&&dado<=3){
 
             switch (dado) {
                 case 1:
@@ -82,11 +82,9 @@ public class ControleTotal {
                     break;
 
             }
-
-        } catch (Exception e) {
-            System.out.println("##ERRRO##: Codigo INCORRETO!");
+        }else{
+            System.out.println("##ERRO##: Entrada Inválida!!");
             iniciaMenu();
-
         }
     }
 
