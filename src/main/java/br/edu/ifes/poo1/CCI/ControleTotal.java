@@ -15,13 +15,24 @@ import java.util.Scanner;
  * @author 20121BSI0082
  */
 public class ControleTotal {
+
     //ExibeMEnu
     /*Pega os dados do usuários
     A cci chama alguma coisa do CGT, que é as jogadas.
     Assim pego aqui os dados e passo pra lá, algo assim...
-    */
+     */
+    Tabuleiro tabuleiro = new Tabuleiro();
+
+    public ControleTotal(Tabuleiro tab) {
+        tabuleiro=tab;
+    }
+    
+    
+
+    
     private Impressao impresso;
     Scanner scanner = new Scanner(System.in);
+    
     
     public void iniciaMenu(){
         //Pega os nomes dos jogadores e chama o tabuleiro, lembrar que jogador Um e o branco
@@ -51,7 +62,7 @@ public class ControleTotal {
 
         //new Principal().show();
         Impressao imp = new Impressao();
-        imp.Impressao();
+        imp.Impressao(tabuleiro);
         imprimeJogada();
         
     }

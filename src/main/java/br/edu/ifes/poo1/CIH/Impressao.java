@@ -13,10 +13,9 @@ import br.edu.ifes.poo1.CDP.Tabuleiro;
 public class Impressao {
     
     
-    public void Impressao(){
+    public void Impressao(Tabuleiro tab){
     
-    Tabuleiro tab = new Tabuleiro();
-    
+       
     for (int linha = 1; linha <= 8; linha++) {
         for (int coluna = 1; coluna <= 8; coluna++) {
             System.out.print(""+linha+coluna+" - ");
