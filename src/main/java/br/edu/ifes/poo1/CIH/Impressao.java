@@ -4,6 +4,7 @@
  */
 package br.edu.ifes.poo1.CIH;
 
+import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 
 /**
@@ -31,6 +32,10 @@ public class Impressao {
             System.out.println("\n");
         }       
 }    
+    public void imprimeJogador(Jogador jog){
+        
+    }
+    
 }
 
     

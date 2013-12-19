@@ -18,81 +18,79 @@ public class ControleTotal {
 
     //ExibeMEnu
     /*Pega os dados do usuários
-    A cci chama alguma coisa do CGT, que é as jogadas.
-    Assim pego aqui os dados e passo pra lá, algo assim...
+     A cci chama alguma coisa do CGT, que é as jogadas.
+     Assim pego aqui os dados e passo pra lá, algo assim...
      */
     Tabuleiro tabuleiro = new Tabuleiro();
 
     public ControleTotal(Tabuleiro tab) {
-        tabuleiro=tab;
+        tabuleiro = tab;
     }
-    
-    
 
-    
     private Impressao impresso;
     Scanner scanner = new Scanner(System.in);
-    
-    
-    public void iniciaMenu(){
+
+    public void iniciaMenu() {
         //Pega os nomes dos jogadores e chama o tabuleiro, lembrar que jogador Um e o branco
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
         imprimeMenu();
-        
+
         int comando = scanner.nextInt();
         processaMenu(comando);
-                
-        
+
     }
-    
-    public void controlaJogadas(String jog){
-        String posAtual=jog.charAt(0)+jog.charAt(1)+"";
-        String posProx=jog.charAt(2)+jog.charAt(3)+"";
+
+    public void controlaJogadas(String jog) {
+        String posAtual = jog.charAt(0) + jog.charAt(1) + "";
+        String posProx = jog.charAt(2) + jog.charAt(3) + "";
         //if(retornaPeca(posAtual)==Peao){
-            
+
         //}
-        
-        
     }
-    
-    public void iniciaJogada(){
+
+    public void iniciaJogada() {
         //Fazer um while aqui para ele ficar jogando.
 
         //new Principal().show();
         Impressao imp = new Impressao();
         imp.Impressao(tabuleiro);
         imprimeJogada();
-        
+
     }
-    
-    private void imprimeMenu(){
+
+    private void imprimeMenu() {
         System.out.println("##MENU##");
         System.out.println("1 - Inicia Partida");
         System.out.println("2 - Dados da jogadas");
         System.out.println("3 - Sair");
     }
-    
-    private void processaMenu(int dado){
-        switch(dado){
-            case 1:
-                iniciaJogada();
-                break;
-            case 2:
-                //exibeDados();
-                break;
-            case 3:
-                System.exit(0);
-                break;
-            default:
-                System.out.println("Entrada Inválida");
-                
-        }        
+
+    private void processaMenu(int dado) {
+        try {
+
+            switch (dado) {
+                case 1:
+                    iniciaJogada();
+                    break;
+                case 2:
+                    //exibeDados();
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("##ERRRO##: Codigo INCORRETO!");
+            iniciaMenu();
+
+        }
     }
-    
-    
-    private void imprimeJogada(){
+
+    private void imprimeJogada() {
         System.out.println("Digite a jogada:");
         String jogada = scanner.next();
         controlaJogadas(jogada);
