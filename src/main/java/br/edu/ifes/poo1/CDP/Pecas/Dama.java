@@ -20,7 +20,8 @@ public class Dama extends PecaAbstrata{
             
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
-        return ((Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) <= 7)) && (Math.abs(posicaoAtual.charAt(1) - posicaoAtual.charAt(1))  <= 7);
+        return ((Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) <= 7)) &&
+                (Math.abs(posicaoAtual.charAt(1) - posicaoAtual.charAt(1))  <= 7);
     }
 
     @Override

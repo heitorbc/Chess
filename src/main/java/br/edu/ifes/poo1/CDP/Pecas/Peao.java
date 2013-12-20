@@ -29,7 +29,7 @@ public class Peao extends PecaAbstrata {
         }
         if((posicaoAtual.charAt(0) != '2' || posicaoAtual.charAt(0) != '7') && (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
             //Sinaliza q ele soh pode ou nao podeAndar UMA casa.
-            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) == 1);
+            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) == '1');
         }
         return false;
     }

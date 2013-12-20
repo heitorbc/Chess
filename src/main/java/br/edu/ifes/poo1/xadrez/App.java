@@ -34,12 +34,12 @@ public class App
         System.out.println(""+new Peao(Cor.PRETO).podeAndarQuanto("71", "61"));
         //True
         System.out.println(""+new Peao(Cor.BRANCO).podeAndarQuanto("21", "41"));   
-        //False
+        //False - Voltar
         System.out.println(""+new Peao(Cor.BRANCO).podeAndarQuanto("71", "81"));
         
         
         
-        //new Peao(Cor.PRETO).podeAndarQuanto(null, null)
+        
         
         
         
