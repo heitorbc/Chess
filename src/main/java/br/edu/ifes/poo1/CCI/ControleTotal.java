@@ -69,16 +69,16 @@ public class ControleTotal {
             String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
             if (peca == " P ") {//PEAO
                 //analiza se PEAO pode andar
-                //if(tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx)==true){
+                if(tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx)==true){
                     //movimenta
                     System.out.println("pode movimentaar");
                     tabuleiro.trocaPeca(posAtual, posProx);
                     
                     iniciaJogada();
-                //}else{
+                }else{
                     System.out.println("##ERRO##: Movimento Inválido");
                     imprimeJogada();
-                //}
+                }
                 
                 
             } else {

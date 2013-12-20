@@ -23,21 +23,22 @@ public class Peao extends PecaAbstrata {
     //0 = linha,1 = coluna
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao ) {
-        if (posicaoAtual.charAt(0) == 2 || posicaoAtual.charAt(0) == 7){
+        if ((posicaoAtual.charAt(0) == '2' || posicaoAtual.charAt(0) == '7') && (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
             //Sinaliza se ele pode podeAndar a quantidade de casas solicitadas.
-            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) <= 2); 
+            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) <= 2 ); 
         }
-        else{
+        if((posicaoAtual.charAt(0) != '2' || posicaoAtual.charAt(0) != '7') && (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
             //Sinaliza q ele soh pode ou nao podeAndar UMA casa.
             return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) == 1);
         }
+        return false;
     }
     
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao){
         //Captura pela diagonal, esquerda.
         //verifica se é as brancas( parte baixa)
-        if(proximaPosicao.charAt(0) > posicaoAtual.charAt(0)){
+        if(proximaPosicao.charAt(0) > posicaoAtual.charAt(0) ){
             
         }
         if(proximaPosicao.charAt(0) < posicaoAtual.charAt(0)){ 
