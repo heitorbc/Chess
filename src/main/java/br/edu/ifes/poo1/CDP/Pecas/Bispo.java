@@ -20,9 +20,10 @@ public class Bispo extends PecaAbstrata{
 
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
-        if(posicaoAtual.charAt(0) != proximaPosicao.charAt(0) && posicaoAtual.charAt(1) != proximaPosicao.charAt(1) ){
+        if(posicaoAtual.charAt(0) != proximaPosicao.charAt(0) && 
+           posicaoAtual.charAt(1) != proximaPosicao.charAt(1)){
             return (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) <= 7) && 
-                    (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) <= 7);
+                   (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) <= 7);
         }
         return false;
     }

@@ -26,7 +26,10 @@ public class Cavalo extends PecaAbstrata{
     }
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(podeAndarQuanto(posicaoAtual, proximaPosicao)){
+            return true;
+        }
+        return false;
     }
     
 }
