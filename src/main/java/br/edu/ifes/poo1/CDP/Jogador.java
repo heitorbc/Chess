@@ -19,7 +19,7 @@ public class Jogador {
     private final HashMap<String, ArrayList<Integer>> jogador = new HashMap<>();
 
     
-
+    // Fazer algo do tipo, jogador branco é o 0, e preto o 1
     public void criaJogador(String nome) {
         for (int i = 0; i < 3; i++) {
             pontos.add(0);

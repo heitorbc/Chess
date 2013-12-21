@@ -45,6 +45,7 @@ public class ControleTotal {
 
         int comando = scanner.nextInt();
         processaMenu(comando);
+     
 
     }
 

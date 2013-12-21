@@ -6,6 +6,7 @@
 
 package br.edu.ifes.poo1.CDP;
 
+import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 
 /**
@@ -15,10 +16,21 @@ import br.edu.ifes.poo1.CDP.Pecas.Torre;
 //Classe que gerencia movmento das pecas
 public class Movimentacao {
     
-    /*    public String comoAndar(String posicaoAtual, String proximaPosicao){
-    if (Torre
-    return (posicaoAtual = proximaPosicao);
+    public boolean existePeca(String proximaPosicao){
+        //String teste = new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro();
+        if(new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro() != null){
+            return false;
+        }        
+        return true;
+        
     }
-    return null;
-    }*/    
+    //Este pode ser o captura...
+    public void movePeca(String posicaoAtual,String proximaPosicao){
+        if (!existePeca(proximaPosicao)){
+            //if( podeAndarQuanto(posicaoAtual, proximaPosicao )){
+               //Fazer uns condionais aqui para verificar a peça a ser movimentada
+            }
+        System.out.println(" ");
+        }
 }
+

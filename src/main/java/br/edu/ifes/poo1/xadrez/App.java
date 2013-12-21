@@ -85,5 +85,10 @@ public class App
         System.out.println(""+new Torre(Cor.PRETO).podeAndarQuanto("44", "33"));
         
         
+        String teste = new Tabuleiro().retornaPeca("11").getDesenhoTabuleiro();
+        System.out.println(""+teste);
+                
+        
+        
     }
 }

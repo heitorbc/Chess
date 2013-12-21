@@ -21,8 +21,6 @@ public class Impressao {
         for (int coluna = 1; coluna <= 8; coluna++) {
             System.out.print(""+coluna+linha+" - ");
                 if(tab.retornaPeca(""+coluna+linha) == null){
-                    //Imprimi null ou barra
-                    //System.out.print(tab.retornaPeca(""+coluna+linha));
                     System.out.print("[ ]");
                 }else{
                     System.out.print(tab.retornaPeca(""+coluna+linha).getNome().getApelidoPeca());
