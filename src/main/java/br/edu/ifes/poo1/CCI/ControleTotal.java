@@ -41,87 +41,93 @@ public class ControleTotal {
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
-        imprimeMenu();
-
-        int comando = scanner.nextInt();
-        processaMenu(comando);
-     
-
+        impresso.cls();
+        imprimeTipo();
+        int dado = scanner.nextInt();
+        impresso.cls();
+        processaTipo(dado);
+        
     }
 
     public void controlaJogadas(String jog) {
-        //roqueMenor
-        if (jog.length() == 3) {
-
-        }
-        //roque Maior
-        if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
-
+        if (jog == "desistir") {
+            //COLOCAR INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
+            System.exit(0);
         } else {
-            //JOGADA DE CAPTURA
-        }
-        //MOVIMENTAÇÂO NORMAL
-        if (jog.length() == 4) {
-            String posAtual = ""+jog.charAt(0)+jog.charAt(1);
-            System.out.println(posAtual+" - "+tabuleiro.retornaPeca(posAtual));
-            String posProx = ""+ jog.charAt(2) + jog.charAt(3);
-            System.out.println(posProx+" - "+tabuleiro.retornaPeca(posProx));
-            System.out.println(posProx);
-            String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
-            if (peca == " P ") {//PEAO
-                //analiza se PEAO pode andar
-                if(tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx)==true){
-                    //movimenta
-                    System.out.println("pode movimentaar");
-                    tabuleiro.trocaPeca(posAtual, posProx);
-                    
-                    iniciaJogada();
-                }else{
-                    System.out.println("##ERRO##: Movimento Inválido");
-                    imprimeJogada();
-                }
-                
+            if (jog == "empate") {
+                //COOCAR INTELIGENCIA PERGUNTANDO SE AMBOS JOGADORES QUEREM EMPATE:
+                System.out.println("Oponente aceita Empate [S/N] ? ");
+                String resultado = scanner.nextLine().toUpperCase();
                 
             } else {
-                if (peca == " T ") {//TORRE
-                    //analiza se TORRE pode andar
 
-                    //movimenta 
-                    
+                //roqueMenor
+                if (jog.length() == 3) {
+
+                }
+                //roque Maior
+                if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
+
                 } else {
-                    if (peca == " C ") {//CAVALO
-                        //analiza se CAVALO pode andar
+                    //JOGADA DE CAPTURA
+                }
+                //MOVIMENTAÇÂO NORMAL
+                if (jog.length() == 4) {
+                    String posAtual = "" + jog.charAt(0) + jog.charAt(1);
+                    System.out.println(posAtual + " - " + tabuleiro.retornaPeca(posAtual));
+                    String posProx = "" + jog.charAt(2) + jog.charAt(3);
+                    System.out.println(posProx + " - " + tabuleiro.retornaPeca(posProx));
+                    System.out.println(posProx);
+                    String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
+                    if (peca == " P ") {//PEAO
+                        //analiza se PEAO pode andar
+                        if (tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) {
+                            //movimenta
+                            System.out.println("pode movimentaar");
+                            tabuleiro.trocaPeca(posAtual, posProx);
 
-                        //movimenta 
-                        
-                    } else {
-                        if (peca == " B ") {//BISPO
-                            //analiza se BISPO pode andar
-
-                            //movimenta 
-                            
+                            iniciaJogada();
                         } else {
-                            if (peca == " D ") {//DAMA
-                                //analiza se DAMA pode andar
-
-                                //movimenta 
-                                
-                            } else {
-                                if (peca == " R ") {//REI
-                                    //analiza se REI pode andar
-
-                                    //movimenta 
-                                    
-                                }
-                            }
+                            System.out.println("##ERRO##: Movimento Inválido");
+                            imprimeJogada();
                         }
 
+                    } else {
+                        if (peca == " T ") {//TORRE
+                            //analiza se TORRE pode andar
+
+                            //movimenta 
+                        } else {
+                            if (peca == " C ") {//CAVALO
+                                //analiza se CAVALO pode andar
+
+                                //movimenta 
+                            } else {
+                                if (peca == " B ") {//BISPO
+                                    //analiza se BISPO pode andar
+
+                                    //movimenta 
+                                } else {
+                                    if (peca == " D ") {//DAMA
+                                        //analiza se DAMA pode andar
+
+                                        //movimenta 
+                                    } else {
+                                        if (peca == " R ") {//REI
+                                            //analiza se REI pode andar
+
+                                            //movimenta 
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
                     }
+
                 }
             }
-
         }
-
     }
 
     public void iniciaJogada() {
@@ -158,7 +164,9 @@ public class ControleTotal {
                     break;
                 case 2:
                     System.out.println("##ERRO##: Móduo Inativo!!");
-                    iniciaMenu();
+                    imprimeModoJogo();
+                    int comando = scanner.nextInt();
+                    processaModoJogo(comando);
                     break;
                 case 3:
                     System.exit(0);
@@ -167,7 +175,9 @@ public class ControleTotal {
             }
         } else {
             System.out.println("##ERRO##: Entrada Inválida!!");
-            iniciaMenu();
+            imprimeModoJogo();
+            int comando = scanner.nextInt();
+            processaModoJogo(comando);
         }
     }
 
@@ -178,6 +188,7 @@ public class ControleTotal {
                 case 1:
                     imprimeModoJogo();
                     int comando = scanner.nextInt();
+                    impresso.cls();
                     processaModoJogo(comando);
                     break;
                 case 2:
@@ -197,7 +208,40 @@ public class ControleTotal {
     private void imprimeJogada() {
         System.out.println("Digite a jogada:");
         String jogada = scanner.next();
+        impresso.cls();
         controlaJogadas(jogada);
+    }
+
+    private void imprimeTipo() {
+        System.out.println("##         MENU         ##");
+        System.out.println("##  ESCOLHA A INTERFACE ##");
+        System.out.println("1 - Textual");
+        System.out.println("2 - Gráfica");
+        System.out.println("3 - Sair");
+    }
+
+    private void processaTipo(int dado) {
+        if ((dado >= 1) && dado <= 3) {
+
+            switch (dado) {
+                case 1:
+                    imprimeMenu();
+                    int comando = scanner.nextInt();
+                    impresso.cls();
+                    processaMenu(comando);
+                    break;
+                case 2:
+                    new Principal().show();
+                    break;
+                case 3:
+                    System.exit(0);
+                    break;
+
+            }
+        } else {
+            System.out.println("##ERRO##: Entrada Inválida!!");
+            iniciaMenu();
+        }
     }
 
 }

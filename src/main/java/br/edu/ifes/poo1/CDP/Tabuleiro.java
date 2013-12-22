@@ -49,7 +49,7 @@ public class Tabuleiro {
                 }
                 //INSERINDO PEOES BRANCOS
                 if(linha==2){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
+                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
                 }
                 
                 //INSERINDO PEOES PRETOS
@@ -71,7 +71,7 @@ public class Tabuleiro {
                         tabuleiro.put(""+coluna+linha,new Dama(Cor.PRETO));
                     }
                     if(coluna==5){
-                        tabuleiro.put(""+coluna+linha,new Rei(Cor.PRETO));
+                        tabuleiro.put(""+coluna+linha,new Rei(Cor.BRANCO));
                     }
                 }                    
             }
