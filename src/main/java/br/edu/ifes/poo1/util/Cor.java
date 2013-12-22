@@ -11,5 +11,20 @@ package br.edu.ifes.poo1.util;
  * @author Henrique
  */
 public enum Cor {
-    BRANCO,PRETO;    
+    BRANCO("(B)"),PRETO("(P)");
+    
+    public String getCorPeca() {
+        return corPeca;
+    }
+    
+    private final String corPeca;
+
+    private Cor(String apelido) {
+        corPeca = apelido;
+    }
+    private String corPeca(){
+        return this.corPeca;
+    }
+    
+    
 }

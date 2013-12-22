@@ -54,7 +54,7 @@ public class Tabuleiro {
                 
                 //INSERINDO PEOES PRETOS
                 if(linha==7){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
+                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
                 }
                 //INSERINDO PECAS DE FIGURAS PRETAS
                 if(linha==8){
@@ -71,7 +71,7 @@ public class Tabuleiro {
                         tabuleiro.put(""+coluna+linha,new Dama(Cor.PRETO));
                     }
                     if(coluna==5){
-                        tabuleiro.put(""+coluna+linha,new Rei(Cor.BRANCO));
+                        tabuleiro.put(""+coluna+linha,new Rei(Cor.PRETO));
                     }
                 }                    
             }

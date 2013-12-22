@@ -12,6 +12,7 @@ import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import java.util.Scanner;
 
 /**
  * Hello world!
@@ -38,6 +39,18 @@ public class App
         
         ControleTotal controleTotal = new ControleTotal(tab);
         controleTotal.iniciaMenu();
+        
+        /*        Scanner scanner = new Scanner(System.in);
+        System.out.println("Nome: Jogador 1:");
+        String jogador1 = scanner.next();
+        new Jogador().imprimeJogador(jogador1);
+        
+        System.out.println("Nome: Jogador 2:");
+        String jogador2 = scanner.next();
+        new Jogador().imprimeJogador(jogador2);
+        */
+        System.out.println();
+        
         
         
         

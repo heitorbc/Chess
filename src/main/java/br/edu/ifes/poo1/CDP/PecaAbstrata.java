@@ -16,22 +16,12 @@ import br.edu.ifes.poo1.util.PecaNome;
 public abstract class PecaAbstrata implements Peca{
     protected Cor cor;
     protected PecaNome nome;
-    protected String desenhoTabuleiro;
-        
-    
-    //Desenho no tabuleiro
-    public String getDesenhoTabuleiro() {
-        return desenhoTabuleiro;
-    }
-
-    public void setDesenhoTabuleiro(String desenhoTabuleiro) {
-        this.desenhoTabuleiro = desenhoTabuleiro;
-    }
 
     public PecaAbstrata(Cor cor, PecaNome nome) {
         this.cor = cor;
         this.nome = nome;
     }
+
 
     @Override
     public Cor getCor() {
@@ -49,7 +39,6 @@ public abstract class PecaAbstrata implements Peca{
     public void setNome(PecaNome nome) {
         this.nome = nome;
     }
-    
     
     @Override
     public abstract boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao);

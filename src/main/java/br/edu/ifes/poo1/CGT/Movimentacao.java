@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 
-package br.edu.ifes.poo1.CDP;
+package br.edu.ifes.poo1.CGT;
 
 import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
+import br.edu.ifes.poo1.CDP.Tabuleiro;
 
 /**
  *
@@ -18,7 +19,7 @@ public class Movimentacao {
     
     public boolean existePeca(String proximaPosicao){
         //String teste = new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro();
-        return(new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro() != null);
+        return(new Tabuleiro().retornaPeca(proximaPosicao)!= null);
     }
     //Este pode ser o captura...
     public void movePeca(String posicaoAtual,String proximaPosicao){

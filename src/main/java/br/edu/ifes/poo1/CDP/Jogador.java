@@ -6,6 +6,7 @@ package br.edu.ifes.poo1.CDP;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 /**
  *
@@ -16,16 +17,14 @@ public class Jogador {
    
 
     ArrayList<Integer> pontos = new ArrayList<>();
-    private final HashMap<String, ArrayList<Integer>> jogador = new HashMap<>();
+    public HashMap<String, ArrayList<Integer>> jogador = new HashMap<>();
 
-    
     // Fazer algo do tipo, jogador branco é o 0, e preto o 1
     public void criaJogador(String nome) {
         for (int i = 0; i < 3; i++) {
             pontos.add(0);
-        }
+        }        
         jogador.put(nome, pontos);
-
     }
 
     public String retornaPontos(String nome) {
@@ -61,5 +60,17 @@ public class Jogador {
         jogador.put(nome, pontuacao);
 
     }
+    public Set<String> imprimeJogador(){
+        return jogador.keySet();
+        
+    }
+    
+    public void imprimeInformacoes(String nome){
+        criaJogador(nome);
+        System.out.println(jogador);
+    }
+    public void imprimiDados(){
+        System.out.println(jogador);
+    }        
 
 }
