@@ -22,25 +22,32 @@ public class App
     
     public static void main( String[] args )
     {
-        //Tabuleiro tab = new Tabuleiro();
-        //Jogador jogador = new Jogador();
-//        
-//        jogador.criaJogador("Heitor");
-//        System.out.println(jogador.retornaPontos("Heitor"));
-//        jogador.addPontuacao("Heitor", "v");
-//        System.out.println(jogador.retornaPontos("Heitor"));
+        Tabuleiro tab = new Tabuleiro();
+        Jogador jogador = new Jogador();
         
-        //System.out.println(PecaNome.BISPO.getApelidoPeca());
+        jogador.criaJogador("Heitor");
+        System.out.println(jogador.retornaPontos("Heitor"));
+        jogador.addPontuacao("Heitor", "v");
+        System.out.println(jogador.retornaPontos("Heitor"));
         
-                
-        //ControleTotal controleTotal = new ControleTotal(tab);
-        //controleTotal.iniciaMenu();
+        System.out.println(PecaNome.BISPO.getApelidoPeca());
         
-        System.out.println("/n Teste Peão");       
+        
+        ControleTotal controleTotal = new ControleTotal(tab);
+        controleTotal.iniciaMenu();
+        
+        
+        
+        //System.out.println(""+new Peao(Cor.PRETO).podeAndarQuanto("22", "42"));
+      
+        
+        /*
+        
+        System.out.println("/n Teste Peão");
         //Tem que dar True
         System.out.println(""+new Peao(Cor.PRETO).podeAndarQuanto("71", "61"));
         //True
-        System.out.println(""+new Peao(Cor.BRANCO).podeAndarQuanto("21", "41"));   
+        System.out.println(""+new Peao(Cor.BRANCO).podeAndarQuanto("21", "41"));
         //False - Voltar
         System.out.println(""+new Peao(Cor.BRANCO).podeAndarQuanto("71", "81"));
         //False - Diagonal
@@ -87,7 +94,7 @@ public class App
         
         String teste = new Tabuleiro().retornaPeca("11").getDesenhoTabuleiro();
         System.out.println(""+teste);
-                
+        */
         
         
     }

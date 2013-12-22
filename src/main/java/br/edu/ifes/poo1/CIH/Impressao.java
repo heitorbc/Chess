@@ -16,10 +16,10 @@ public class Impressao {
     
     public void Impressao(Tabuleiro tab){
     
-       
+    System.out.println("BRANCO");           
     for (int linha = 1; linha <= 8; linha++) {
         for (int coluna = 1; coluna <= 8; coluna++) {
-            System.out.print(""+coluna+linha+" - ");
+        System.out.print(""+coluna+linha+" - ");
                 if(tab.retornaPeca(""+coluna+linha) == null){
                     System.out.print("[ ]");
                 }else{
@@ -29,6 +29,7 @@ public class Impressao {
             }
             System.out.println("\n");
         }       
+    System.out.println("PRETO");         
 }    
     public void imprimeJogador(Jogador jog){
         

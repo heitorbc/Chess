@@ -18,11 +18,7 @@ public class Movimentacao {
     
     public boolean existePeca(String proximaPosicao){
         //String teste = new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro();
-        if(new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro() != null){
-            return false;
-        }        
-        return true;
-        
+        return(new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro() != null);
     }
     //Este pode ser o captura...
     public void movePeca(String posicaoAtual,String proximaPosicao){

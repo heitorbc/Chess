@@ -29,6 +29,7 @@ public class Tabuleiro {
                 tabuleiro.put(""+coluna+linha,null);                
                 //INSERINDO PECAS DE FIGURAS BRANCOS
                 if(linha==1){
+                    
                     if((coluna==1)||(coluna==8)){
                         tabuleiro.put(""+coluna+linha,new Torre(Cor.BRANCO));
                     }
@@ -43,6 +44,7 @@ public class Tabuleiro {
                     }
                     if(coluna==5){
                         tabuleiro.put(""+coluna+linha,new Dama(Cor.BRANCO));
+                        
                     }
                 }
                 //INSERINDO PEOES BRANCOS

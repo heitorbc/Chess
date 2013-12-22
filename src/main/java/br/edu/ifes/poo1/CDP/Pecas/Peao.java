@@ -23,13 +23,15 @@ public class Peao extends PecaAbstrata {
     //0 = linha,1 = coluna
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao ) {
-        if ((posicaoAtual.charAt(0) == '2' || posicaoAtual.charAt(0) == '7') && (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
+        if ((posicaoAtual.charAt(1) == '2' || posicaoAtual.charAt(1) == '7') && 
+           (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){
             //Sinaliza se ele pode podeAndar a quantidade de casas solicitadas.
-            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) <= 2 ); 
+            return (Math.abs(proximaPosicao.charAt(1) - posicaoAtual.charAt(1)) <= 2 ); 
         }
-        if((posicaoAtual.charAt(0) != '2' || posicaoAtual.charAt(0) != '7') && (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
+        if((posicaoAtual.charAt(1) != '2' || posicaoAtual.charAt(1) != '7') && 
+           (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){
             //Sinaliza q ele soh pode ou nao podeAndar UMA casa.
-            return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) == '1');
+            return (Math.abs(proximaPosicao.charAt(1) - posicaoAtual.charAt(1)) == '1');
         }
         return false;
     }

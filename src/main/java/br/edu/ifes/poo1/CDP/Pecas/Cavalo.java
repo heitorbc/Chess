@@ -19,10 +19,10 @@ public class Cavalo extends PecaAbstrata{
     //Verifica se pode andar a quantidade solicitada    
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
-        return (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 1) &&
-               (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) == 2) || 
-               (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 2) &&
-               (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) == 1);
+        return (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) == 1) &&
+               (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 2) || 
+               (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) == 2) &&
+               (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 1);
     }
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {

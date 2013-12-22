@@ -20,8 +20,8 @@ public class Torre extends PecaAbstrata {
 
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
-        return (posicaoAtual.charAt(0) == proximaPosicao.charAt(0) || 
-            (posicaoAtual.charAt(1) == proximaPosicao.charAt(1)));    
+        return (posicaoAtual.charAt(1) == proximaPosicao.charAt(1) || 
+            (posicaoAtual.charAt(0) == proximaPosicao.charAt(0)));    
     }
 
     @Override
