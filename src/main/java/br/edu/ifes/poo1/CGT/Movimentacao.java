@@ -27,7 +27,6 @@ public class Movimentacao {
        
         return(new Tabuleiro().retornaPeca(proximaPosicao)!= null);
     }
-    //Este pode ser o captura...
     public void movePeca(String posicaoAtual,String proximaPosicao){
         if (!existePeca(proximaPosicao)){
             //if( podeAndarQuanto(posicaoAtual, proximaPosicao )){

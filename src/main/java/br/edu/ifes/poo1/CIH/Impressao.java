@@ -19,7 +19,6 @@ public class Impressao {
         System.out.println("\t\t\t\t\t\t"+" PRETAS "+"\n");
         int linha = 8;
         while (linha != 0) {
-            //for (int linha = 8; linha <= 1; linha--) {
             for (int coluna = 1; coluna <= 8; coluna++) {
                 System.out.print("" + coluna + linha + " - ");
                 if (tab.retornaPeca("" + coluna + linha) == null) {

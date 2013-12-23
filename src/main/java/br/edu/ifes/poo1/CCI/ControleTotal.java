@@ -48,11 +48,11 @@ public class ControleTotal {
 
     public void controlaJogadas(String jog) {
 
-        if (jog == "desistir") {
+        if ("desistir".equals(jog)) {
             //COLOCAR INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
             System.exit(0);
         }
-        if (jog == "empate") {
+        if ("empate".equals(jog)) {
             //Se ambos entrarem em acordo, rola um empate               
             System.out.println("Partida empatada, deseja iniciar outra? ('S' ou 'N')");
             char desejo = scanner.next().charAt(0);
@@ -85,10 +85,7 @@ public class ControleTotal {
             //MOVIMENTAÇÂO NORMAL
         if (jog.length() == 4) {
                 String posAtual = "" + jog.charAt(0) + jog.charAt(1);
-                //System.out.println(posAtual + " - " + tabuleiro.retornaPeca(posAtual));
                 String posProx = "" + jog.charAt(2) + jog.charAt(3);
-                //System.out.println(posProx + " - " + tabuleiro.retornaPeca(posProx));
-                //System.out.println(posProx);
                 String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
                 if (peca == " P ") {//PEAO
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {

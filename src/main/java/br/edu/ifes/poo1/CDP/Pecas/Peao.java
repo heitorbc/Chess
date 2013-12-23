@@ -19,8 +19,7 @@ public class Peao extends PecaAbstrata {
         super(cor, PecaNome.PEAO);
     }
 
-    //Preto ou branco
-    //0 = linha,1 = coluna
+
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao ) {
         if ((posicaoAtual.charAt(1) == '2' || posicaoAtual.charAt(1) == '7') && 

@@ -23,7 +23,6 @@ public class Bispo extends PecaAbstrata{
         
         if(posicaoAtual.charAt(1) != proximaPosicao.charAt(1) && 
            posicaoAtual.charAt(0) != proximaPosicao.charAt(0)){
-            //Tem que implementar a diagonal...
             return (Math.abs(posicaoAtual.charAt(1) - proximaPosicao.charAt(1)) <= 7) && 
                    (Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) <= 7);
         }
