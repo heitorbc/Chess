@@ -24,10 +24,7 @@ import java.util.Scanner;
 public class ControleTotal {
 
     //ExibeMEnu
-    /*Pega os dados do usuários
-     A cci chama alguma coisa do CGT, que é as jogadas.
-     Assim pego aqui os dados e passo pra lá, algo assim...
-     */
+
     Tabuleiro tabuleiro = new Tabuleiro();
     Jogador jogador = new Jogador();
     Impressao impresso = new Impressao();
@@ -83,20 +80,18 @@ public class ControleTotal {
         if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
                 //JOGADA DE CAPTURA
                 System.out.println("Em construção");
-                iniciaMenu();            }
+                iniciaMenu();            
+        }
             //MOVIMENTAÇÂO NORMAL
         if (jog.length() == 4) {
                 String posAtual = "" + jog.charAt(0) + jog.charAt(1);
-                System.out.println(posAtual + " - " + tabuleiro.retornaPeca(posAtual));
+                //System.out.println(posAtual + " - " + tabuleiro.retornaPeca(posAtual));
                 String posProx = "" + jog.charAt(2) + jog.charAt(3);
-                System.out.println(posProx + " - " + tabuleiro.retornaPeca(posProx));
-                System.out.println(posProx);
+                //System.out.println(posProx + " - " + tabuleiro.retornaPeca(posProx));
+                //System.out.println(posProx);
                 String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
                 if (peca == " P ") {//PEAO
-                    //analiza se PEAO pode andar
-                    if (tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) {
-                        //movimenta
-                        //System.out.println("pode movimentaar");
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
                     } else {
@@ -105,24 +100,54 @@ public class ControleTotal {
                     }
                 }
                 if (peca == " T ") {//TORRE
-                    //analiza se TORRE pode andar
-                    //movimenta 
+                    //movimenta
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        iniciaJogada();
+                    } else {
+                        System.out.println("##ERRO##: Movimento Inválido");
+                        imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                    }
                 }    
                 if (peca == " C ") {//CAVALO
-                    //analiza se CAVALO pode andar
                     //movimenta 
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        iniciaJogada();
+                    } else {
+                        System.out.println("##ERRO##: Movimento Inválido");
+                        imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                    }
                 }    
                 if (peca == " B ") {//BISPO
-                    //analiza se BISPO pode andar
-                    //movimenta                                     
+                    //Movimento
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        iniciaJogada();
+                    } else {
+                        System.out.println("##ERRO##: Movimento Inválido");
+                        imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                    }
                 }
                 if (peca == " D ") {//DAMA
-                    //analiza se DAMA pode andar
                     //movimenta
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        iniciaJogada();
+                    } else {
+                        System.out.println("##ERRO##: Movimento Inválido");
+                        imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                    }
                 }                    
                 if (peca == " R ") {//REI
-                    //analiza se REI pode andar
                     //movimenta 
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        iniciaJogada();
+                    } else {
+                        System.out.println("##ERRO##: Movimento Inválido");
+                        imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                    }
                 }
         }
 }        

@@ -6,7 +6,10 @@
 
 package br.edu.ifes.poo1.CGT;
 
+import br.edu.ifes.poo1.CDP.Peca;
+import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
+import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 
@@ -16,9 +19,12 @@ import br.edu.ifes.poo1.CDP.Tabuleiro;
  */
 //Classe que gerencia movmento das pecas
 public class Movimentacao {
+    Tabuleiro tabu = new Tabuleiro();
+    //Rei rei = new Rei();
+    //Torre torre = new Torre();
     
     public boolean existePeca(String proximaPosicao){
-        //String teste = new Tabuleiro().retornaPeca(proximaPosicao).getDesenhoTabuleiro();
+       
         return(new Tabuleiro().retornaPeca(proximaPosicao)!= null);
     }
     //Este pode ser o captura...
@@ -29,5 +35,30 @@ public class Movimentacao {
             }
         System.out.println(" ");
         }
+    public void jogadasEspeciais(String moviment, String posAtual, String proxPosicao){
+        switch(moviment){
+            //Caputura
+            case "captura":
+                //if(tabu.retornaPeca(proxPosicao) !=  null && tabu.retornaPeca(proxPosicao).setCor(Cor.PRETO));
+            //Roque menor    
+            case "O-O":
+                //rei.getCor().getCorPeca();
+                //torre.getCor().getCorPeca();
+                
+            //Roque Maior    
+            case "O-O-O":
+            
+            //Cheque mate
+            case "xequeMate":
+            
+            default:
+                System.out.println("Movimento desconhecido.");
+            
+                
+        }
+
+        
+            
+    }
 }
 
