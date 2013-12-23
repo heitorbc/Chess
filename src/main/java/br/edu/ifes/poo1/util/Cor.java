@@ -25,6 +25,4 @@ public enum Cor {
     private String corPeca(){
         return this.corPeca;
     }
-    
-    
 }
