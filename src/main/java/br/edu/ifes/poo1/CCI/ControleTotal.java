@@ -5,13 +5,6 @@
 package br.edu.ifes.poo1.CCI;
 
 import br.edu.ifes.poo1.CDP.Jogador;
-import br.edu.ifes.poo1.CDP.Peca;
-import br.edu.ifes.poo1.CDP.Pecas.Bispo;
-import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
-import br.edu.ifes.poo1.CDP.Pecas.Dama;
-import br.edu.ifes.poo1.CDP.Pecas.Peao;
-import br.edu.ifes.poo1.CDP.Pecas.Rei;
-import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Principal;
@@ -65,7 +58,7 @@ public class ControleTotal {
                 jogador.imprimiDados();
             }
         }    
-        //roqueMenor
+            //roqueMenor
         if (jog.length() == 3) {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0],nomeJogador[1]);
@@ -76,11 +69,11 @@ public class ControleTotal {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0],nomeJogador[1]);
                 iniciaMenu();
-            }
+        }
+            //JOGADA DE CAPTURA
         if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
-                //JOGADA DE CAPTURA
                 System.out.println("Em construção");
-                iniciaMenu();            
+                iniciaMenu();          
         }
             //MOVIMENTAÇÂO NORMAL
         if (jog.length() == 4) {
@@ -97,7 +90,6 @@ public class ControleTotal {
                     }
                 }
                 if (peca == " T ") {//TORRE
-                    //movimenta
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
@@ -107,7 +99,6 @@ public class ControleTotal {
                     }
                 }    
                 if (peca == " C ") {//CAVALO
-                    //movimenta 
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
@@ -117,7 +108,6 @@ public class ControleTotal {
                     }
                 }    
                 if (peca == " B ") {//BISPO
-                    //Movimento
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
@@ -127,7 +117,6 @@ public class ControleTotal {
                     }
                 }
                 if (peca == " D ") {//DAMA
-                    //movimenta
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
@@ -137,7 +126,6 @@ public class ControleTotal {
                     }
                 }                    
                 if (peca == " R ") {//REI
-                    //movimenta 
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         iniciaJogada();
@@ -145,7 +133,7 @@ public class ControleTotal {
                         System.out.println("##ERRO##: Movimento Inválido");
                         imprimeJogada(nomeJogador[0],nomeJogador[1]);
                     }
-                }
+                }                        
         }
 }        
 

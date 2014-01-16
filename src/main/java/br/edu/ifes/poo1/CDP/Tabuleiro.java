@@ -11,7 +11,6 @@ import br.edu.ifes.poo1.CDP.Pecas.Dama;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.util.Cor;
-import br.edu.ifes.poo1.util.PecaNome;
 import java.util.HashMap;
 
 /**
@@ -49,12 +48,12 @@ public class Tabuleiro {
                 }
                 //INSERINDO PEOES BRANCOS
                 if(linha==2){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
+                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
                 }
                 
                 //INSERINDO PEOES PRETOS
                 if(linha==7){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
+                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
                 }
                 //INSERINDO PECAS DE FIGURAS PRETAS
                 if(linha==8){

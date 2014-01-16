@@ -19,7 +19,7 @@ public class Dama extends PecaAbstrata{
     }
             
     @Override
-    public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao) {
+    public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao){
         
         if (posicaoAtual.charAt(1) == proximaPosicao.charAt(1) || 
             (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){

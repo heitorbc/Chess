@@ -6,11 +6,7 @@
 
 package br.edu.ifes.poo1.CGT;
 
-import br.edu.ifes.poo1.CDP.Peca;
-import br.edu.ifes.poo1.CDP.PecaAbstrata;
-import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
-import br.edu.ifes.poo1.CDP.Pecas.Rei;
-import br.edu.ifes.poo1.CDP.Pecas.Torre;
+
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 
 /**
