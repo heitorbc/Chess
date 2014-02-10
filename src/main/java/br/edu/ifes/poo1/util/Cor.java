@@ -15,12 +15,11 @@ public enum Cor {
     
     public String getCorPeca() {
         return corPeca;
-    }
-    
+    }    
     private final String corPeca;
 
-    private Cor(String apelido) {
-        corPeca = apelido;
+    private Cor(String corPeca) {
+        this.corPeca = corPeca;
     }
     private String corPeca(){
         return this.corPeca;

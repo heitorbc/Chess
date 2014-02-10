@@ -19,8 +19,8 @@ public enum PecaNome {
     
     private final String apelidoPeca;
 
-    private PecaNome(String apelido) {
-        apelidoPeca = apelido;
+    PecaNome(String apelidoPeca) {
+        this.apelidoPeca = apelidoPeca;
     }
     private String apelidoPeca(){
         return this.apelidoPeca;
