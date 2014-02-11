@@ -58,7 +58,7 @@ public class PeaoTest {
     public void testPodeAndarQuanto1() {
         System.out.println("podeAndarQuanto");
         String posicaoAtual = "22";
-        String proximaPosicao = "32";
+        String proximaPosicao = "42";
         boolean expResult = true;
         boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
         assertEquals(expResult, result);
@@ -69,8 +69,20 @@ public class PeaoTest {
     @Test
     public void testPodeAndarQuanto2() {
         System.out.println("podeAndarQuanto");
-        String posicaoAtual = "23";
-        String proximaPosicao = "24";
+        String posicaoAtual = "72";
+        String proximaPosicao = "62";
+        boolean expResult = true;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testPodeAndarQuanto3() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "21";
+        String proximaPosicao = "11";
         boolean expResult = false;
         boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
         assertEquals(expResult, result);
@@ -78,6 +90,28 @@ public class PeaoTest {
         //fail("The test case is a prototype.");
     }
     
+    @Test
+    public void testPodeAndarQuanto4() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "72";
+        String proximaPosicao = "82";
+        boolean expResult = false;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    public void testPodeAndarQuanto5() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "31";
+        String proximaPosicao = "31";
+        boolean expResult = false;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
     
 
     /**
