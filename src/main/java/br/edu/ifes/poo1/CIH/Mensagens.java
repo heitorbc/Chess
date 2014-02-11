@@ -29,5 +29,14 @@ public class Mensagens {
         System.out.println("***Erro*** Movimento Inválido");
     }
     
+    public void entradaInvalida(){
+        System.out.println("***Erro*** Entrada Inválido");
+    }
+    public void nomeJogadorUm (){
+        System.out.println("Nome: Jogador 1:");
+    }
     
+    public void nomeJogadorDois (){
+        System.out.println("Nome: Jogador 2:");
+    }
 }

@@ -27,11 +27,11 @@ public class ControleTotal {
     Mensagens view = new Mensagens();
         
     public ControleTotal(Tabuleiro tab) {
-        tabuleiro = tab;
+        this.tabuleiro = tab;
     }
 
     public void iniciaMenu() {
-        //Pega os nomes dos jogadores e chama o tabuleiro, lembrar que jogador Um e o branco
+        //Pega os nomes dos jogadores e chama o tabuleiro, (lembrar que jogador Um eh o branco)
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
@@ -163,7 +163,7 @@ public class ControleTotal {
                     iniciaJogada();
                     break;
                 case 2:
-                    System.out.println("##ERRO##: Móduo Inativo!!");
+                    System.out.println("##ERRO##: Módulo Inativo!!");
                     impresso.imprimeModoJogo();
                     int comando = scanner.nextInt();
                     processaModoJogo(comando);
@@ -174,7 +174,7 @@ public class ControleTotal {
 
             }
         } else {
-            System.out.println("##ERRO##: Entrada Inválida!!");
+            view.entradaInvalida();
             impresso.imprimeModoJogo();
             int comando = scanner.nextInt();
             processaModoJogo(comando);
@@ -199,14 +199,15 @@ public class ControleTotal {
 
             }
         } else {
-            System.out.println("##ERRO##: Entrada Inválida!!");
+            view.entradaInvalida();
             iniciaMenu();
         }
     }
 
     private void imprimeJogada(String jogador1, String jogador2) {
+        
         if(jogador.jogador.containsKey(jogador1)){
-            System.out.println("Digite a jogada:"+ jogador1+" (B) ");
+            System.out.println("Digite a jogada:" + jogador1+ " (B) ");
             String jogada = scanner.next();
             controlaJogadas(jogada);
         }
@@ -219,7 +220,6 @@ public class ControleTotal {
 
     private void processaTipo(int dado) {
         if ((dado >= 1) && dado <= 3) {
-
             switch (dado) {
                 case 1:
                     impresso.imprimeMenu();
@@ -233,17 +233,17 @@ public class ControleTotal {
                     System.exit(0);
                     break;            }
         } else {
-            System.out.println("##ERRO##: Entrada Inválida!!");
+            view.entradaInvalida();
             iniciaMenu();
         }
     }
     //Identificação do jogador, falta implementar outras coiass.
     public void processaJogador(){
-        System.out.println("Nome: Jogador 1:");
+        view.nomeJogadorUm();
         nomeJogador[0] = scanner.next();
         jogador.criaJogador(nomeJogador[0]);
         
-        System.out.println("Nome: Jogador 2:");
+        view.nomeJogadorDois();
         nomeJogador[1] = scanner.next();
         jogador.criaJogador(nomeJogador[1]);
     }

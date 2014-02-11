@@ -5,6 +5,7 @@
 package br.edu.ifes.poo1.CDP;
 
 import junit.framework.Assert;
+import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +13,7 @@ import org.junit.Test;
  *
  * @author 20121BSI0082
  */
-public class TabuleiroTest {
+public class JogadasTest extends TestCase{
     
     Tabuleiro tabuleiro;
     
