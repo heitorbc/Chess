@@ -6,6 +6,7 @@
 
 package br.edu.ifes.poo1.CDP.Pecas;
 
+import br.edu.ifes.poo1.util.Cor;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,20 +45,44 @@ public class PeaoTest {
     @Test
     public void testPodeAndarQuanto() {
         System.out.println("podeAndarQuanto");
-        String posicaoAtual = "";
-        String proximaPosicao = "";
-        Peao instance = null;
-        boolean expResult = false;
-        boolean result = instance.podeAndarQuanto(posicaoAtual, proximaPosicao);
+        String posicaoAtual = "21";
+        String proximaPosicao = "31";
+        boolean expResult = true;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
+    
+    @Test
+    public void testPodeAndarQuanto1() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "22";
+        String proximaPosicao = "32";
+        boolean expResult = true;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+   
+    @Test
+    public void testPodeAndarQuanto2() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "23";
+        String proximaPosicao = "24";
+        boolean expResult = false;
+        boolean result = new Peao(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    
 
     /**
      * Test of podeCapturar method, of class Peao.
      */
-    @Test
     public void testPodeCapturar() {
         System.out.println("podeCapturar");
         String posicaoAtual = "";

@@ -25,11 +25,24 @@ public class ControleTotal {
     Scanner scanner = new Scanner(System.in);
     String []nomeJogador = new String[2];
     Mensagens view = new Mensagens();
-        
+    boolean vez = true;
+    
     public ControleTotal(Tabuleiro tab) {
         this.tabuleiro = tab;
     }
-
+    public boolean retornaVez(){
+        return this.vez;
+    }
+    
+    public void alteraVez(){
+        if (this.vez == false){
+            this.vez = true;
+        }else{
+            this.vez = false;
+        }
+    }
+    
+    
     public void iniciaMenu() {
         //Pega os nomes dos jogadores e chama o tabuleiro, (lembrar que jogador Um eh o branco)
         //e inicia a partida
@@ -142,6 +155,11 @@ public class ControleTotal {
                         imprimeJogada(nomeJogador[0],nomeJogador[1]);
                     }
                 }
+        }else {
+           
+           view.movimentoInvalido();
+           imprimeJogada(nomeJogador[0],nomeJogador[1]);
+           
         }
 }        
 
@@ -191,7 +209,7 @@ public class ControleTotal {
                     processaModoJogo(comando);
                     break;
                 case 2:
-                    //exibeDados();
+                    impresso.imprimeDados(null);
                     break;
                 case 3:
                     System.exit(0);
@@ -206,12 +224,12 @@ public class ControleTotal {
 
     private void imprimeJogada(String jogador1, String jogador2) {
         
-        if(jogador.jogador.containsKey(jogador1)){
+        if(jogador.jogadores.containsKey(jogador1)){
             System.out.println("Digite a jogada:" + jogador1+ " (B) ");
             String jogada = scanner.next();
             controlaJogadas(jogada);
         }
-            if(jogador.jogador.containsKey(jogador2)){
+            if(jogador.jogadores.containsKey(jogador2)){
             System.out.println("Digite a jogada:"+ jogador2+" (P) ");
             String jogada = scanner.next();
             controlaJogadas(jogada);
@@ -231,20 +249,31 @@ public class ControleTotal {
                     break;
                 case 3:
                     System.exit(0);
-                    break;            }
+                    break;
+            }
         } else {
             view.entradaInvalida();
             iniciaMenu();
         }
     }
+
     //Identificação do jogador, falta implementar outras coiass.
-    public void processaJogador(){
+    public void processaJogador() {
         view.nomeJogadorUm();
         nomeJogador[0] = scanner.next();
-        jogador.criaJogador(nomeJogador[0]);
-        
+        if (!jogador.jogadores.containsKey(nomeJogador[0])) {
+            jogador.criaJogador(nomeJogador[0]);
+        }
         view.nomeJogadorDois();
         nomeJogador[1] = scanner.next();
-        jogador.criaJogador(nomeJogador[1]);
+        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+            jogador.criaJogador(nomeJogador[1]);
+        }
     }
-}
+    
+    
+    
+    
+    
+ }
+    

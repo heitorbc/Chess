@@ -7,7 +7,11 @@ package br.edu.ifes.poo1.CIH;
 import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.util.Cor;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
@@ -65,5 +69,24 @@ public class Impressao {
         System.out.println("1 - Textual");
         System.out.println("2 - Gráfica");
         System.out.println("3 - Sair");
+    }
+    
+    public void imprimeDados(HashMap<String, ArrayList<Integer>> jogadores){
+        System.out.println("       NOME      |    Vitoria   |    Derrota   |   Empaate    ");
+        
+         Collection<ArrayList<Integer>> x = jogadores.values();
+         Iterator<ArrayList<Integer>> p =  x.iterator();
+         while (p.hasNext())
+         {
+             List<Integer> k = p.next();
+             for (Integer w: k){
+                 System.out.println(w);
+             }
+         }
+                 
+                 
+       
+        
+        
     }
 }

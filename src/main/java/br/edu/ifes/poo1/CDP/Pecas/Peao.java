@@ -22,8 +22,8 @@ public class Peao extends PecaAbstrata {
 
     @Override
     public boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao ) {
-        if ((posicaoAtual.charAt(1) == '2' || posicaoAtual.charAt(1) == '7') && 
-           (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){
+        if ((posicaoAtual.charAt(0) == '2' || posicaoAtual.charAt(0) == '7') && 
+           (posicaoAtual.charAt(1) == proximaPosicao.charAt(1))){
             //Sinaliza se ele pode podeAndar a quantidade de casas solicitadas.
             return (Math.abs(proximaPosicao.charAt(1) - posicaoAtual.charAt(1)) <= 2 ); 
         }
