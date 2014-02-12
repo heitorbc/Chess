@@ -25,20 +25,20 @@ public class ControleTotal {
     Scanner scanner = new Scanner(System.in);
     String []nomeJogador = new String[2];
     Mensagens view = new Mensagens();
-    boolean vez = true;
+    boolean vezBranco = true;
     
     public ControleTotal(Tabuleiro tab) {
         this.tabuleiro = tab;
     }
-    public boolean retornaVez(){
-        return this.vez;
+    public boolean retornaVezBranco(){
+        return vezBranco;
     }
     
     public void alteraVez(){
-        if (this.vez == false){
-            this.vez = true;
+        if (vezBranco == true){
+            vezBranco = false;
         }else{
-            this.vez = false;
+            vezBranco = true;
         }
     }
     
@@ -55,40 +55,55 @@ public class ControleTotal {
     }
 
     public void controlaJogadas(String jog) {
-
+        
         if ("desistir".equals(jog)) {
             //COLOCAR INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
-            System.exit(0);
+            if(vezBranco==true){
+                jogador.addPontuacao(nomeJogador[1], "v");
+                jogador.addPontuacao(nomeJogador[0], "d");
+            }else{
+                jogador.addPontuacao(nomeJogador[1], "d");
+                jogador.addPontuacao(nomeJogador[0], "v");
+            }
+            
+            iniciaMenu();
+            
         }
         else if ("empate".equals(jog)) {
             //Se ambos entrarem em acordo, rola um empate               
             view.empate();
-            char desejo = scanner.next().charAt(0);
+            String leitura = scanner.next().toUpperCase();
+            char desejo = leitura.charAt(0);
             if (desejo == 'N') {
-                System.exit(0);
+                imprimeJogada(nomeJogador[0], nomeJogador[1]);
             }
             else if (desejo == 'S') {
+                jogador.addPontuacao(nomeJogador[0], "e");
+                jogador.addPontuacao(nomeJogador[1], "e");
                 iniciaMenu();
             }else{
-                view.opcaoInvalidaFim();
-                jogador.imprimiDados();
+                view.opcaoInvalida();
+                controlaJogadas("empate");
             }
         }    
         //roqueMenor
         else if (jog.length() == 3) {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                alteraVez();
                 iniciaMenu();
         }
             //roque Maior
         else if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0],nomeJogador[1]);
+                alteraVez();
                 iniciaMenu();
             }
         else if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
                 //JOGADA DE CAPTURA
                 System.out.println("Em construção");
+                alteraVez();
                 iniciaMenu();            
         }
             //MOVIMENTAÇÂO NORMAL
@@ -165,10 +180,18 @@ public class ControleTotal {
 
     public void iniciaJogada() {
 
-        //new Principal().show();
+        
+        
+            
         Impressao imp = new Impressao();
         imp.Impressao(tabuleiro);
-        imprimeJogada(nomeJogador[0],nomeJogador[1]);        
+        if(vezBranco == true){
+            System.out.println("VEZ BRANCO");
+        }else{
+            System.out.println("VEZ preta");
+        }
+        imprimeJogada(nomeJogador[0],nomeJogador[1]);     
+        //alteraVez();
 
     }
 
@@ -209,7 +232,10 @@ public class ControleTotal {
                     processaModoJogo(comando);
                     break;
                 case 2:
-                    impresso.imprimeDados(null);
+                    impresso.imprimeDados(jogador.jogadores);
+                    impresso.imprimeMenu();
+                    comando = scanner.nextInt();
+                    processaMenu(comando);
                     break;
                 case 3:
                     System.exit(0);
@@ -223,17 +249,29 @@ public class ControleTotal {
     }
 
     private void imprimeJogada(String jogador1, String jogador2) {
-        
-        if(jogador.jogadores.containsKey(jogador1)){
-            System.out.println("Digite a jogada:" + jogador1+ " (B) ");
+        if(retornaVezBranco()== true){
+            System.out.println("Digite a jogada " + jogador1+ " (B) :");
             String jogada = scanner.next();
             controlaJogadas(jogada);
+            
+        }else{
+            System.out.println("Digite a jogada "+ jogador2+" (P) :");
+            String jogada = scanner.next();
+            controlaJogadas(jogada);
+            
         }
-            if(jogador.jogadores.containsKey(jogador2)){
-            System.out.println("Digite a jogada:"+ jogador2+" (P) ");
-            String jogada = scanner.next();
-            controlaJogadas(jogada);
-            }
+            
+        
+//        if(jogador.jogadores.containsKey(jogador1)){
+//            System.out.println("Digite a jogada" + jogador1+ " (B) :");
+//            String jogada = scanner.next();
+//            controlaJogadas(jogada);
+//        }
+//            if(jogador.jogadores.containsKey(jogador2)){
+//            System.out.println("Digite a jogada"+ jogador2+" (P) :");
+//            String jogada = scanner.next();
+//            controlaJogadas(jogada);
+//            }
     }
 
     private void processaTipo(int dado) {

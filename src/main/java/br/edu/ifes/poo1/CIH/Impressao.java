@@ -4,6 +4,7 @@
  */
 package br.edu.ifes.poo1.CIH;
 
+import br.edu.ifes.poo1.CCI.ControleTotal;
 import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.util.Cor;
@@ -12,6 +13,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
 
 /**
  *
@@ -72,21 +75,34 @@ public class Impressao {
     }
     
     public void imprimeDados(HashMap<String, ArrayList<Integer>> jogadores){
-        System.out.println("       NOME      |    Vitoria   |    Derrota   |   Empaate    ");
+        System.out.println("     NOME    |   Vitoria  |   Derrota  |  Empate ");
         
-         Collection<ArrayList<Integer>> x = jogadores.values();
-         Iterator<ArrayList<Integer>> p =  x.iterator();
-         while (p.hasNext())
-         {
-             List<Integer> k = p.next();
-             for (Integer w: k){
-                 System.out.println(w);
-             }
-         }
-                 
-                 
+        
        
-        
+        Set<String> chaves = jogadores.keySet();
+         for (String chave : chaves)  
+        {  
+                ArrayList<Integer> pontuacao = new ArrayList<>();
+                Integer vitoria,derrota,empate;
+                vitoria = jogadores.get(chave).get(0);
+                derrota = jogadores.get(chave).get(1);
+                empate = jogadores.get(chave).get(2);
+            if(chave != null)  
+                
+                System.out.println(chave +"     |     "+ vitoria+"    |     "+ empate+"    |     "+ derrota );  
+            
+        }  
+         
+         System.out.println("");                        
+//         Collection<ArrayList<Integer>> x = jogadores.values();
+//         Iterator<ArrayList<Integer>> p =  x.iterator();
+//         while (p.hasNext())
+//         {
+//             List<Integer> k = p.next();
+//             for (Integer w: k){
+//                 System.out.println(w);
+//             }
+//         }
         
     }
 }

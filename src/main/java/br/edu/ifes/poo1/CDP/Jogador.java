@@ -34,6 +34,26 @@ public class Jogador {
         empate = jogadores.get(nome).get(2);
         return vitoria + "," + derrota + "," + empate;
     }
+    
+    public String retornaVitoria(String nome) {
+        ArrayList<Integer> pontuacao = new ArrayList<>();
+        Integer vitoria;
+        vitoria = jogadores.get(nome).get(0);
+       return vitoria +"";
+    }
+    public String retornaDerrota(String nome) {
+        ArrayList<Integer> pontuacao = new ArrayList<>();
+        Integer derrota;
+        derrota = jogadores.get(nome).get(1);
+       return derrota +"";
+    }
+    
+    public String retornaEmpate(String nome) {
+        ArrayList<Integer> pontuacao = new ArrayList<>();
+        Integer empate;
+        empate = jogadores.get(nome).get(2);
+       return empate +"";
+    }
 
     public void addPontuacao(String nome, String tipo) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
