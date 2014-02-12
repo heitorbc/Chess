@@ -75,7 +75,7 @@ public class Impressao {
     }
     
     public void imprimeDados(HashMap<String, ArrayList<Integer>> jogadores){
-        System.out.println("     NOME    |   Vitoria  |   Derrota  |  Empate ");
+        System.out.println("    NOME     | Vitoria  |  Empate  |  Derrota ");
         
         
        
@@ -89,11 +89,14 @@ public class Impressao {
                 empate = jogadores.get(chave).get(2);
             if(chave != null)  
                 
-                System.out.println(chave +"     |     "+ vitoria+"    |     "+ empate+"    |     "+ derrota );  
-            
+                System.out.print(chave +"");  
+                for (int i = chave.length(); i < 13; i++) {
+                System.out.print(" ");                        
+            }
+                System.out.println("|     "+ vitoria+"    |     "+ empate+"    |     "+ derrota );  
         }  
          
-         System.out.println("");                        
+         System.out.println();                        
 //         Collection<ArrayList<Integer>> x = jogadores.values();
 //         Iterator<ArrayList<Integer>> p =  x.iterator();
 //         while (p.hasNext())
