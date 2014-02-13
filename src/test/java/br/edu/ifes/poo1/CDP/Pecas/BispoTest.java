@@ -46,15 +46,107 @@ public class BispoTest {
     public void testPodeAndarQuanto() {
         System.out.println("podeAndarQuanto");
         String posicaoAtual = "44";
-        String proximaPosicao = "66";
-        boolean expResult = true;
+        String proximaPosicao = "54";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+            
+    }
+    
+    @Test
+    public void testPodeAndarQuanto1() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "44";
+        String proximaPosicao = "45";
+        boolean expResult = false;
         boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
         System.out.println(result);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
+    
+    @Test
+    public void testPodeAndarQuanto2() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "44";
+        String proximaPosicao = "45";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    
+    @Test
+    public void testPodeAndarQuanto3() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "44";
+        String proximaPosicao = "34";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testPodeAndarQuanto4() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "44";
+        String proximaPosicao = "41";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testPodeAndarQuanto5() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "44";
+        String proximaPosicao = "48";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testPodeAndarQuanto6() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "72";
+        String proximaPosicao = "82";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
+    @Test
+    public void testPodeAndarQuanto7() {
+        System.out.println("podeAndarQuanto");
+        String posicaoAtual = "72";
+        String proximaPosicao = "73";
+        boolean expResult = false;
+        boolean result = new Bispo(Cor.PRETO).podeAndarQuanto(posicaoAtual, proximaPosicao);
+        System.out.println(result);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
+    
     /**
      * Test of podeCapturar method, of class Bispo.
      */

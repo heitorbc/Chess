@@ -7,7 +7,6 @@
 package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.util.Cor;
-import br.edu.ifes.poo1.util.PecaNome;
 
 /**
  *

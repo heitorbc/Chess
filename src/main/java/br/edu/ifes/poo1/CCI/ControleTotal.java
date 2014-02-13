@@ -5,11 +5,12 @@
 package br.edu.ifes.poo1.CCI;
 
 import br.edu.ifes.poo1.CDP.Jogador;
+import br.edu.ifes.poo1.CDP.Pecas.PeaoBranco;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Principal;
-import com.sun.org.apache.xml.internal.utils.StringBufferPool;
+import br.edu.ifes.poo1.util.Cor;
 import java.util.Scanner;
 
 /**
@@ -57,7 +58,7 @@ public class ControleTotal {
     public void controlaJogadas(String jog) {
 
         if ("desistir".equals(jog)) {
-            //COLOCAR INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
+            //COLOCA INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
             if (vezBranco == true) {
                 jogador.addPontuacao(nomeJogador[1], "v");
                 jogador.addPontuacao(nomeJogador[0], "d");
@@ -111,18 +112,31 @@ public class ControleTotal {
             String posProx = "" + jog.charAt(2) + jog.charAt(3);
             String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
             String corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
+            
+            System.out.println(tabuleiro.retornaPeca(posAtual));
+            
             if ((retornaVezBranco()==true&&corPeca.equals("BRANCO"))||(retornaVezBranco()==false&&corPeca.equals("PRETO"))) {
-
-                if (peca == " P ") {//PEAO
+                
+                if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         alteraVez();
                         iniciaJogada();
-                    } else {
+                    }else{
                         view.movimentoInvalido();
                         imprimeJogada(nomeJogador[0], nomeJogador[1]);
                     }
-                } else if (peca == " T ") {//TORRE
+                }else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
+                    
+                        if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                        tabuleiro.trocaPeca(posAtual, posProx);
+                        alteraVez();
+                        iniciaJogada();
+                        }else{
+                            view.movimentoInvalido();
+                            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    }
+                }else if (peca == " T ") {//TORRE
                     //movimenta
                     if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
@@ -167,6 +181,9 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         imprimeJogada(nomeJogador[0], nomeJogador[1]);
                     }
+                }else{
+                    view.opcaoInvalida();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
                 }
             } else {
                 //pos atual nao é a peca do jogador da vez
@@ -307,6 +324,11 @@ public class ControleTotal {
         if (!jogador.jogadores.containsKey(nomeJogador[1])) {
             jogador.criaJogador(nomeJogador[1]);
         }
+    }
+    
+    public void caminhoLivre(String posAtual, String proxPosicao){
+        
+        //if(posAtual.charAt())
     }
 
 }

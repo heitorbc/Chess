@@ -6,8 +6,9 @@ package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.CDP.Pecas.Bispo;
 import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
-import br.edu.ifes.poo1.CDP.Pecas.Peao;
+import br.edu.ifes.poo1.CDP.Pecas.PeaoBranco;
 import br.edu.ifes.poo1.CDP.Pecas.Dama;
+import br.edu.ifes.poo1.CDP.Pecas.PeaoPreto;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.util.Cor;
@@ -57,12 +58,12 @@ public class Tabuleiro {
 //                }
 //                //INSERINDO PEOES BRANCOS
 //                else if(linha==2){
-//                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
+//                    tabuleiro.put(""+coluna+linha,new PeaoBranco(Cor.BRANCO));
 //                }
 //                
 //                //INSERINDO PEOES PRETOS
 //                if(linha==7){
-//                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
+//                    tabuleiro.put(""+coluna+linha,new PeaoBranco(Cor.PRETO));
 //                }
 //                //INSERINDO PECAS DE FIGURAS PRETAS
 //                if(linha==8){
@@ -111,7 +112,7 @@ public class Tabuleiro {
     }
     
     private void instanciaTabuleiro(){
-                for (int coluna = 1; coluna <= 8; coluna++) {
+         for (int coluna = 1; coluna <= 8; coluna++) {
             for (int linha = 1; linha <= 8; linha++) {
                 tabuleiro.put(""+coluna+linha,null);                
                 //INSERINDO PECAS DE FIGURAS BRANCOS
@@ -145,12 +146,12 @@ public class Tabuleiro {
                 }
                 //INSERINDO PEOES BRANCOS
                 else if(linha==2){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.BRANCO));
+                    tabuleiro.put(""+coluna+linha,new PeaoBranco(Cor.BRANCO));
                 }
                 
                 //INSERINDO PEOES PRETOS
                 if(linha==7){
-                    tabuleiro.put(""+coluna+linha,new Peao(Cor.PRETO));
+                    tabuleiro.put(""+coluna+linha,new PeaoPreto(Cor.PRETO));
                 }
                 //INSERINDO PECAS DE FIGURAS PRETAS
                 if(linha==8){

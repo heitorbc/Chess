@@ -18,7 +18,7 @@ import org.junit.runners.Suite;
  * @author Henrique
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({br.edu.ifes.poo1.CDP.Pecas.CavaloTest.class, br.edu.ifes.poo1.CDP.Pecas.PeaoTest.class, br.edu.ifes.poo1.CDP.Pecas.BispoTest.class, br.edu.ifes.poo1.CDP.Pecas.TorreTest.class, br.edu.ifes.poo1.CDP.Pecas.ReiTest.class, br.edu.ifes.poo1.CDP.Pecas.DamaTest.class})
+@Suite.SuiteClasses({br.edu.ifes.poo1.CDP.Pecas.CavaloTest.class, br.edu.ifes.poo1.CDP.Pecas.BispoTest.class, br.edu.ifes.poo1.CDP.Pecas.TorreTest.class, br.edu.ifes.poo1.CDP.Pecas.ReiTest.class, br.edu.ifes.poo1.CDP.Pecas.DamaTest.class})
 public class PecasSuite {
 
     @BeforeClass

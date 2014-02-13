@@ -13,8 +13,5 @@ package br.edu.ifes.poo1.CDP;
  */
 public class Dados {
     Jogador jogador = new Jogador();
-    
-    
-    
-    
+ 
 }

@@ -5,7 +5,7 @@ import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Pecas.Bispo;
 import br.edu.ifes.poo1.CDP.Pecas.Cavalo;
 import br.edu.ifes.poo1.CDP.Pecas.Dama;
-import br.edu.ifes.poo1.CDP.Pecas.Peao;
+import br.edu.ifes.poo1.CDP.Pecas.PeaoBranco;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
