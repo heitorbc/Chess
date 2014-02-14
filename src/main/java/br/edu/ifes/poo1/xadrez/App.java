@@ -26,7 +26,7 @@ public class App
         
         Tabuleiro tab = new Tabuleiro();
         Jogador jogador = new Jogador();
-
+        
         ControleTotal controleTotal = new ControleTotal(tab);
         controleTotal.iniciaMenu();
         

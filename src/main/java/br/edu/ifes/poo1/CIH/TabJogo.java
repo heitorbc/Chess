@@ -4,7 +4,10 @@
  */
 package br.edu.ifes.poo1.CIH;
 
+import br.edu.ifes.poo1.CCI.ControleTotal;
 import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +23,7 @@ public class TabJogo extends javax.swing.JFrame {
         initComponents();
         iniciaTab();
         lbl_vez_esq.setForeground(Color.red);
-        
-        
+
     }
 
     /**
@@ -188,16 +190,14 @@ public class TabJogo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TabJogo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
-        
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TabJogo().setVisible(true);
-                
+
             }
-            
+
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -225,9 +225,25 @@ public class TabJogo extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_vez_esq;
     private javax.swing.JLabel lbl_vez_esq1;
     // End of variables declaration//GEN-END:variables
- 
-    private void iniciaTab(){
+
+    private void iniciaTab() {
         jLabel1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
         jLabel2.setText(JOptionPane.showInputDialog("Digite nome do Jogador 2:").toUpperCase());
+        
+        Icon pp = new ImageIcon(getClass().getResource("bispopreto.png"));
+        
+        
     }
+
+    public ImageIcon criarImageIcon(String caminho, String descricao) {
+        java.net.URL imgURL = getClass().getResource(caminho);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL, descricao);
+        } else {
+            System.err.println("Não foi possível carregar o arquivo de imagem: " + caminho);
+            return null;
+        }
+    }
+
+
 }

@@ -374,7 +374,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_14.setIcon(new ImageIcon(qb));
         lbl_15.setIcon(new ImageIcon(kb));
         lbl_jogador1.setText("TESTE");
-        lbl_jogador1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
+        //lbl_jogador1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
        // lbl_jogador1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
        // lbl_jogador2.setText(JOptionPane.showInputDialog("Digite nome do Jogador 2:").toUpperCase());
         //control.processaJogadorVisual(lbl_jogador1.getText(),lbl_jogador2.getText());

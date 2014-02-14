@@ -8,8 +8,10 @@ import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Pecas.PeaoBranco;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
+import br.edu.ifes.poo1.CIH.Jogo;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Principal;
+import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
 import java.util.Scanner;
 
@@ -300,7 +302,8 @@ public class ControleTotal {
                     processaMenu(comando);
                     break;
                 case 2:
-                    new Principal().show();
+                    new Visual().show();
+                    
                     break;
                 case 3:
                     System.exit(0);
@@ -325,6 +328,16 @@ public class ControleTotal {
             jogador.criaJogador(nomeJogador[1]);
         }
     }
+    
+    public void processaJogadorVisual(String j1,String j2) {
+        if (!jogador.jogadores.containsKey(j1)) {
+            jogador.criaJogador(j1);
+        }
+        if (!jogador.jogadores.containsKey(j2)) {
+            jogador.criaJogador(j2);
+        }
+    }
+    
     
     public void caminhoLivre(String posAtual, String proxPosicao){
         
