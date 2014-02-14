@@ -41,26 +41,10 @@ public class PeaoBranco extends PecaAbstrata {
     
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao){
-        //Captura pela diagonal, esquerda.
-        //verifica se é as brancas( parte baixa)
-        if(proximaPosicao.charAt(0) > posicaoAtual.charAt(0) ){
-            
+       
+        if(proximaPosicao.charAt(1) - posicaoAtual.charAt(1) == 1){
+            return ( Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 1);
         }
-        if(proximaPosicao.charAt(0) < posicaoAtual.charAt(0)){ 
-            
-        }
-        //Captura pela diagonal, a direita.
         return false;
     }    
 }
-
-    /*        }if((posicaoAtual.charAt(1) != '2') &&( posicaoAtual.charAt(1) < proximaPosicao.charAt(1)) &&
-                (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){
-                //Sinaliza q ele soh pode ou nao podeAndar UMA casa.
-                return (Math.abs(proximaPosicao.charAt(0) - posicaoAtual.charAt(0)) == 0);
-                
-                // Problema aqui e encima, vou ter que dar um jeito de passar a cor da peça, ou outra classe.
-                }if((posicaoAtual.charAt(1) != '7') &&( posicaoAtual.charAt(1) > proximaPosicao.charAt(1)) &&
-                (posicaoAtual.charAt(0) == proximaPosicao.charAt(0))){
-                //Sinaliza q ele soh pode ou nao podeAndar UMA casa.
-                return (Math.abs(proximaPosicao.charAt(1) - posicaoAtual.charAt(1)) == 0); */

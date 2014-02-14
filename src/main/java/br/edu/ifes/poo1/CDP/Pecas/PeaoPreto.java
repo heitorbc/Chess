@@ -42,6 +42,10 @@ public class PeaoPreto extends PecaAbstrata{
 
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
+        
+        if(posicaoAtual.charAt(1) - proximaPosicao.charAt(1) == 1){
+            return ( Math.abs(posicaoAtual.charAt(0) - proximaPosicao.charAt(0)) == 1);
+        }
         return false;
     }
     

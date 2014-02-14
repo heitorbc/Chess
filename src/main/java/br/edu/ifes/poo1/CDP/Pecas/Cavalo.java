@@ -26,11 +26,8 @@ public class Cavalo extends PecaAbstrata{
     }
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
-        if(podeAndarQuanto(posicaoAtual, proximaPosicao)){
-            
-                    
-        }
-        return false;
+
+        return podeAndarQuanto(posicaoAtual, proximaPosicao);
     }
     
 }

@@ -28,7 +28,8 @@ public class Bispo extends PecaAbstrata{
 
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao) {
-       return false;
+       
+        return podeAndarQuanto(posicaoAtual, proximaPosicao);
     }
     
 }

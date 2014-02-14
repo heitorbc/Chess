@@ -107,6 +107,11 @@ public class Tabuleiro {
         tabuleiro.remove(posAtual);
         tabuleiro.put(posProx, aux);
     }
+    public void removePeca(String proxPosicao){
+        tabuleiro.remove(proxPosicao);
+    }
+    
+    
     public void reiniciaTabuleiro(){
         instanciaTabuleiro();
     }

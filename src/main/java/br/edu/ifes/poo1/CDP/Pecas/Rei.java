@@ -28,6 +28,7 @@ public class Rei extends PecaAbstrata{
 
     @Override
     public boolean podeCapturar(String posicaoAtual, String proximaPosicao){
-        return true;
+       
+        return podeAndarQuanto(posicaoAtual, proximaPosicao);
     }
 }
