@@ -7,6 +7,9 @@ package br.edu.ifes.poo1.CIH;
 
 import br.edu.ifes.poo1.CCI.ControleTotal;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
+import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
+import java.awt.Color;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -32,16 +35,18 @@ public class Visual extends javax.swing.JFrame {
     Image cb = this.getToolkit().createImage(caminho + "cavalobranco.png");
     Image bb = this.getToolkit().createImage(caminho + "bispobranco.png");
     Image qb = this.getToolkit().createImage(caminho + "rainhabranca.png");
-    Image kb = this.getToolkit().createImage(caminho + "reibrancoo.png");
+    Image kb = this.getToolkit().createImage(caminho + "reibranco.png");
     Image pb = this.getToolkit().createImage(caminho + "peaobranco.png");
-    
+
     Tabuleiro tabuleiro = new Tabuleiro();
     ControleTotal control = new ControleTotal(tabuleiro);
 
     public Visual() {
-        
+
         initComponents();
-        iniciandoTabuleiro();
+        lbl_digitecomando.setEnabled(false);
+        btn_jogada.setVisible(false);
+        btn_jogada.setEnabled(false);
     }
 
     /**
@@ -64,16 +69,18 @@ public class Visual extends javax.swing.JFrame {
         lbl_16 = new javax.swing.JLabel();
         lbl_17 = new javax.swing.JLabel();
         lbl_18 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btn_novo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lbl_digitecomando = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        lbl_jogada = new javax.swing.JTextField();
+        btn_jogada = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         lbl_vez = new javax.swing.JLabel();
         lbl_jogador1 = new javax.swing.JLabel();
         lbl_jogador2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,10 +158,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_18.setOpaque(true);
         jPanel1.add(lbl_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 70, 70));
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_novo.setText("NOVO");
+        btn_novo.setFocusable(false);
+        btn_novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_novoActionPerformed(evt);
             }
         });
 
@@ -164,16 +172,16 @@ public class Visual extends javax.swing.JFrame {
         lbl_digitecomando.setForeground(new java.awt.Color(255, 255, 255));
         lbl_digitecomando.setText("Digite o Comando:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        lbl_jogada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                lbl_jogadaActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Realizar Jogada");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_jogada.setText("Realizar Jogada");
+        btn_jogada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_jogadaActionPerformed(evt);
             }
         });
 
@@ -184,14 +192,14 @@ public class Visual extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1)
+                    .addComponent(lbl_jogada)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lbl_digitecomando)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btn_jogada)
                 .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
@@ -200,9 +208,9 @@ public class Visual extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lbl_digitecomando)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lbl_jogada, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btn_jogada)
                 .addContainerGap())
         );
 
@@ -210,17 +218,17 @@ public class Visual extends javax.swing.JFrame {
 
         lbl_vez.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_vez.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_vez.setText("VEZ BRANCO");
+        lbl_vez.setText("INICIANDO");
 
         lbl_jogador1.setBackground(new java.awt.Color(255, 255, 255));
         lbl_jogador1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_jogador1.setText("jLabel1");
+        lbl_jogador1.setText("BRANCAS");
         lbl_jogador1.setOpaque(true);
 
         lbl_jogador2.setBackground(new java.awt.Color(0, 0, 0));
         lbl_jogador2.setForeground(new java.awt.Color(255, 255, 255));
         lbl_jogador2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_jogador2.setText("jLabel2");
+        lbl_jogador2.setText("PRETAS");
         lbl_jogador2.setOpaque(true);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -256,6 +264,20 @@ public class Visual extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        jButton3.setText("Sair");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Salvar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,10 +287,12 @@ public class Visual extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jButton1)
-                        .addGap(49, 49, 49))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btn_novo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -282,9 +306,12 @@ public class Visual extends javax.swing.JFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(72, 72, 72)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
-                        .addComponent(jButton1)
-                        .addGap(132, 132, 132))
+                        .addGap(205, 205, 205)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_novo)
+                            .addComponent(jButton3)
+                            .addComponent(jButton4))
+                        .addGap(44, 44, 44))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -293,18 +320,37 @@ public class Visual extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        lbl_11.setIcon(new ImageIcon(bp));
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
+        iniciandoTabuleiro();
+        lbl_digitecomando.setEnabled(true);
+        btn_jogada.setEnabled(true);
+        btn_jogada.setVisible(true);
+        //lbl_11.setIcon(new ImageIcon(bp));
+    }//GEN-LAST:event_btn_novoActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void lbl_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_jogadaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_lbl_jogadaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogadaActionPerformed
+        controlaJogadasView(lbl_jogada.getText());
+        atualizaTabuleiro();
+    }//GEN-LAST:event_btn_jogadaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        int opcao = JOptionPane.showConfirmDialog(null, "Ao sair sem salvar os dados \n da partida serão perdidos!!\n"
+                + "Tente Propor um empate ou desista!\n "
+                + "Deseja Sair mesmo assim???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+        if (opcao == 0) {
+            Visual.this.dispose();
+            control.iniciaMenu();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -343,13 +389,14 @@ public class Visual extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_jogada;
+    private javax.swing.JButton btn_novo;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl_11;
     private javax.swing.JLabel lbl_12;
     private javax.swing.JLabel lbl_13;
@@ -359,6 +406,7 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_17;
     private javax.swing.JLabel lbl_18;
     private javax.swing.JLabel lbl_digitecomando;
+    private javax.swing.JTextField lbl_jogada;
     private javax.swing.JLabel lbl_jogador1;
     private javax.swing.JLabel lbl_jogador2;
     private javax.swing.JLabel lbl_l_1;
@@ -367,19 +415,25 @@ public class Visual extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void iniciandoTabuleiro() {
-        retiraNomeLbl();
-        lbl_11.setIcon(new ImageIcon(tb));
-        lbl_12.setIcon(new ImageIcon(cb));
-        lbl_13.setIcon(new ImageIcon(bb));
-        lbl_14.setIcon(new ImageIcon(qb));
-        lbl_15.setIcon(new ImageIcon(kb));
-        lbl_jogador1.setText("TESTE");
-        //lbl_jogador1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
-       // lbl_jogador1.setText(JOptionPane.showInputDialog("Digite nome do Jogador 1:").toUpperCase());
-       // lbl_jogador2.setText(JOptionPane.showInputDialog("Digite nome do Jogador 2:").toUpperCase());
-        //control.processaJogadorVisual(lbl_jogador1.getText(),lbl_jogador2.getText());
+        lbl_jogador1.setText(JOptionPane.showInputDialog(null, "Digite nome do Jogador 1:", "jogador BRANCAS").toUpperCase());
+        lbl_jogador2.setText(JOptionPane.showInputDialog(null, "Digite nome do Jogador 2:", "jogador PRETAS").toUpperCase());
+        control.processaJogadorVisual(lbl_jogador1.getText(), lbl_jogador2.getText());
+        if (control.retornaVezBranco()) {
+            lbl_vez.setText("VEZ BRANCAS");
+        } else {
+            lbl_vez.setText("VEZ PRETAS");
+        }
         
+        retiraNomeLbl();
+        atualizaTabuleiro();
 
+//        lbl_12.setIcon(new ImageIcon(cb));
+//        lbl_13.setIcon(new ImageIcon(bb));
+//        lbl_14.setIcon(new ImageIcon(qb));
+//        lbl_15.setIcon(new ImageIcon(kb));
+//        lbl_jogador1.setText("TESTE");
+
+        //JOptionPane.showMessageDialog(null, "Mensagem", "Titulo", 1);  
     }
 
     public ImageIcon criarImageIcon(String caminho, String descricao) {
@@ -392,12 +446,268 @@ public class Visual extends javax.swing.JFrame {
         }
     }
 
-    private void atualizaTabuleiro(){
+    private void atualizaTabuleiro() {
+        String alteracasa;
+        //lbl_11
+        alteracasa = descobreCasa("11");
+        if(alteracasa=="tb"){
+            lbl_11.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_11.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_11.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_11.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_11.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_11.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_11.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_11.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_11.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_11.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_11.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_11.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_11.setIcon(null);
+        }
         
-        control.processaJogador();
+        //lbl_12
+        alteracasa = descobreCasa("21");
+        lbl_12.setIcon(new ImageIcon(tb));
+        if(alteracasa=="tb"){
+            lbl_12.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_12.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_12.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_12.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_12.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_12.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_12.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_12.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_12.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_12.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_12.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_12.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_12.setIcon(null);
+        }
+        //lbl_13
+        alteracasa = descobreCasa("31");
+        if(alteracasa=="tb"){
+            lbl_13.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_13.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_13.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_13.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_13.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_13.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_13.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_13.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_13.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_13.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_13.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_13.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_13.setIcon(null);
+        }
+        //lbl_14
+        alteracasa = descobreCasa("41");
+        if(alteracasa=="tb"){
+            lbl_14.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_14.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_14.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_14.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_14.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_14.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_14.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_14.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_14.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_14.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_14.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_14.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_14.setIcon(null);
+        }
+        //lbl_15
+        alteracasa = descobreCasa("51");
+        if(alteracasa=="tb"){
+            lbl_15.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_15.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_15.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_15.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_15.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_15.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_15.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_15.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_15.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_15.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_15.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_15.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_15.setIcon(null);
+        }
+        //lbl_16
+        alteracasa = descobreCasa("61");
+        if(alteracasa=="tb"){
+            lbl_16.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_16.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_16.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_16.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_16.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_16.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_16.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_16.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_16.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_16.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_16.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_16.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_16.setIcon(null);
+        }
+        //lbl_17
+        alteracasa = descobreCasa("71");
+        if(alteracasa=="tb"){
+            lbl_17.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_17.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_17.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_17.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_17.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_17.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_17.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_17.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_17.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_17.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_17.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_17.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_17.setIcon(null);
+        }
+        //lbl_18
+        alteracasa = descobreCasa("81");
+        if(alteracasa=="tb"){
+            lbl_18.setIcon(new ImageIcon(tb));
+        }else if (alteracasa=="cb"){
+            lbl_18.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bb"){
+            lbl_18.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qb"){
+            lbl_18.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kb"){
+            lbl_18.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pb"){
+            lbl_18.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="tp"){
+            lbl_18.setIcon(new ImageIcon(pb));
+        }else if (alteracasa=="cp"){
+            lbl_18.setIcon(new ImageIcon(cb));
+        }else if (alteracasa=="bp"){
+            lbl_18.setIcon(new ImageIcon(bb));
+        }else if (alteracasa=="qp"){
+            lbl_18.setIcon(new ImageIcon(qb));
+        }else if (alteracasa=="kp"){
+            lbl_18.setIcon(new ImageIcon(kb));
+        }else if (alteracasa=="pp"){
+            lbl_18.setIcon(new ImageIcon(pb));
+        }else if (alteracasa==""){
+            lbl_18.setIcon(null);
+        }
+        
+        //String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
+        //String corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
+    }
+
+    public void controlaJogadasView(String jog) {
+
+        if ("desistir".equals(jog)) {
+            //COLOCA INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
+            if (control.vezBranco == true) {
+                control.jogador.addPontuacao(lbl_jogador1.getText(), "v");
+                control.jogador.addPontuacao(lbl_jogador2.getText(), "d");
+            } else {
+                control.jogador.addPontuacao(lbl_jogador1.getText(), "d");
+                control.jogador.addPontuacao(lbl_jogador1.getText(), "v");
+            }
+            control.vezBranco=true;
+            tabuleiro.reiniciaTabuleiro();
+            Visual.this.dispose();
+            control.iniciaMenu();
+            
+          
+        }
     }
     
-    private void retiraNomeLbl(){
+    private void retiraNomeLbl() {
         lbl_11.setText("");
         lbl_12.setText("");
         lbl_13.setText("");
@@ -407,8 +717,46 @@ public class Visual extends javax.swing.JFrame {
         lbl_17.setText("");
         lbl_18.setText("");
     }
-            
-    
-    
+
+    private String descobreCasa(String lbl){
+        if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" T "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "tb";
+            }else{
+                return "tp";
+            }
+        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" C "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "bb";
+            }else{
+                return "bp";
+            }
+        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" B "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "cb";
+            }else{
+                return "cp";
+            }
+        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" D "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "qb";
+            }else{
+                return "qp";
+            }
+        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" K "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "kb";
+            }else{
+                return "kp";
+            }
+        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" P "){
+            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+                return "pb";
+            }else{
+                return "pp";
+            }
+        }
+        return "";
+    }
     
 }//fimVISUAL

@@ -23,12 +23,12 @@ public class ControleTotal {
 
     //ExibeMEnu
     Tabuleiro tabuleiro = new Tabuleiro();
-    Jogador jogador = new Jogador();
+    public Jogador jogador = new Jogador();
     Impressao impresso = new Impressao();
     Scanner scanner = new Scanner(System.in);
     String[] nomeJogador = new String[2];
     Mensagens view = new Mensagens();
-    boolean vezBranco = true;
+    public boolean vezBranco = true;
 
     public ControleTotal(Tabuleiro tab) {
         this.tabuleiro = tab;
@@ -200,6 +200,9 @@ public class ControleTotal {
         }
 
     }
+    
+    
+    
 
     public void iniciaJogada() {
 
