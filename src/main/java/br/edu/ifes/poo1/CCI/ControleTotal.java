@@ -344,7 +344,7 @@ public class ControleTotal {
             if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
 
                 if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) &&(tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         alteraVez();
                         iniciaJogada();
@@ -354,7 +354,7 @@ public class ControleTotal {
                     }
                 } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
 
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         alteraVez();
                         iniciaJogada();
@@ -445,8 +445,28 @@ public class ControleTotal {
              return podeIr;   
         }
         //Preto Peão
+        else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO){
+            for(i=6; i > 0; i--){
+
+                posAtualAux = ""+posAtual.charAt(0)+ i;
+
+                if(posAtualAux.equals(posProx)){
+                    break;
+                }
+                
+                podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+             }
+             return podeIr;
+        }//Torre
+        else if (peca == " T "){
+            if(tabuleiro.retornaPeca(posAtualAux).podeAndarQuanto(posAtual, posProx)){
+                
+            }
+            podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+        }
         
-        //Resto
+        //Resto deu Merda
+        view.deuMerda();
         return false;
     }
 

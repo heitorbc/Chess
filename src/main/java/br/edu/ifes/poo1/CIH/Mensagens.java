@@ -59,4 +59,8 @@ public class Mensagens {
     public void movimentoCaptura(){
         System.out.println("Movimento para captura, use o x no meio.");
     }
+    
+    public void deuMerda(){
+        System.out.println("Deu merda foi para o ultimo retorno");
+    }
 }
