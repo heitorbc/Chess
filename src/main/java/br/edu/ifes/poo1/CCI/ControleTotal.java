@@ -7,9 +7,7 @@ package br.edu.ifes.poo1.CCI;
 import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.CIH.Impressao;
-import br.edu.ifes.poo1.CIH.Jogo;
 import br.edu.ifes.poo1.CIH.Mensagens;
-import br.edu.ifes.poo1.CIH.Principal;
 import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
 import java.util.Scanner;
@@ -127,9 +125,6 @@ public class ControleTotal {
         }
 
     }
-    
-    
-    
 
     public void iniciaJogada() {
 
@@ -211,16 +206,6 @@ public class ControleTotal {
 
         }
 
-//        if(jogador.jogadores.containsKey(jogador1)){
-//            System.out.println("Digite a jogada" + jogador1+ " (B) :");
-//            String jogada = scanner.next();
-//            controlaJogadas(jogada);
-//        }
-//            if(jogador.jogadores.containsKey(jogador2)){
-//            System.out.println("Digite a jogada"+ jogador2+" (P) :");
-//            String jogada = scanner.next();
-//            controlaJogadas(jogada);
-//            }
     }
 
     private void processaTipo(int dado) {
@@ -267,13 +252,6 @@ public class ControleTotal {
             jogador.criaJogador(j2);
         }
     }
-    
-    
-    public void caminhoLivre(String posAtual, String proxPosicao){
-        
-        //if(posAtual.charAt())
-    }
-
     
     public void capturaPeca(String posAtual, String posProx, String peca, String corPeca){
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
@@ -366,7 +344,7 @@ public class ControleTotal {
             if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
 
                 if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
                         tabuleiro.trocaPeca(posAtual, posProx);
                         alteraVez();
                         iniciaJogada();
@@ -445,6 +423,31 @@ public class ControleTotal {
             }
         
     }
+    
+    
+    public boolean caminhoLivre(String posAtual, String posProx, String peca, String corPeca){
+        //Branco Peão
+        int i;
+        String posAtualAux = posAtual;
+        //String posProxAux = posProx;
+        boolean podeIr = false;
+        if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO){
+            for(i=3;i < 9; i++){
 
+                posAtualAux = ""+posAtual.charAt(0)+ i;
+
+                podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                
+                if(posAtualAux.equals(posProx)){
+                    break;
+                }
+             }
+             return podeIr;   
+        }
+        //Preto Peão
+        
+        //Resto
+        return false;
+    }
 
 }

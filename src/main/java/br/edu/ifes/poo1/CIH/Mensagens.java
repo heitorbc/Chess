@@ -55,4 +55,8 @@ public class Mensagens {
     public void naoEhSuaVez(){
         System.out.println("Não é a SUA Peça!!! Jogue Novamente...");
     }
+    
+    public void movimentoCaptura(){
+        System.out.println("Movimento para captura, use o x no meio.");
+    }
 }
