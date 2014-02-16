@@ -37,16 +37,18 @@ public class Visual extends javax.swing.JFrame {
     Image qb = this.getToolkit().createImage(caminho + "rainhabranca.png");
     Image kb = this.getToolkit().createImage(caminho + "reibranco.png");
     Image pb = this.getToolkit().createImage(caminho + "peaobranco.png");
+    int opcao;
 
     Tabuleiro tabuleiro = new Tabuleiro();
     ControleTotal control = new ControleTotal(tabuleiro);
 
     public Visual() {
-
+        
         initComponents();
         lbl_digitecomando.setEnabled(false);
         btn_jogada.setVisible(false);
         btn_jogada.setEnabled(false);
+        control.textual=false;
     }
 
     /**
@@ -60,8 +62,8 @@ public class Visual extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lbl_11 = new javax.swing.JLabel();
-        lbl_l_1 = new javax.swing.JLabel();
-        lbl_l_2 = new javax.swing.JLabel();
+        lbl_c2 = new javax.swing.JLabel();
+        lbl_l2 = new javax.swing.JLabel();
         lbl_21 = new javax.swing.JLabel();
         lbl_41 = new javax.swing.JLabel();
         lbl_31 = new javax.swing.JLabel();
@@ -77,7 +79,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_52 = new javax.swing.JLabel();
         lbl_62 = new javax.swing.JLabel();
         lbl_72 = new javax.swing.JLabel();
-        lbl_l_3 = new javax.swing.JLabel();
+        lbl_l3 = new javax.swing.JLabel();
         lbl_83 = new javax.swing.JLabel();
         lbl_13 = new javax.swing.JLabel();
         lbl_23 = new javax.swing.JLabel();
@@ -86,7 +88,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_53 = new javax.swing.JLabel();
         lbl_63 = new javax.swing.JLabel();
         lbl_73 = new javax.swing.JLabel();
-        lbl_l_4 = new javax.swing.JLabel();
+        lbl_l4 = new javax.swing.JLabel();
         lbl_74 = new javax.swing.JLabel();
         lbl_84 = new javax.swing.JLabel();
         lbl_14 = new javax.swing.JLabel();
@@ -95,6 +97,66 @@ public class Visual extends javax.swing.JFrame {
         lbl_44 = new javax.swing.JLabel();
         lbl_54 = new javax.swing.JLabel();
         lbl_64 = new javax.swing.JLabel();
+        lbl_l1 = new javax.swing.JLabel();
+        lbl_c1 = new javax.swing.JLabel();
+        lbl_c3 = new javax.swing.JLabel();
+        lbl_c4 = new javax.swing.JLabel();
+        lbl_c5 = new javax.swing.JLabel();
+        lbl_c6 = new javax.swing.JLabel();
+        lbl_c7 = new javax.swing.JLabel();
+        lbl_c8 = new javax.swing.JLabel();
+        lbl_l5 = new javax.swing.JLabel();
+        lbl_85 = new javax.swing.JLabel();
+        lbl_26 = new javax.swing.JLabel();
+        lbl_25 = new javax.swing.JLabel();
+        lbl_35 = new javax.swing.JLabel();
+        lbl_45 = new javax.swing.JLabel();
+        lbl_55 = new javax.swing.JLabel();
+        lbl_65 = new javax.swing.JLabel();
+        lbl_75 = new javax.swing.JLabel();
+        lbl_15 = new javax.swing.JLabel();
+        lbl_27 = new javax.swing.JLabel();
+        lbl_28 = new javax.swing.JLabel();
+        lbl_16 = new javax.swing.JLabel();
+        lbl_17 = new javax.swing.JLabel();
+        lbl_18 = new javax.swing.JLabel();
+        lbl_36 = new javax.swing.JLabel();
+        lbl_37 = new javax.swing.JLabel();
+        lbl_38 = new javax.swing.JLabel();
+        lbl_46 = new javax.swing.JLabel();
+        lbl_47 = new javax.swing.JLabel();
+        lbl_48 = new javax.swing.JLabel();
+        lbl_56 = new javax.swing.JLabel();
+        lbl_57 = new javax.swing.JLabel();
+        lbl_58 = new javax.swing.JLabel();
+        lbl_66 = new javax.swing.JLabel();
+        lbl_67 = new javax.swing.JLabel();
+        lbl_68 = new javax.swing.JLabel();
+        lbl_76 = new javax.swing.JLabel();
+        lbl_77 = new javax.swing.JLabel();
+        lbl_78 = new javax.swing.JLabel();
+        lbl_86 = new javax.swing.JLabel();
+        lbl_87 = new javax.swing.JLabel();
+        lbl_88 = new javax.swing.JLabel();
+        lbl_l6 = new javax.swing.JLabel();
+        lbl_l7 = new javax.swing.JLabel();
+        lbl_l8 = new javax.swing.JLabel();
+        lbl_c9 = new javax.swing.JLabel();
+        lbl_c10 = new javax.swing.JLabel();
+        lbl_c11 = new javax.swing.JLabel();
+        lbl_c12 = new javax.swing.JLabel();
+        lbl_c13 = new javax.swing.JLabel();
+        lbl_c14 = new javax.swing.JLabel();
+        lbl_c15 = new javax.swing.JLabel();
+        lbl_c16 = new javax.swing.JLabel();
+        lbl_l9 = new javax.swing.JLabel();
+        lbl_l10 = new javax.swing.JLabel();
+        lbl_l11 = new javax.swing.JLabel();
+        lbl_l12 = new javax.swing.JLabel();
+        lbl_l13 = new javax.swing.JLabel();
+        lbl_l14 = new javax.swing.JLabel();
+        lbl_l15 = new javax.swing.JLabel();
+        lbl_l16 = new javax.swing.JLabel();
         btn_novo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lbl_digitecomando = new javax.swing.JLabel();
@@ -107,9 +169,75 @@ public class Visual extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        lbl_title = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setTitle("Xadrez - POO1");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -124,11 +252,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_11.setOpaque(true);
         jPanel1.add(lbl_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 70, 70));
 
-        lbl_l_1.setText("1");
-        jPanel1.add(lbl_l_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
+        lbl_c2.setText("2");
+        jPanel1.add(lbl_c2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
 
-        lbl_l_2.setText("2");
-        jPanel1.add(lbl_l_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+        lbl_l2.setText("2");
+        jPanel1.add(lbl_l2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, -1, -1));
 
         lbl_21.setBackground(new java.awt.Color(255, 255, 255));
         lbl_21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -250,8 +378,8 @@ public class Visual extends javax.swing.JFrame {
         lbl_72.setOpaque(true);
         jPanel1.add(lbl_72, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 70, 70));
 
-        lbl_l_3.setText("3");
-        jPanel1.add(lbl_l_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+        lbl_l3.setText("3");
+        jPanel1.add(lbl_l3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
         lbl_83.setBackground(new java.awt.Color(255, 255, 255));
         lbl_83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -318,8 +446,8 @@ public class Visual extends javax.swing.JFrame {
         lbl_73.setOpaque(true);
         jPanel1.add(lbl_73, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 70, 70));
 
-        lbl_l_4.setText("4");
-        jPanel1.add(lbl_l_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        lbl_l4.setText("4");
+        jPanel1.add(lbl_l4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, -1, -1));
 
         lbl_74.setBackground(new java.awt.Color(255, 255, 255));
         lbl_74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -386,6 +514,348 @@ public class Visual extends javax.swing.JFrame {
         lbl_64.setOpaque(true);
         jPanel1.add(lbl_64, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 70, 70));
 
+        lbl_l1.setText("1");
+        jPanel1.add(lbl_l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 570, -1, -1));
+
+        lbl_c1.setText("1");
+        jPanel1.add(lbl_c1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+
+        lbl_c3.setText("3");
+        jPanel1.add(lbl_c3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, -1, -1));
+
+        lbl_c4.setText("4");
+        jPanel1.add(lbl_c4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+
+        lbl_c5.setText("5");
+        jPanel1.add(lbl_c5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
+
+        lbl_c6.setText("6");
+        jPanel1.add(lbl_c6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
+
+        lbl_c7.setText("7");
+        jPanel1.add(lbl_c7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
+
+        lbl_c8.setText("8");
+        jPanel1.add(lbl_c8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
+
+        lbl_l5.setText("5");
+        jPanel1.add(lbl_l5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, -1, -1));
+
+        lbl_85.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_85.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_85.setText("85");
+        lbl_85.setFocusable(false);
+        lbl_85.setOpaque(true);
+        jPanel1.add(lbl_85, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 70, 70));
+
+        lbl_26.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_26.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_26.setText("26");
+        lbl_26.setFocusable(false);
+        lbl_26.setOpaque(true);
+        jPanel1.add(lbl_26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 70, 70));
+
+        lbl_25.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_25.setText("25");
+        lbl_25.setFocusable(false);
+        lbl_25.setOpaque(true);
+        jPanel1.add(lbl_25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, 70));
+
+        lbl_35.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_35.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_35.setText("35");
+        lbl_35.setFocusable(false);
+        lbl_35.setOpaque(true);
+        jPanel1.add(lbl_35, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 70, 70));
+
+        lbl_45.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_45.setText("45");
+        lbl_45.setFocusable(false);
+        lbl_45.setOpaque(true);
+        jPanel1.add(lbl_45, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 70, 70));
+
+        lbl_55.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_55.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_55.setText("55");
+        lbl_55.setToolTipText("");
+        lbl_55.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_55.setFocusable(false);
+        lbl_55.setOpaque(true);
+        jPanel1.add(lbl_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 70, 70));
+
+        lbl_65.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_65.setText("65");
+        lbl_65.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_65.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_65.setFocusable(false);
+        lbl_65.setOpaque(true);
+        jPanel1.add(lbl_65, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, 70));
+
+        lbl_75.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_75.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_75.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_75.setText("75");
+        lbl_75.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_75.setFocusable(false);
+        lbl_75.setOpaque(true);
+        jPanel1.add(lbl_75, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 70, 70));
+
+        lbl_15.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_15.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_15.setText("15");
+        lbl_15.setFocusable(false);
+        lbl_15.setOpaque(true);
+        jPanel1.add(lbl_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 70, 70));
+
+        lbl_27.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_27.setText("27");
+        lbl_27.setFocusable(false);
+        lbl_27.setOpaque(true);
+        jPanel1.add(lbl_27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 70, 70));
+
+        lbl_28.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_28.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_28.setText("28");
+        lbl_28.setFocusable(false);
+        lbl_28.setOpaque(true);
+        jPanel1.add(lbl_28, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 70, 70));
+
+        lbl_16.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_16.setText("16");
+        lbl_16.setFocusable(false);
+        lbl_16.setOpaque(true);
+        jPanel1.add(lbl_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 70, 70));
+
+        lbl_17.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_17.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_17.setText("17");
+        lbl_17.setFocusable(false);
+        lbl_17.setOpaque(true);
+        jPanel1.add(lbl_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, 70));
+
+        lbl_18.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_18.setText("18");
+        lbl_18.setFocusable(false);
+        lbl_18.setOpaque(true);
+        jPanel1.add(lbl_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 70, 70));
+
+        lbl_36.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_36.setText("36");
+        lbl_36.setFocusable(false);
+        lbl_36.setOpaque(true);
+        jPanel1.add(lbl_36, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 70, 70));
+
+        lbl_37.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_37.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_37.setText("37");
+        lbl_37.setFocusable(false);
+        lbl_37.setOpaque(true);
+        jPanel1.add(lbl_37, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 70, 70));
+
+        lbl_38.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_38.setText("38");
+        lbl_38.setFocusable(false);
+        lbl_38.setOpaque(true);
+        jPanel1.add(lbl_38, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, 70));
+
+        lbl_46.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_46.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_46.setText("46");
+        lbl_46.setFocusable(false);
+        lbl_46.setOpaque(true);
+        jPanel1.add(lbl_46, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 70, 70));
+
+        lbl_47.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_47.setText("47");
+        lbl_47.setFocusable(false);
+        lbl_47.setOpaque(true);
+        jPanel1.add(lbl_47, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 70, 70));
+
+        lbl_48.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_48.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_48.setText("48");
+        lbl_48.setFocusable(false);
+        lbl_48.setOpaque(true);
+        jPanel1.add(lbl_48, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 70, 70));
+
+        lbl_56.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_56.setText("56");
+        lbl_56.setFocusable(false);
+        lbl_56.setOpaque(true);
+        jPanel1.add(lbl_56, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 70, 70));
+
+        lbl_57.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_57.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_57.setText("57");
+        lbl_57.setFocusable(false);
+        lbl_57.setOpaque(true);
+        jPanel1.add(lbl_57, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, 70));
+
+        lbl_58.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_58.setText("58");
+        lbl_58.setFocusable(false);
+        lbl_58.setOpaque(true);
+        jPanel1.add(lbl_58, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 70, 70));
+
+        lbl_66.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_66.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_66.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_66.setText("66");
+        lbl_66.setFocusable(false);
+        lbl_66.setOpaque(true);
+        jPanel1.add(lbl_66, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 70, 70));
+
+        lbl_67.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_67.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_67.setText("67");
+        lbl_67.setFocusable(false);
+        lbl_67.setOpaque(true);
+        jPanel1.add(lbl_67, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 70, 70));
+
+        lbl_68.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_68.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_68.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_68.setText("68");
+        lbl_68.setToolTipText("");
+        lbl_68.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_68.setFocusable(false);
+        lbl_68.setOpaque(true);
+        jPanel1.add(lbl_68, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 70, 70));
+
+        lbl_76.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_76.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_76.setText("76");
+        lbl_76.setFocusable(false);
+        lbl_76.setOpaque(true);
+        jPanel1.add(lbl_76, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 70, 70));
+
+        lbl_77.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_77.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_77.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_77.setText("77");
+        lbl_77.setToolTipText("");
+        lbl_77.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_77.setFocusable(false);
+        lbl_77.setOpaque(true);
+        jPanel1.add(lbl_77, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 70, 70));
+
+        lbl_78.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_78.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_78.setText("78");
+        lbl_78.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_78.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_78.setFocusable(false);
+        lbl_78.setOpaque(true);
+        jPanel1.add(lbl_78, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 70, 70));
+
+        lbl_86.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_86.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_86.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_86.setText("86");
+        lbl_86.setToolTipText("");
+        lbl_86.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_86.setFocusable(false);
+        lbl_86.setOpaque(true);
+        jPanel1.add(lbl_86, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 70, 70));
+
+        lbl_87.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_87.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_87.setText("87");
+        lbl_87.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_87.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_87.setFocusable(false);
+        lbl_87.setOpaque(true);
+        jPanel1.add(lbl_87, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 70, 70));
+
+        lbl_88.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_88.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_88.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_88.setText("88");
+        lbl_88.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_88.setFocusable(false);
+        lbl_88.setOpaque(true);
+        jPanel1.add(lbl_88, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 70, 70));
+
+        lbl_l6.setText("6");
+        jPanel1.add(lbl_l6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, -1, -1));
+
+        lbl_l7.setText("7");
+        jPanel1.add(lbl_l7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 150, -1, -1));
+
+        lbl_l8.setText("8");
+        jPanel1.add(lbl_l8, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, -1, -1));
+
+        lbl_c9.setText("2");
+        jPanel1.add(lbl_c9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 610, -1, -1));
+
+        lbl_c10.setText("1");
+        jPanel1.add(lbl_c10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 610, -1, -1));
+
+        lbl_c11.setText("3");
+        jPanel1.add(lbl_c11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 610, -1, -1));
+
+        lbl_c12.setText("4");
+        jPanel1.add(lbl_c12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 610, -1, -1));
+
+        lbl_c13.setText("5");
+        jPanel1.add(lbl_c13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 610, -1, -1));
+
+        lbl_c14.setText("6");
+        jPanel1.add(lbl_c14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 610, -1, -1));
+
+        lbl_c15.setText("7");
+        jPanel1.add(lbl_c15, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 610, -1, -1));
+
+        lbl_c16.setText("8");
+        jPanel1.add(lbl_c16, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 610, -1, -1));
+
+        lbl_l9.setText("2");
+        jPanel1.add(lbl_l9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+
+        lbl_l10.setText("3");
+        jPanel1.add(lbl_l10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        lbl_l11.setText("4");
+        jPanel1.add(lbl_l11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        lbl_l12.setText("1");
+        jPanel1.add(lbl_l12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
+
+        lbl_l13.setText("5");
+        jPanel1.add(lbl_l13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        lbl_l14.setText("6");
+        jPanel1.add(lbl_l14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
+
+        lbl_l15.setText("7");
+        jPanel1.add(lbl_l15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        lbl_l16.setText("8");
+        jPanel1.add(lbl_l16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 73, 617, 639));
+
         btn_novo.setText("NOVO");
         btn_novo.setFocusable(false);
         btn_novo.addActionListener(new java.awt.event.ActionListener() {
@@ -393,6 +863,7 @@ public class Visual extends javax.swing.JFrame {
                 btn_novoActionPerformed(evt);
             }
         });
+        getContentPane().add(btn_novo, new org.netbeans.lib.awtextra.AbsoluteConstraints(656, 656, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -441,6 +912,8 @@ public class Visual extends javax.swing.JFrame {
                 .addComponent(btn_jogada)
                 .addContainerGap())
         );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(656, 195, 223, -1));
 
         jPanel3.setBackground(new java.awt.Color(153, 204, 255));
 
@@ -492,12 +965,15 @@ public class Visual extends javax.swing.JFrame {
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(656, 73, -1, -1));
+
         jButton3.setText("Sair");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 656, -1, -1));
 
         jButton4.setText("Salvar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -505,47 +981,431 @@ public class Visual extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 656, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_novo)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(205, 205, 205)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_novo)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-        );
+        lbl_title.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_title.setText("XADREZ - POO1");
+        getContentPane().add(lbl_title, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 25, 311, 30));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("81");
+        jLabel1.setOpaque(true);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 580, 30, 30));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("11");
+        jLabel2.setOpaque(true);
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 580, 30, 30));
+
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("21");
+        jLabel4.setOpaque(true);
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 580, 30, 30));
+
+        jLabel5.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("31");
+        jLabel5.setOpaque(true);
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 580, 30, 30));
+
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("41");
+        jLabel6.setOpaque(true);
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 580, 30, 30));
+
+        jLabel7.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("51");
+        jLabel7.setOpaque(true);
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 580, 30, 30));
+
+        jLabel8.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("61");
+        jLabel8.setOpaque(true);
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 580, 30, 30));
+
+        jLabel9.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setText("71");
+        jLabel9.setOpaque(true);
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 580, 30, 30));
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel10.setText("82");
+        jLabel10.setOpaque(true);
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 550, 30, 30));
+
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("12");
+        jLabel11.setOpaque(true);
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 550, 30, 30));
+
+        jLabel12.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("22");
+        jLabel12.setOpaque(true);
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 30, 30));
+
+        jLabel13.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("32");
+        jLabel13.setOpaque(true);
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 550, 30, 30));
+
+        jLabel14.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("42");
+        jLabel14.setOpaque(true);
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 550, 30, 30));
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setText("52");
+        jLabel15.setOpaque(true);
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 550, 30, 30));
+
+        jLabel16.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("62");
+        jLabel16.setOpaque(true);
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 550, 30, 30));
+
+        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel17.setText("72");
+        jLabel17.setOpaque(true);
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, 30, 30));
+
+        jLabel18.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("13");
+        jLabel18.setOpaque(true);
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 520, 30, 30));
+
+        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel19.setText("23");
+        jLabel19.setOpaque(true);
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 30, 30));
+
+        jLabel20.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setText("63");
+        jLabel20.setOpaque(true);
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 520, 30, 30));
+
+        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("43");
+        jLabel21.setOpaque(true);
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 520, 30, 30));
+
+        jLabel22.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel22.setText("73");
+        jLabel22.setOpaque(true);
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, 30, 30));
+
+        jLabel23.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel23.setText("33");
+        jLabel23.setOpaque(true);
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 520, 30, 30));
+
+        jLabel24.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel24.setText("53");
+        jLabel24.setOpaque(true);
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 520, 30, 30));
+
+        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel25.setText("83");
+        jLabel25.setOpaque(true);
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 520, 30, 30));
+
+        jLabel26.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel26.setText("74");
+        jLabel26.setOpaque(true);
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, 30, 30));
+
+        jLabel27.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel27.setText("44");
+        jLabel27.setOpaque(true);
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, 30, 30));
+
+        jLabel28.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setText("14");
+        jLabel28.setOpaque(true);
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 30, 30));
+
+        jLabel29.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel29.setText("24");
+        jLabel29.setOpaque(true);
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 30, 30));
+
+        jLabel30.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("54");
+        jLabel30.setOpaque(true);
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 490, 30, 30));
+
+        jLabel31.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel31.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setText("64");
+        jLabel31.setOpaque(true);
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 490, 30, 30));
+
+        jLabel32.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel32.setText("84");
+        jLabel32.setOpaque(true);
+        getContentPane().add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 490, 30, 30));
+
+        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("34");
+        jLabel33.setOpaque(true);
+        getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 490, 30, 30));
+
+        jLabel34.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setText("85");
+        jLabel34.setOpaque(true);
+        getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 460, 30, 30));
+
+        jLabel35.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel35.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel35.setText("15");
+        jLabel35.setOpaque(true);
+        getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 460, 30, 30));
+
+        jLabel36.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel36.setText("25");
+        jLabel36.setOpaque(true);
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 460, 30, 30));
+
+        jLabel37.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel37.setText("35");
+        jLabel37.setOpaque(true);
+        getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 460, 30, 30));
+
+        jLabel38.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel38.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel38.setText("45");
+        jLabel38.setOpaque(true);
+        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 460, 30, 30));
+
+        jLabel39.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel39.setText("55");
+        jLabel39.setOpaque(true);
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 460, 30, 30));
+
+        jLabel40.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel40.setText("64");
+        jLabel40.setOpaque(true);
+        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 30, 30));
+
+        jLabel41.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel41.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel41.setText("75");
+        jLabel41.setOpaque(true);
+        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 30, 30));
+
+        jLabel42.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("86");
+        jLabel42.setOpaque(true);
+        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 430, 30, 30));
+
+        jLabel43.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel43.setText("16");
+        jLabel43.setOpaque(true);
+        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 30, 30));
+
+        jLabel44.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel44.setText("26");
+        jLabel44.setOpaque(true);
+        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 430, 30, 30));
+
+        jLabel45.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel45.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel45.setText("36");
+        jLabel45.setOpaque(true);
+        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 430, 30, 30));
+
+        jLabel46.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel46.setText("46");
+        jLabel46.setOpaque(true);
+        getContentPane().add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 430, 30, 30));
+
+        jLabel47.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel47.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel47.setText("56");
+        jLabel47.setOpaque(true);
+        getContentPane().add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 430, 30, 30));
+
+        jLabel48.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel48.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel48.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel48.setText("66");
+        jLabel48.setOpaque(true);
+        getContentPane().add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 430, 30, 30));
+
+        jLabel49.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel49.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel49.setText("76");
+        jLabel49.setOpaque(true);
+        getContentPane().add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 30, 30));
+
+        jLabel50.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel50.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel50.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel50.setText("17");
+        jLabel50.setOpaque(true);
+        getContentPane().add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 400, 30, 30));
+
+        jLabel51.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("27");
+        jLabel51.setOpaque(true);
+        getContentPane().add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 30, 30));
+
+        jLabel52.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setText("67");
+        jLabel52.setOpaque(true);
+        getContentPane().add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 30, 30));
+
+        jLabel53.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel53.setText("47");
+        jLabel53.setOpaque(true);
+        getContentPane().add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 400, 30, 30));
+
+        jLabel54.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel54.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel54.setText("77");
+        jLabel54.setOpaque(true);
+        getContentPane().add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 30, 30));
+
+        jLabel55.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel55.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel55.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel55.setText("37");
+        jLabel55.setOpaque(true);
+        getContentPane().add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 400, 30, 30));
+
+        jLabel56.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel56.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel56.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel56.setText("57");
+        jLabel56.setOpaque(true);
+        getContentPane().add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 30, 30));
+
+        jLabel57.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel57.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel57.setText("87");
+        jLabel57.setOpaque(true);
+        getContentPane().add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 400, 30, 30));
+
+        jLabel58.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel58.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel58.setText("78");
+        jLabel58.setOpaque(true);
+        getContentPane().add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, 30, 30));
+
+        jLabel59.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel59.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel59.setText("48");
+        jLabel59.setOpaque(true);
+        getContentPane().add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 370, 30, 30));
+
+        jLabel60.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel60.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel60.setText("18");
+        jLabel60.setOpaque(true);
+        getContentPane().add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, 30, 30));
+
+        jLabel61.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel61.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel61.setText("28");
+        jLabel61.setOpaque(true);
+        getContentPane().add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 370, 30, 30));
+
+        jLabel62.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel62.setText("58");
+        jLabel62.setOpaque(true);
+        getContentPane().add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 370, 30, 30));
+
+        jLabel63.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel63.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel63.setText("68");
+        jLabel63.setOpaque(true);
+        getContentPane().add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 370, 30, 30));
+
+        jLabel64.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel64.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel64.setText("88");
+        jLabel64.setOpaque(true);
+        getContentPane().add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 370, 30, 30));
+
+        jLabel65.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel65.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel65.setText("38");
+        jLabel65.setOpaque(true);
+        getContentPane().add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 370, 30, 30));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_novoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_novoActionPerformed
@@ -561,10 +1421,53 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_jogadaActionPerformed
 
     private void btn_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogadaActionPerformed
-        System.out.println("acao");
-        control.controlaJogadas(lbl_jogada.getText());
-        System.out.println("atualizar tab");
-        atualizaTabuleiro();
+        String jogada = lbl_jogada.getText();
+        if (jogada.length() == 4) {
+            control.controlaJogadas(jogada);
+            atualizaTabuleiro();
+        } else {
+            switch (jogada) {
+                case "desistir":
+                    opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente DESISTIR???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+
+                    if (opcao == 0) {
+                        fechaTela();
+                        control.controlaJogadas("desistir");
+                    } else {
+                        lbl_jogada.setText("");
+                    }
+                    break;
+                case "empate":
+                    control.textual = false;
+                    control.alteraVez();
+                    atualizaTabuleiro();
+                    if (control.vezBranco) {
+                        opcao = JOptionPane.showConfirmDialog(null, "##EMPATE##\n" + control.nomeJogador[0] + " deseja Aceitar o"
+                                + "\nempate proposto por " + control.nomeJogador[1], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+                        if (opcao == 0) {
+                            fechaTela();
+                            control.controlaJogadas("empate");
+                        } else {
+                            control.alteraVez();
+                            atualizaTabuleiro();
+                        }
+
+                    } else {
+                        opcao = JOptionPane.showConfirmDialog(null, "##EMPATE##\n" + control.nomeJogador[1] + " deseja Aceitar o"
+                                + "\nempate proposto por " + control.nomeJogador[0], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
+                        if (opcao == 0) {
+                            fechaTela();
+                            control.controlaJogadas("empate");
+                        } else {
+                            control.alteraVez();
+                            atualizaTabuleiro();
+                        }
+                    }
+
+                    break;
+            }
+        }
+
     }//GEN-LAST:event_btn_jogadaActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -577,7 +1480,7 @@ public class Visual extends javax.swing.JFrame {
                 + "Tente Propor um empate ou desista!\n "
                 + "Deseja Sair mesmo assim???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
         if (opcao == 0) {
-            Visual.this.dispose();
+            fechaTela();
             control.iniciaMenu();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -623,7 +1526,71 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JButton btn_novo;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -631,42 +1598,103 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_12;
     private javax.swing.JLabel lbl_13;
     private javax.swing.JLabel lbl_14;
+    private javax.swing.JLabel lbl_15;
+    private javax.swing.JLabel lbl_16;
+    private javax.swing.JLabel lbl_17;
+    private javax.swing.JLabel lbl_18;
     private javax.swing.JLabel lbl_21;
     private javax.swing.JLabel lbl_22;
     private javax.swing.JLabel lbl_23;
     private javax.swing.JLabel lbl_24;
+    private javax.swing.JLabel lbl_25;
+    private javax.swing.JLabel lbl_26;
+    private javax.swing.JLabel lbl_27;
+    private javax.swing.JLabel lbl_28;
     private javax.swing.JLabel lbl_31;
     private javax.swing.JLabel lbl_32;
     private javax.swing.JLabel lbl_33;
     private javax.swing.JLabel lbl_34;
+    private javax.swing.JLabel lbl_35;
+    private javax.swing.JLabel lbl_36;
+    private javax.swing.JLabel lbl_37;
+    private javax.swing.JLabel lbl_38;
     private javax.swing.JLabel lbl_41;
     private javax.swing.JLabel lbl_42;
     private javax.swing.JLabel lbl_43;
     private javax.swing.JLabel lbl_44;
+    private javax.swing.JLabel lbl_45;
+    private javax.swing.JLabel lbl_46;
+    private javax.swing.JLabel lbl_47;
+    private javax.swing.JLabel lbl_48;
     private javax.swing.JLabel lbl_51;
     private javax.swing.JLabel lbl_52;
     private javax.swing.JLabel lbl_53;
     private javax.swing.JLabel lbl_54;
+    private javax.swing.JLabel lbl_55;
+    private javax.swing.JLabel lbl_56;
+    private javax.swing.JLabel lbl_57;
+    private javax.swing.JLabel lbl_58;
     private javax.swing.JLabel lbl_61;
     private javax.swing.JLabel lbl_62;
     private javax.swing.JLabel lbl_63;
     private javax.swing.JLabel lbl_64;
+    private javax.swing.JLabel lbl_65;
+    private javax.swing.JLabel lbl_66;
+    private javax.swing.JLabel lbl_67;
+    private javax.swing.JLabel lbl_68;
     private javax.swing.JLabel lbl_71;
     private javax.swing.JLabel lbl_72;
     private javax.swing.JLabel lbl_73;
     private javax.swing.JLabel lbl_74;
+    private javax.swing.JLabel lbl_75;
+    private javax.swing.JLabel lbl_76;
+    private javax.swing.JLabel lbl_77;
+    private javax.swing.JLabel lbl_78;
     private javax.swing.JLabel lbl_81;
     private javax.swing.JLabel lbl_82;
     private javax.swing.JLabel lbl_83;
     private javax.swing.JLabel lbl_84;
+    private javax.swing.JLabel lbl_85;
+    private javax.swing.JLabel lbl_86;
+    private javax.swing.JLabel lbl_87;
+    private javax.swing.JLabel lbl_88;
+    private javax.swing.JLabel lbl_c1;
+    private javax.swing.JLabel lbl_c10;
+    private javax.swing.JLabel lbl_c11;
+    private javax.swing.JLabel lbl_c12;
+    private javax.swing.JLabel lbl_c13;
+    private javax.swing.JLabel lbl_c14;
+    private javax.swing.JLabel lbl_c15;
+    private javax.swing.JLabel lbl_c16;
+    private javax.swing.JLabel lbl_c2;
+    private javax.swing.JLabel lbl_c3;
+    private javax.swing.JLabel lbl_c4;
+    private javax.swing.JLabel lbl_c5;
+    private javax.swing.JLabel lbl_c6;
+    private javax.swing.JLabel lbl_c7;
+    private javax.swing.JLabel lbl_c8;
+    private javax.swing.JLabel lbl_c9;
     private javax.swing.JLabel lbl_digitecomando;
     private javax.swing.JTextField lbl_jogada;
     private javax.swing.JLabel lbl_jogador1;
     private javax.swing.JLabel lbl_jogador2;
-    private javax.swing.JLabel lbl_l_1;
-    private javax.swing.JLabel lbl_l_2;
-    private javax.swing.JLabel lbl_l_3;
-    private javax.swing.JLabel lbl_l_4;
+    private javax.swing.JLabel lbl_l1;
+    private javax.swing.JLabel lbl_l10;
+    private javax.swing.JLabel lbl_l11;
+    private javax.swing.JLabel lbl_l12;
+    private javax.swing.JLabel lbl_l13;
+    private javax.swing.JLabel lbl_l14;
+    private javax.swing.JLabel lbl_l15;
+    private javax.swing.JLabel lbl_l16;
+    private javax.swing.JLabel lbl_l2;
+    private javax.swing.JLabel lbl_l3;
+    private javax.swing.JLabel lbl_l4;
+    private javax.swing.JLabel lbl_l5;
+    private javax.swing.JLabel lbl_l6;
+    private javax.swing.JLabel lbl_l7;
+    private javax.swing.JLabel lbl_l8;
+    private javax.swing.JLabel lbl_l9;
+    private javax.swing.JLabel lbl_title;
     private javax.swing.JLabel lbl_vez;
     // End of variables declaration//GEN-END:variables
 
@@ -675,734 +1703,25 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogador2.setText(JOptionPane.showInputDialog(null, "Digite nome do Jogador 2:", "jogador PRETAS").toUpperCase());
         control.processaJogadorVisual(lbl_jogador1.getText(), lbl_jogador2.getText());
 
-        if (control.retornaVezBranco()) {
-            lbl_vez.setText("VEZ BRANCAS");
-        } else {
-            lbl_vez.setText("VEZ PRETAS");
-        }
-
         retiraNomeLbl();
         atualizaTabuleiro();
 
-//        lbl_12.setIcon(new ImageIcon(cb));
-//        lbl_13.setIcon(new ImageIcon(bb));
-//        lbl_14.setIcon(new ImageIcon(qb));
-//        lbl_15.setIcon(new ImageIcon(kb));
-//        lbl_jogador1.setText("TESTE");
         //JOptionPane.showMessageDialog(null, "Mensagem", "Titulo", 1);  
     }
 
-    public ImageIcon criarImageIcon(String caminho, String descricao) {
-        java.net.URL imgURL = getClass().getResource(caminho);
-        if (imgURL != null) {
-            return new ImageIcon(imgURL, descricao);
-        } else {
-            System.err.println("Não foi possível carregar o arquivo de imagem: " + caminho);
-            return null;
-        }
-    }
+    public void atualizaTabuleiro() {
+        //alterando as labels linha a linha
 
-    private void atualizaTabuleiro() {
-        String alteracasa;
-        //lbl_11
-        alteracasa = descobreCasa("11");
-        if (alteracasa == "tb") {
-            lbl_11.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_11.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_11.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_11.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_11.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_11.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_11.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_11.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_11.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_11.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_11.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_11.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_11.setIcon(null);
-        }
-
-        //lbl_21
-        alteracasa = descobreCasa("21");
-        lbl_21.setIcon(new ImageIcon(tb));
-        if (alteracasa == "tb") {
-            lbl_21.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_21.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_21.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_21.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_21.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_21.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_21.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_21.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_21.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_21.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_21.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_21.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_21.setIcon(null);
-        }
-        //lbl_31
-        alteracasa = descobreCasa("31");
-        if (alteracasa == "tb") {
-            lbl_31.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_31.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_31.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_31.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_31.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_31.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_31.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_31.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_31.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_31.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_31.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_31.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_31.setIcon(null);
-        }
-        //lbl_41
-        alteracasa = descobreCasa("41");
-        if (alteracasa == "tb") {
-            lbl_41.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_41.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_41.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_41.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_41.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_41.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_41.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_41.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_41.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_41.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_41.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_41.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_41.setIcon(null);
-        }
-        //lbl_51
-        alteracasa = descobreCasa("51");
-        if (alteracasa == "tb") {
-            lbl_51.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_51.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_51.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_51.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_51.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_51.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_51.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_51.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_51.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_51.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_51.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_51.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_51.setIcon(null);
-        }
-        //lbl_61
-        alteracasa = descobreCasa("61");
-        if (alteracasa == "tb") {
-            lbl_61.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_61.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_61.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_61.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_61.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_61.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_61.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_61.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_61.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_61.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_61.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_61.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_61.setIcon(null);
-        }
-        //lbl_71
-        alteracasa = descobreCasa("71");
-        if (alteracasa == "tb") {
-            lbl_71.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_71.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_71.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_71.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_71.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_71.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_71.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_71.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_71.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_71.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_71.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_71.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_71.setIcon(null);
-        }
-        //lbl_81
-        alteracasa = descobreCasa("81");
-        if (alteracasa == "tb") {
-            lbl_81.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_81.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_81.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_81.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_81.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_81.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_81.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_81.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_81.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_81.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_81.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_81.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_81.setIcon(null);
-        }
-
-        //lbl_12
-        alteracasa = descobreCasa("12");
-        if (alteracasa == "tb") {
-            lbl_12.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_12.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_12.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_12.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_12.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_12.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_12.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_12.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_12.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_12.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_12.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_12.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_12.setIcon(null);
-        }
-        //lbl_22
-        alteracasa = descobreCasa("22");
-        if (alteracasa == "tb") {
-            lbl_22.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_22.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_22.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_22.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_22.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_22.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_22.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_22.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_22.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_22.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_22.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_22.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_22.setIcon(null);
-        }
-        //lbl_32
-        alteracasa = descobreCasa("32");
-        if (alteracasa == "tb") {
-            lbl_32.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_32.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_32.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_32.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_32.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_32.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_32.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_32.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_32.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_32.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_32.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_32.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_32.setIcon(null);
-        }
-        //lbl_42
-        alteracasa = descobreCasa("42");
-        if (alteracasa == "tb") {
-            lbl_42.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_42.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_42.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_42.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_42.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_42.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_42.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_42.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_42.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_42.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_42.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_42.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_42.setIcon(null);
-        }
-        //lbl_52
-        alteracasa = descobreCasa("52");
-        if (alteracasa == "tb") {
-            lbl_52.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_52.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_52.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_52.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_52.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_52.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_52.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_52.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_52.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_52.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_52.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_52.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_52.setIcon(null);
-        }
-        //lbl_62
-        alteracasa = descobreCasa("62");
-        if (alteracasa == "tb") {
-            lbl_62.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_62.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_62.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_62.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_62.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_62.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_62.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_62.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_62.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_62.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_62.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_62.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_62.setIcon(null);
-        }
-        //lbl_72
-        alteracasa = descobreCasa("72");
-        if (alteracasa == "tb") {
-            lbl_72.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_72.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_72.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_72.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_72.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_72.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_72.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_72.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_72.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_72.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_72.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_72.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_72.setIcon(null);
-        }
-        //lbl_82
-        alteracasa = descobreCasa("82");
-        if (alteracasa == "tb") {
-            lbl_82.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_82.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_82.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_82.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_82.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_82.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_82.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_82.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_82.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_82.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_82.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_82.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_82.setIcon(null);
-        }
-        //lbl_13
-        alteracasa = descobreCasa("13");
-        if (alteracasa == "tb") {
-            lbl_13.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_13.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_13.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_13.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_13.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_13.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_13.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_13.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_13.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_13.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_13.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_13.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_13.setIcon(new ImageIcon());
-        }
-        //lbl_23
-        alteracasa = descobreCasa("23");
-        if (alteracasa == "tb") {
-            lbl_23.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_23.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_23.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_23.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_23.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_23.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_23.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_23.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_23.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_23.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_23.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_23.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_23.setIcon(new ImageIcon());
-        }
-        //lbl_33
-        alteracasa = descobreCasa("33");
-        if (alteracasa == "tb") {
-            lbl_33.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_33.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_33.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_33.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_33.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_33.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_33.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_33.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_33.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_33.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_33.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_33.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_33.setIcon(new ImageIcon());
-        }
-        //lbl_43
-        alteracasa = descobreCasa("43");
-        if (alteracasa == "tb") {
-            lbl_43.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_43.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_43.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_43.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_43.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_43.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_43.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_43.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_43.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_43.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_43.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_43.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_43.setIcon(new ImageIcon());
-        }
-        //lbl_53
-        alteracasa = descobreCasa("53");
-        if (alteracasa == "tb") {
-            lbl_53.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_53.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_53.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_53.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_53.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_53.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_53.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_53.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_53.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_53.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_53.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_53.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_53.setIcon(new ImageIcon());
-        }
-        //lbl_63
-        alteracasa = descobreCasa("63");
-        if (alteracasa == "tb") {
-            lbl_63.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_63.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_63.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_63.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_63.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_63.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_63.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_63.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_63.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_63.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_63.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_63.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_63.setIcon(new ImageIcon());
-        }
-        //lbl_73
-        alteracasa = descobreCasa("73");
-        if (alteracasa == "tb") {
-            lbl_73.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_73.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_73.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_73.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_73.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_73.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_73.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_73.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_73.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_73.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_73.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_73.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_63.setIcon(new ImageIcon());
-        }
-        //lbl_83
-        alteracasa = descobreCasa("83");
-        if (alteracasa == "tb") {
-            lbl_83.setIcon(new ImageIcon(tb));
-        } else if (alteracasa == "cb") {
-            lbl_83.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bb") {
-            lbl_83.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qb") {
-            lbl_83.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kb") {
-            lbl_83.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pb") {
-            lbl_83.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "tp") {
-            lbl_83.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "cp") {
-            lbl_83.setIcon(new ImageIcon(cb));
-        } else if (alteracasa == "bp") {
-            lbl_83.setIcon(new ImageIcon(bb));
-        } else if (alteracasa == "qp") {
-            lbl_83.setIcon(new ImageIcon(qb));
-        } else if (alteracasa == "kp") {
-            lbl_83.setIcon(new ImageIcon(kb));
-        } else if (alteracasa == "pp") {
-            lbl_83.setIcon(new ImageIcon(pb));
-        } else if (alteracasa == "") {
-            lbl_83.setIcon(new ImageIcon());
-        }
+        alteralbl1();
+        alteralbl2();
+        alteralbl3();
+        alteralbl4();
+        alteralbl5();
+        alteralbl6();
+        alteralbl7();
+        alteralbl8();
+        atualizaVez();
+        lbl_jogada.setText("");
     }
 
     private void retiraNomeLbl() {
@@ -1438,54 +1757,2873 @@ public class Visual extends javax.swing.JFrame {
         lbl_64.setText("");
         lbl_74.setText("");
         lbl_84.setText("");
+        lbl_15.setText("");
+        lbl_25.setText("");
+        lbl_35.setText("");
+        lbl_45.setText("");
+        lbl_55.setText("");
+        lbl_65.setText("");
+        lbl_75.setText("");
+        lbl_85.setText("");
+        lbl_16.setText("");
+        lbl_26.setText("");
+        lbl_36.setText("");
+        lbl_46.setText("");
+        lbl_56.setText("");
+        lbl_66.setText("");
+        lbl_76.setText("");
+        lbl_86.setText("");
+        lbl_17.setText("");
+        lbl_27.setText("");
+        lbl_37.setText("");
+        lbl_47.setText("");
+        lbl_57.setText("");
+        lbl_67.setText("");
+        lbl_77.setText("");
+        lbl_87.setText("");
+        lbl_18.setText("");
+        lbl_28.setText("");
+        lbl_38.setText("");
+        lbl_48.setText("");
+        lbl_58.setText("");
+        lbl_68.setText("");
+        lbl_78.setText("");
+        lbl_88.setText("");
     }
 
     private String descobreCasa(String lbl) {
-        
-        if (tabuleiro.retornaPecaVIsual(lbl) == " T ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "tb";
-            } else {
-                return "tp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == " C ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "bb";
-            } else {
-                return "bp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == " B ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "cb";
-            } else {
-                return "cp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == " D ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "qb";
-            } else {
-                return "qp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == " K ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "kb";
-            } else {
-                return "kp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == " P ") {
-            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
-                return "pb";
-            } else {
-                return "pp";
-            }
-        } else if (tabuleiro.retornaPecaVIsual(lbl) == "") {
-            return "";
+        switch (tabuleiro.retornaPecaVIsual(lbl)) {
+            case " T ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "tb";
+                } else {
+                    return "tp";
+                }
+            case " C ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "bb";
+                } else {
+                    return "bp";
+                }
+            case " B ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "cb";
+                } else {
+                    return "cp";
+                }
+            case " D ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "qb";
+                } else {
+                    return "qp";
+                }
+            case " K ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "kb";
+                } else {
+                    return "kp";
+                }
+            case " P ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "pb";
+                } else {
+                    return "pp";
+                }
+            case "":
+                return "";
         }
         return "";
     }
 
     public void fechaTela() {
+
         Visual.this.dispose();
+
+    }
+
+    private void atualizaVez() {
+        if (control.retornaVezBranco()) {
+            lbl_vez.setText("VEZ BRANCAS");
+        } else {
+            lbl_vez.setText("VEZ PRETAS");
+        }
+    }
+
+    private void alteralbl1() {
+        String alteracasa = descobreCasa("11");
+        //lbl_11
+        switch (alteracasa) {
+            case "tb":
+                lbl_11.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_11.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_11.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_11.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_11.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_11.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_11.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_11.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_11.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_11.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_11.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_11.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_11.setIcon(null);
+                break;
+        }
+
+        //lbl_21
+        alteracasa = descobreCasa("21");
+        switch (alteracasa) {
+            case "tb":
+                lbl_21.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_21.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_21.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_21.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_21.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_21.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_21.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_21.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_21.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_21.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_21.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_21.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_21.setIcon(null);
+                break;
+        }
+        //lbl_31
+        alteracasa = descobreCasa("31");
+        switch (alteracasa) {
+            case "tb":
+                lbl_31.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_31.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_31.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_31.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_31.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_31.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_31.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_31.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_31.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_31.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_31.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_31.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_31.setIcon(null);
+                break;
+        }
+        //lbl_41
+        alteracasa = descobreCasa("41");
+        switch (alteracasa) {
+            case "tb":
+                lbl_41.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_41.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_41.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_41.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_41.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_41.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_41.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_41.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_41.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_41.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_41.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_41.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_41.setIcon(null);
+                break;
+        }
+        //lbl_51
+        alteracasa = descobreCasa("51");
+        switch (alteracasa) {
+            case "tb":
+                lbl_51.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_51.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_51.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_51.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_51.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_51.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_51.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_51.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_51.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_51.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_51.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_51.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_51.setIcon(null);
+                break;
+        }
+        //lbl_61
+        alteracasa = descobreCasa("61");
+        switch (alteracasa) {
+            case "tb":
+                lbl_61.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_61.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_61.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_61.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_61.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_61.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_61.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_61.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_61.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_61.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_61.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_61.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_61.setIcon(null);
+                break;
+        }
+        //lbl_71
+        alteracasa = descobreCasa("71");
+        switch (alteracasa) {
+            case "tb":
+                lbl_71.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_71.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_71.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_71.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_71.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_71.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_71.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_71.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_71.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_71.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_71.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_71.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_71.setIcon(null);
+                break;
+        }
+        //lbl_81
+        alteracasa = descobreCasa("81");
+        switch (alteracasa) {
+            case "tb":
+                lbl_81.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_81.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_81.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_81.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_81.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_81.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_81.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_81.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_81.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_81.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_81.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_81.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_81.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl2() {
+        //lbl_12
+        String alteracasa = descobreCasa("12");
+        switch (alteracasa) {
+            case "tb":
+                lbl_12.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_12.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_12.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_12.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_12.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_12.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_12.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_12.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_12.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_12.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_12.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_12.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_12.setIcon(null);
+                break;
+        }
+        //lbl_22
+        alteracasa = descobreCasa("22");
+        switch (alteracasa) {
+            case "tb":
+                lbl_22.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_22.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_22.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_22.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_22.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_22.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_22.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_22.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_22.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_22.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_22.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_22.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_22.setIcon(null);
+                break;
+        }
+        //lbl_32
+        alteracasa = descobreCasa("32");
+        switch (alteracasa) {
+            case "tb":
+                lbl_32.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_32.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_32.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_32.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_32.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_32.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_32.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_32.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_32.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_32.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_32.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_32.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_32.setIcon(null);
+                break;
+        }
+        //lbl_42
+        alteracasa = descobreCasa("42");
+        switch (alteracasa) {
+            case "tb":
+                lbl_42.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_42.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_42.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_42.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_42.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_42.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_42.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_42.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_42.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_42.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_42.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_42.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_42.setIcon(null);
+                break;
+        }
+        //lbl_52
+        alteracasa = descobreCasa("52");
+        switch (alteracasa) {
+            case "tb":
+                lbl_52.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_52.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_52.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_52.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_52.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_52.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_52.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_52.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_52.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_52.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_52.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_52.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_52.setIcon(null);
+                break;
+        }
+        //lbl_62
+        alteracasa = descobreCasa("62");
+        switch (alteracasa) {
+            case "tb":
+                lbl_62.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_62.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_62.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_62.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_62.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_62.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_62.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_62.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_62.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_62.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_62.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_62.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_62.setIcon(null);
+                break;
+        }
+        //lbl_72
+        alteracasa = descobreCasa("72");
+        switch (alteracasa) {
+            case "tb":
+                lbl_72.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_72.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_72.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_72.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_72.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_72.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_72.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_72.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_72.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_72.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_72.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_72.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_72.setIcon(null);
+                break;
+        }
+        //lbl_82
+        alteracasa = descobreCasa("82");
+        switch (alteracasa) {
+            case "tb":
+                lbl_82.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_82.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_82.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_82.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_82.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_82.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_82.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_82.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_82.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_82.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_82.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_82.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_82.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl3() {
+        //lbl_13
+        String alteracasa = descobreCasa("13");
+        switch (alteracasa) {
+            case "tb":
+                lbl_13.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_13.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_13.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_13.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_13.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_13.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_13.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_13.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_13.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_13.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_13.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_13.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_13.setIcon(null);
+                break;
+        }
+        //lbl_23
+        alteracasa = descobreCasa("23");
+        switch (alteracasa) {
+            case "tb":
+                lbl_23.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_23.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_23.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_23.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_23.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_23.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_23.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_23.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_23.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_23.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_23.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_23.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_23.setIcon(null);
+                break;
+        }
+        //lbl_33
+        alteracasa = descobreCasa("33");
+        switch (alteracasa) {
+            case "tb":
+                lbl_33.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_33.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_33.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_33.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_33.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_33.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_33.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_33.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_33.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_33.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_33.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_33.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_33.setIcon(null);
+                break;
+        }
+        //lbl_43
+        alteracasa = descobreCasa("43");
+        switch (alteracasa) {
+            case "tb":
+                lbl_43.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_43.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_43.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_43.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_43.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_43.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_43.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_43.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_43.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_43.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_43.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_43.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_43.setIcon(null);
+                break;
+        }
+        //lbl_53
+        alteracasa = descobreCasa("53");
+        switch (alteracasa) {
+            case "tb":
+                lbl_53.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_53.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_53.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_53.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_53.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_53.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_53.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_53.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_53.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_53.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_53.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_53.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_53.setIcon(null);
+                break;
+        }
+        //lbl_63
+        alteracasa = descobreCasa("63");
+        switch (alteracasa) {
+            case "tb":
+                lbl_63.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_63.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_63.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_63.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_63.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_63.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_63.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_63.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_63.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_63.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_63.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_63.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_63.setIcon(null);
+                break;
+        }
+        //lbl_73
+        alteracasa = descobreCasa("73");
+        switch (alteracasa) {
+            case "tb":
+                lbl_73.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_73.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_73.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_73.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_73.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_73.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_73.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_73.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_73.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_73.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_73.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_73.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_73.setIcon(null);
+                break;
+        }
+        //lbl_83
+        alteracasa = descobreCasa("83");
+        switch (alteracasa) {
+            case "tb":
+                lbl_83.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_83.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_83.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_83.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_83.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_83.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_83.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_83.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_83.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_83.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_83.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_83.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_83.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl4() {
+        //lbl_14
+        String alteracasa = descobreCasa("14");
+        switch (alteracasa) {
+            case "tb":
+                lbl_14.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_14.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_14.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_14.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_14.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_14.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_14.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_14.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_14.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_14.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_14.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_14.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_14.setIcon(null);
+                break;
+        }
+        //lbl_24
+        alteracasa = descobreCasa("24");
+        switch (alteracasa) {
+            case "tb":
+                lbl_24.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_24.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_24.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_24.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_24.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_24.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_24.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_24.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_24.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_24.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_24.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_24.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_24.setIcon(null);
+                break;
+        }
+        //lbl_34
+        alteracasa = descobreCasa("34");
+        switch (alteracasa) {
+            case "tb":
+                lbl_34.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_34.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_34.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_34.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_34.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_34.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_34.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_34.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_34.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_34.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_34.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_34.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_34.setIcon(null);
+                break;
+        }
+        //lbl_44
+        alteracasa = descobreCasa("44");
+        switch (alteracasa) {
+            case "tb":
+                lbl_44.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_44.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_44.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_44.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_44.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_44.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_44.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_44.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_44.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_44.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_44.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_44.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_44.setIcon(null);
+                break;
+        }
+        //lbl_54
+        alteracasa = descobreCasa("54");
+        switch (alteracasa) {
+            case "tb":
+                lbl_54.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_54.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_54.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_54.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_54.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_54.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_54.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_54.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_54.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_54.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_54.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_54.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_54.setIcon(null);
+                break;
+        }
+        //lbl_64
+        alteracasa = descobreCasa("64");
+        switch (alteracasa) {
+            case "tb":
+                lbl_64.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_64.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_64.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_64.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_64.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_64.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_64.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_64.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_64.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_64.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_64.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_64.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_64.setIcon(null);
+                break;
+        }
+        //lbl_74
+        alteracasa = descobreCasa("74");
+        switch (alteracasa) {
+            case "tb":
+                lbl_74.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_74.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_74.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_74.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_74.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_74.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_74.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_74.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_74.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_74.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_74.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_74.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_74.setIcon(null);
+                break;
+        }
+        //lbl_84
+        alteracasa = descobreCasa("84");
+        switch (alteracasa) {
+            case "tb":
+                lbl_84.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_84.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_84.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_84.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_84.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_84.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_84.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_84.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_84.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_84.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_84.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_84.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_84.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl5() {
+        //lbl_15
+        String alteracasa = descobreCasa("15");
+        switch (alteracasa) {
+            case "tb":
+                lbl_15.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_15.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_15.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_15.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_15.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_15.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_15.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_15.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_15.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_15.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_15.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_15.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_15.setIcon(null);
+                break;
+        }
+        //lbl_25
+        alteracasa = descobreCasa("25");
+        switch (alteracasa) {
+            case "tb":
+                lbl_25.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_25.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_25.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_25.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_25.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_25.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_25.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_25.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_25.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_25.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_25.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_25.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_25.setIcon(null);
+                break;
+        }
+        //lbl_35
+        alteracasa = descobreCasa("35");
+        switch (alteracasa) {
+            case "tb":
+                lbl_35.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_35.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_35.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_35.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_35.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_35.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_35.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_35.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_35.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_35.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_35.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_35.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_35.setIcon(null);
+                break;
+        }
+        //lbl_45
+        alteracasa = descobreCasa("45");
+        switch (alteracasa) {
+            case "tb":
+                lbl_45.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_45.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_45.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_45.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_45.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_45.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_45.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_45.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_45.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_45.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_45.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_45.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_45.setIcon(null);
+                break;
+        }
+        //lbl_55
+        alteracasa = descobreCasa("55");
+        switch (alteracasa) {
+            case "tb":
+                lbl_55.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_55.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_55.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_55.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_55.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_55.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_55.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_55.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_55.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_55.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_55.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_55.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_55.setIcon(null);
+                break;
+        }
+        //lbl_65
+        alteracasa = descobreCasa("65");
+        switch (alteracasa) {
+            case "tb":
+                lbl_65.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_65.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_65.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_65.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_65.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_65.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_65.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_65.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_65.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_65.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_65.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_65.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_65.setIcon(null);
+                break;
+        }
+        //lbl_75
+        alteracasa = descobreCasa("75");
+        switch (alteracasa) {
+            case "tb":
+                lbl_75.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_75.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_75.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_75.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_75.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_75.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_75.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_75.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_75.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_75.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_75.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_75.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_75.setIcon(null);
+                break;
+        }
+        //lbl_85
+        alteracasa = descobreCasa("85");
+        switch (alteracasa) {
+            case "tb":
+                lbl_85.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_85.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_85.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_85.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_85.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_85.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_85.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_85.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_85.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_85.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_85.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_85.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_85.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl6() {
+        //lbl_16
+        String alteracasa = descobreCasa("16");
+        switch (alteracasa) {
+            case "tb":
+                lbl_16.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_16.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_16.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_16.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_16.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_16.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_16.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_16.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_16.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_16.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_16.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_16.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_16.setIcon(null);
+                break;
+        }
+        //lbl_26
+        alteracasa = descobreCasa("26");
+        switch (alteracasa) {
+            case "tb":
+                lbl_26.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_26.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_26.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_26.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_26.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_26.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_26.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_26.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_26.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_26.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_26.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_26.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_26.setIcon(null);
+                break;
+        }
+        //lbl_36
+        alteracasa = descobreCasa("36");
+        switch (alteracasa) {
+            case "tb":
+                lbl_36.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_36.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_36.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_36.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_36.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_36.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_36.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_36.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_36.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_36.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_36.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_36.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_36.setIcon(null);
+                break;
+        }
+        //lbl_46
+        alteracasa = descobreCasa("46");
+        switch (alteracasa) {
+            case "tb":
+                lbl_46.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_46.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_46.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_46.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_46.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_46.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_46.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_46.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_46.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_46.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_46.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_46.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_46.setIcon(null);
+                break;
+        }
+        //lbl_56
+        alteracasa = descobreCasa("56");
+        switch (alteracasa) {
+            case "tb":
+                lbl_56.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_56.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_56.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_56.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_56.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_56.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_56.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_56.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_56.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_56.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_56.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_56.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_56.setIcon(null);
+                break;
+        }
+        //lbl_66
+        alteracasa = descobreCasa("66");
+        switch (alteracasa) {
+            case "tb":
+                lbl_66.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_66.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_66.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_66.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_66.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_66.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_66.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_66.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_66.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_66.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_66.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_66.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_66.setIcon(null);
+                break;
+        }
+        //lbl_76
+        alteracasa = descobreCasa("76");
+        switch (alteracasa) {
+            case "tb":
+                lbl_76.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_76.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_76.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_76.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_76.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_76.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_76.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_76.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_76.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_76.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_76.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_76.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_76.setIcon(null);
+                break;
+        }
+        //lbl_86
+        alteracasa = descobreCasa("86");
+        switch (alteracasa) {
+            case "tb":
+                lbl_86.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_86.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_86.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_86.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_86.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_86.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_86.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_86.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_86.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_86.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_86.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_86.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_86.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl7() {
+        //lbl_17
+        String alteracasa = descobreCasa("17");
+        switch (alteracasa) {
+            case "tb":
+                lbl_17.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_17.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_17.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_17.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_17.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_17.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_17.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_17.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_17.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_17.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_17.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_17.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_17.setIcon(null);
+                break;
+        }
+        //lbl_27
+        alteracasa = descobreCasa("27");
+        switch (alteracasa) {
+            case "tb":
+                lbl_27.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_27.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_27.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_27.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_27.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_27.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_27.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_27.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_27.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_27.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_27.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_27.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_27.setIcon(null);
+                break;
+        }
+        //lbl_37
+        alteracasa = descobreCasa("37");
+        switch (alteracasa) {
+            case "tb":
+                lbl_37.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_37.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_37.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_37.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_37.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_37.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_37.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_37.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_37.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_37.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_37.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_37.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_37.setIcon(null);
+                break;
+        }
+        //lbl_47
+        alteracasa = descobreCasa("47");
+        switch (alteracasa) {
+            case "tb":
+                lbl_47.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_47.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_47.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_47.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_47.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_47.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_47.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_47.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_47.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_47.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_47.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_47.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_47.setIcon(null);
+                break;
+        }
+        //lbl_57
+        alteracasa = descobreCasa("57");
+        switch (alteracasa) {
+            case "tb":
+                lbl_57.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_57.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_57.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_57.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_57.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_57.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_57.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_57.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_57.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_57.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_57.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_57.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_57.setIcon(null);
+                break;
+        }
+        //lbl_67
+        alteracasa = descobreCasa("67");
+        switch (alteracasa) {
+            case "tb":
+                lbl_67.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_67.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_67.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_67.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_67.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_67.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_67.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_67.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_67.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_67.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_67.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_67.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_67.setIcon(null);
+                break;
+        }
+        //lbl_77
+        alteracasa = descobreCasa("77");
+        switch (alteracasa) {
+            case "tb":
+                lbl_77.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_77.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_77.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_77.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_77.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_77.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_77.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_77.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_77.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_77.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_77.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_77.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_77.setIcon(null);
+                break;
+        }
+        //lbl_87
+        alteracasa = descobreCasa("87");
+        switch (alteracasa) {
+            case "tb":
+                lbl_87.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_87.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_87.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_87.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_87.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_87.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_87.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_87.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_87.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_87.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_87.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_87.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_87.setIcon(null);
+                break;
+        }
+    }
+
+    private void alteralbl8() {
+        //lbl_18
+        String alteracasa = descobreCasa("18");
+        switch (alteracasa) {
+            case "tb":
+                lbl_18.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_18.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_18.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_18.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_18.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_18.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_18.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_18.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_18.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_18.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_18.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_18.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_18.setIcon(null);
+                break;
+        }
+        //lbl_28
+        alteracasa = descobreCasa("28");
+        switch (alteracasa) {
+            case "tb":
+                lbl_28.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_28.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_28.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_28.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_28.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_28.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_28.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_28.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_28.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_28.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_28.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_28.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_28.setIcon(null);
+                break;
+        }
+        //lbl_38
+        alteracasa = descobreCasa("38");
+        switch (alteracasa) {
+            case "tb":
+                lbl_38.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_38.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_38.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_38.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_38.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_38.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_38.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_38.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_38.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_38.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_38.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_38.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_38.setIcon(null);
+                break;
+        }
+        //lbl_48
+        alteracasa = descobreCasa("48");
+        switch (alteracasa) {
+            case "tb":
+                lbl_48.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_48.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_48.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_48.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_48.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_48.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_48.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_48.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_48.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_48.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_48.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_48.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_48.setIcon(null);
+                break;
+        }
+        //lbl_58
+        alteracasa = descobreCasa("58");
+        switch (alteracasa) {
+            case "tb":
+                lbl_58.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_58.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_58.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_58.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_58.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_58.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_58.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_58.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_58.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_58.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_58.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_58.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_58.setIcon(null);
+                break;
+        }
+        //lbl_68
+        alteracasa = descobreCasa("68");
+        switch (alteracasa) {
+            case "tb":
+                lbl_68.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_68.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_68.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_68.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_68.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_68.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_68.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_68.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_68.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_68.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_68.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_68.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_68.setIcon(null);
+                break;
+        }
+        //lbl_78
+        alteracasa = descobreCasa("78");
+        switch (alteracasa) {
+            case "tb":
+                lbl_78.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_78.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_78.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_78.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_78.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_78.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_78.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_78.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_78.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_78.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_78.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_78.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_78.setIcon(null);
+                break;
+        }
+        //lbl_88
+        alteracasa = descobreCasa("88");
+        switch (alteracasa) {
+            case "tb":
+                lbl_88.setIcon(new ImageIcon(tb));
+                break;
+            case "cb":
+                lbl_88.setIcon(new ImageIcon(cb));
+                break;
+            case "bb":
+                lbl_88.setIcon(new ImageIcon(bb));
+                break;
+            case "qb":
+                lbl_88.setIcon(new ImageIcon(qb));
+                break;
+            case "kb":
+                lbl_88.setIcon(new ImageIcon(kb));
+                break;
+            case "pb":
+                lbl_88.setIcon(new ImageIcon(pb));
+                break;
+            case "tp":
+                lbl_88.setIcon(new ImageIcon(tp));
+                break;
+            case "cp":
+                lbl_88.setIcon(new ImageIcon(cp));
+                break;
+            case "bp":
+                lbl_88.setIcon(new ImageIcon(bp));
+                break;
+            case "qp":
+                lbl_88.setIcon(new ImageIcon(qp));
+                break;
+            case "kp":
+                lbl_88.setIcon(new ImageIcon(kp));
+                break;
+            case "pp":
+                lbl_88.setIcon(new ImageIcon(pp));
+                break;
+            case "":
+                lbl_88.setIcon(null);
+                break;
+        }
     }
 
 }//fimVISUAL

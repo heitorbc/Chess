@@ -23,8 +23,9 @@ public class ControleTotal {
     public Jogador jogador = new Jogador();
     Impressao impresso = new Impressao();
     Scanner scanner = new Scanner(System.in);
-    String[] nomeJogador = new String[2];
+    public String[] nomeJogador = new String[2];
     Mensagens view = new Mensagens();
+
     public boolean vezBranco = true;
     public boolean textual = true;
 
@@ -61,7 +62,6 @@ public class ControleTotal {
         //CONTROLA JOGADAS TEXTUAIS
         if (jog.equals("desistir") || jog.equals("DESISTIR")) {
             //COLOCA PONTO PARA JOGADORES
-
             if (vezBranco == true) {
                 jogador.addPontuacao(nomeJogador[1], "v");
                 jogador.addPontuacao(nomeJogador[0], "d");
@@ -73,29 +73,36 @@ public class ControleTotal {
 
             vezBranco = true;
             tabuleiro.reiniciaTabuleiro();
-            if (textual == false) {
-                new Visual().fechaTela();
-            }
+
             iniciaMenu();
 
         } else if (jog.equals("empate") || jog.equals("EMPATE")) {
             //Se ambos entrarem em acordo, rola um empate               
-            alteraVez();
-            view.empate(nomeJogador[0], nomeJogador[1], vezBranco);
-            String leitura = scanner.next().toUpperCase();
-            char desejo = leitura.charAt(0);
-            if (desejo == 'N') {
+
+            if (textual == true) {
                 alteraVez();
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
-            } else if (desejo == 'S') {
+                view.empate(nomeJogador[0], nomeJogador[1], vezBranco);
+                String leitura = scanner.next().toUpperCase();
+                char desejo = leitura.charAt(0);
+                if (desejo == 'N') {
+                    alteraVez();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                } else if (desejo == 'S') {
+                    jogador.addPontuacao(nomeJogador[0], "e");
+                    jogador.addPontuacao(nomeJogador[1], "e");
+                    tabuleiro.reiniciaTabuleiro();
+                    vezBranco = true;
+                    iniciaMenu();
+                } else {
+                    view.opcaoInvalida();
+                    controlaJogadas("empate");
+                }
+            } else {
                 jogador.addPontuacao(nomeJogador[0], "e");
                 jogador.addPontuacao(nomeJogador[1], "e");
                 tabuleiro.reiniciaTabuleiro();
                 vezBranco = true;
                 iniciaMenu();
-            } else {
-                view.opcaoInvalida();
-                controlaJogadas("empate");
             }
             //CONTROLA JOGADAS DE XADREZ
         } else {
@@ -138,9 +145,11 @@ public class ControleTotal {
                 movimentaPeca(posAtual, posProx, peca, corPeca);
 
             } else {
-                view.movimentoInvalido();
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                if (textual == true) {
 
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
             }
         }
     }
@@ -232,6 +241,7 @@ public class ControleTotal {
         if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
             switch (dado) {
                 case "1":
+                    textual = true;
                     impresso.imprimeMenu();
                     String comando = scanner.nextLine();
                     processaMenu(comando);
@@ -266,11 +276,9 @@ public class ControleTotal {
     }
 
     public void processaJogadorVisual(String j1, String j2) {
-        if (!jogador.jogadores.containsKey(j1)) {
+        if ((!jogador.jogadores.containsKey(j1)) && (!jogador.jogadores.containsKey(j2))) {
             nomeJogador[0] = j1;
             jogador.criaJogador(j1);
-        }
-        if (!jogador.jogadores.containsKey(j2)) {
             nomeJogador[1] = j2;
             jogador.criaJogador(j2);
         }
@@ -366,28 +374,37 @@ public class ControleTotal {
     public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca) {
 
         //Alguma situações não trocava a peça, acho que resolvi adicionando alteraVez() nas outras peças
-        System.out.println(tabuleiro.retornaPeca(posAtual));
-
+        //System.out.println(tabuleiro.retornaPeca(posAtual));
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
 
             if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
                     tabuleiro.trocaPeca(posAtual, posProx);
                     alteraVez();
-                    iniciaJogada();
+                    if (textual == true) {
+                        iniciaJogada();
+                    }
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+
+                        view.movimentoInvalido();
+                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
 
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
                     tabuleiro.trocaPeca(posAtual, posProx);
                     alteraVez();
-                    iniciaJogada();
+                    if (textual == true) {
+                        iniciaJogada();
+                    }
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+
+                        view.movimentoInvalido();
+                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    }
                 }
             } else if (peca == " T ") {//TORRE
                 //movimenta
