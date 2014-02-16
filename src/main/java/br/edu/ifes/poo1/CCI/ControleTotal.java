@@ -26,6 +26,7 @@ public class ControleTotal {
     String[] nomeJogador = new String[2];
     Mensagens view = new Mensagens();
     public boolean vezBranco = true;
+    public boolean textual = true;
 
     public ControleTotal(Tabuleiro tab) {
         this.tabuleiro = tab;
@@ -48,34 +49,36 @@ public class ControleTotal {
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
+
         impresso.imprimeTipo();
-        int dado = scanner.nextInt();
+        String dado = scanner.nextLine();
         processaTipo(dado);
 
     }
 
     public void controlaJogadas(String jog) {
-        String posAtual = "" + jog.charAt(0) + jog.charAt(1);
-        String posProx = "" + jog.charAt(2) + jog.charAt(3);
-        String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
-        String corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
-        
-        System.out.println("Atual + Prox " + posAtual + posProx);
-        
-        if (jog.equals("desistir") ) {
-            //COLOCA INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
+
+        //CONTROLA JOGADAS TEXTUAIS
+        if (jog.equals("desistir") || jog.equals("DESISTIR")) {
+            //COLOCA PONTO PARA JOGADORES
+
             if (vezBranco == true) {
                 jogador.addPontuacao(nomeJogador[1], "v");
                 jogador.addPontuacao(nomeJogador[0], "d");
+
             } else {
                 jogador.addPontuacao(nomeJogador[1], "d");
                 jogador.addPontuacao(nomeJogador[0], "v");
             }
+
             vezBranco = true;
             tabuleiro.reiniciaTabuleiro();
+            if (textual == false) {
+                new Visual().fechaTela();
+            }
             iniciaMenu();
 
-        } else if (jog.equals("empate")) {
+        } else if (jog.equals("empate") || jog.equals("EMPATE")) {
             //Se ambos entrarem em acordo, rola um empate               
             alteraVez();
             view.empate(nomeJogador[0], nomeJogador[1], vezBranco);
@@ -94,65 +97,82 @@ public class ControleTotal {
                 view.opcaoInvalida();
                 controlaJogadas("empate");
             }
-
-        } //roqueMenor
-        else if (jog.length() == 3) {
-            System.out.println("Em construção");
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
-            alteraVez();
-            iniciaMenu();
-
-        } //roque Maior
-        else if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
-            System.out.println("Em construção");
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
-            alteraVez();
-            iniciaMenu();
-
-        }//JOGADA DE CAPTURA 
-        else if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
-            String posAtualCaptura = "" + jog.charAt(0) + jog.charAt(1);
-            String posProxCaptura = "" + jog.charAt(3) + jog.charAt(4);
-            capturaPeca(posAtualCaptura, posProxCaptura, peca, corPeca);
-
-        } //MOVIMENTAÇÂO NORMAL
-        else if (jog.length() == 4) {
-            movimentaPeca(posAtual, posProx, peca, corPeca);
+            //CONTROLA JOGADAS DE XADREZ
         } else {
-            view.movimentoInvalido();
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+            if (jog.length() == 3) {
+                System.out.println("Em construção");
+                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                alteraVez();
+                iniciaMenu();
 
+            } //roque Maior
+
+            //roqueMenor
+            if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
+                System.out.println("Em construção");
+                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                alteraVez();
+                iniciaMenu();
+
+            }
+
+            String posAtual = "" + jog.charAt(0) + jog.charAt(1);
+            String posProx = "" + jog.charAt(2) + jog.charAt(3);
+            String peca = "";
+            String corPeca = "";
+            try {
+                peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
+                corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
+            } catch (Exception e) {
+                view.entradaInvalida();
+                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+            }
+            //JOGADA DE CAPTURA 
+            if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
+                String posAtualCaptura = "" + jog.charAt(0) + jog.charAt(1);
+                String posProxCaptura = "" + jog.charAt(3) + jog.charAt(4);
+                capturaPeca(posAtualCaptura, posProxCaptura, peca, corPeca);
+
+            } //MOVIMENTAÇÂO NORMAL
+            else if (jog.length() == 4) {
+                movimentaPeca(posAtual, posProx, peca, corPeca);
+
+            } else {
+                view.movimentoInvalido();
+                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+
+            }
         }
-
     }
 
     public void iniciaJogada() {
+        if (textual == true) {
+            impresso.Impressao(tabuleiro);
+            if (vezBranco == true) {
+                System.out.println("VEZ BRANCO");
+            } else {
+                System.out.println("VEZ PRETA");
+            }
+            imprimeJogada(nomeJogador[0], nomeJogador[1]);
 
-        impresso.Impressao(tabuleiro);
-        if (vezBranco == true) {
-            System.out.println("VEZ BRANCO");
-        } else {
-            System.out.println("VEZ PRETA");
         }
-        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-
     }
 
-    private void processaModoJogo(int dado) {
-        if ((dado >= 1) && dado <= 3) {
+    private void processaModoJogo(String dado) {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
 
             switch (dado) {
-                case 1:
+                case "1":
                     processaJogador();
                     iniciaJogada();
                     break;
-                case 2:
+                case "2":
                     System.out.println("##ERRO##: Módulo Inativo!!");
                     impresso.imprimeModoJogo();
-                    int comando = scanner.nextInt();
+                    String comando = scanner.nextLine();
                     processaModoJogo(comando);
                     break;
-                case 3:
+                case "3":
                     System.exit(0);
                     break;
 
@@ -160,27 +180,27 @@ public class ControleTotal {
         } else {
             view.entradaInvalida();
             impresso.imprimeModoJogo();
-            int comando = scanner.nextInt();
+            String comando = scanner.nextLine();
             processaModoJogo(comando);
         }
     }
 
-    private void processaMenu(int dado) {
-        if ((dado >= 1) && dado <= 3) {
+    private void processaMenu(String dado) {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
 
             switch (dado) {
-                case 1:
+                case "1":
                     impresso.imprimeModoJogo();
-                    int comando = scanner.nextInt();
+                    String comando = scanner.nextLine();
                     processaModoJogo(comando);
                     break;
-                case 2:
+                case "2":
                     impresso.imprimeDados(jogador.jogadores);
                     impresso.imprimeMenu();
-                    comando = scanner.nextInt();
+                    comando = scanner.nextLine();
                     processaMenu(comando);
                     break;
-                case 3:
+                case "3":
                     System.exit(0);
                     break;
 
@@ -208,25 +228,26 @@ public class ControleTotal {
 
     }
 
-    private void processaTipo(int dado) {
-        if ((dado >= 1) && dado <= 3) {
+    private void processaTipo(String dado) {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
             switch (dado) {
-                case 1:
+                case "1":
                     impresso.imprimeMenu();
-                    int comando = scanner.nextInt();
+                    String comando = scanner.nextLine();
                     processaMenu(comando);
                     break;
-                case 2:
+                case "2":
                     new Visual().show();
-                    
+                    textual = false;
                     break;
-                case 3:
+                case "3":
                     System.exit(0);
                     break;
             }
         } else {
             view.entradaInvalida();
             iniciaMenu();
+
         }
     }
 
@@ -243,17 +264,19 @@ public class ControleTotal {
             jogador.criaJogador(nomeJogador[1]);
         }
     }
-    
-    public void processaJogadorVisual(String j1,String j2) {
+
+    public void processaJogadorVisual(String j1, String j2) {
         if (!jogador.jogadores.containsKey(j1)) {
+            nomeJogador[0] = j1;
             jogador.criaJogador(j1);
         }
         if (!jogador.jogadores.containsKey(j2)) {
+            nomeJogador[1] = j2;
             jogador.criaJogador(j2);
         }
     }
-    
-    public void capturaPeca(String posAtual, String posProx, String peca, String corPeca){
+
+    public void capturaPeca(String posAtual, String posProx, String peca, String corPeca) {
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
 
             if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
@@ -262,8 +285,10 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
 
@@ -282,8 +307,10 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    }
                 }
             } else if (peca == " C ") {//CAVALO
                 //movimenta 
@@ -336,135 +363,432 @@ public class ControleTotal {
         }
     }
 
-    public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca){
-        
+    public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca) {
+
         //Alguma situações não trocava a peça, acho que resolvi adicionando alteraVez() nas outras peças
-            System.out.println(tabuleiro.retornaPeca(posAtual));
+        System.out.println(tabuleiro.retornaPeca(posAtual));
 
-            if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
+        if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
 
-                if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) &&(tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
-
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " T ") {//TORRE
-                    //movimenta
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " C ") {//CAVALO
-                    //movimenta 
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " B ") {//BISPO
-                    //Movimento
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " D ") {//DAMA
-                    //movimenta
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
-                } else if (peca == " R ") {//REI
-                    //movimenta 
-                    if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
-                        tabuleiro.trocaPeca(posAtual, posProx);
-                        alteraVez();
-                        iniciaJogada();
-                    } else {
-                        view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                    }
+            if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
                 } else {
-                    view.opcaoInvalida();
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
+
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " T ") {//TORRE
+                //movimenta
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " C ") {//CAVALO
+                //movimenta 
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " B ") {//BISPO
+                //Movimento
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " D ") {//DAMA
+                //movimenta
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
+                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                }
+            } else if (peca == " R ") {//REI
+                //movimenta 
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    alteraVez();
+                    iniciaJogada();
+                } else {
+                    view.movimentoInvalido();
                     imprimeJogada(nomeJogador[0], nomeJogador[1]);
                 }
             } else {
-                //pos atual nao é a peca do jogador da vez
-                view.naoEhSuaVez();
+                view.opcaoInvalida();
                 imprimeJogada(nomeJogador[0], nomeJogador[1]);
             }
-        
+        } else {
+            //pos atual nao é a peca do jogador da vez
+            view.naoEhSuaVez();
+            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+        }
+
     }
-    
-    
-    public boolean caminhoLivre(String posAtual, String posProx, String peca, String corPeca){
+
+    public boolean caminhoLivre(String posAtual, String posProx, String peca, String corPeca) {
         //Branco Peão
-        int i;
+        int i, j;
         String posAtualAux = posAtual;
-        //String posProxAux = posProx;
+        String posProxAux = posProx;
+        int nposAtual, nposProx, nposProx1, nposAtual1;
+
         boolean podeIr = false;
-        if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO){
-            for(i=3;i < 9; i++){
 
-                posAtualAux = ""+posAtual.charAt(0)+ i;
-
-                podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
-                
-                if(posAtualAux.equals(posProx)){
-                    break;
+        if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {
+            nposAtual = Character.getNumericValue(posAtual.charAt(0));
+            nposAtual1 = Character.getNumericValue(posAtual.charAt(1));
+            nposProx1 = Character.getNumericValue(posProx.charAt(1));
+            nposAtual1++;
+            if ((posAtual.charAt(0) == posProx.charAt(0)) && (posAtual.charAt(1) < posProx.charAt(1))) {
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual1++;
                 }
-             }
-             return podeIr;   
-        }
-        //Preto Peão
-        else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO){
-            for(i=6; i > 0; i--){
-
-                posAtualAux = ""+posAtual.charAt(0)+ i;
-
-                if(posAtualAux.equals(posProx)){
-                    break;
-                }
-                
-                podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
-             }
-             return podeIr;
-        }//Torre
-        else if (peca == " T "){
-            if(tabuleiro.retornaPeca(posAtualAux).podeAndarQuanto(posAtual, posProx)){
-                
+                return podeIr;
             }
-            podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+
+        } //Preto Peão
+        else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {
+            nposAtual = Character.getNumericValue(posAtual.charAt(0));
+            nposAtual1 = Character.getNumericValue(posAtual.charAt(1));
+            nposProx1 = Character.getNumericValue(posProx.charAt(1));
+            nposAtual1--;
+            if ((posAtual.charAt(0) == posProx.charAt(0)) && (posAtual.charAt(1) > posProx.charAt(1))) {
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual1--;
+                }
+                return podeIr;
+            }
+        }//Torre
+        else if (peca == " T ") {
+
+            //Vertical
+            if (posAtual.charAt(0) == posProx.charAt(0)) {
+                //Movimento de baixo para cima
+                if (posAtual.charAt(1) < posProx.charAt(1)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(1));
+                    nposAtual++;
+                    nposProx = Character.getNumericValue(posProx.charAt(1));
+
+                    for (i = nposAtual; i <= nposProx; i++) {
+                        posAtualAux = "" + posAtual.charAt(0) + i;
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                } else//Movimento de baixo para cima
+                if (posAtual.charAt(1) > posProx.charAt(1)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(1));
+                    nposAtual--;
+                    nposProx = Character.getNumericValue(posProx.charAt(1));
+
+                    for (i = nposAtual; i >= nposProx; i--) {
+                        posAtualAux = "" + posAtual.charAt(0) + i;
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                }
+
+            }
+
+            //HORIZONTAL
+            if (posAtual.charAt(1) == posProx.charAt(1)) {
+                //Movimento esquerda para direita
+                if (posAtual.charAt(0) < posProx.charAt(0)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(0));
+                    nposAtual++;
+                    nposProx = Character.getNumericValue(posProx.charAt(0));
+
+                    for (i = nposAtual; i <= nposProx; i++) {
+                        posAtualAux = "" + i + posAtual.charAt(1);
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                } else//Movimento da direita para esquerda
+                if (posAtual.charAt(0) > posProx.charAt(0)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(0));
+                    nposAtual--;
+                    nposProx = Character.getNumericValue(posProx.charAt(0));
+
+                    for (i = nposAtual; i >= nposProx; i--) {
+                        posAtualAux = "" + i + posAtual.charAt(1);
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                }
+
+            }
+
+        }//BISPO
+        else if (peca == " B ") {
+            nposAtual = Character.getNumericValue(posAtual.charAt(0));
+            nposAtual1 = Character.getNumericValue(posAtual.charAt(1));
+
+            //Diagonal para direita
+            //de baixo para cima
+            if ((posAtual.charAt(0) < posProx.charAt(0)) && (posAtual.charAt(1) < posProx.charAt(1))) {
+                nposAtual++;
+                nposAtual1++;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual++;
+                    nposAtual1++;
+                }
+                return podeIr;
+            }
+            //de cima para baixo
+            if ((posAtual.charAt(0) < posProx.charAt(0)) && (posAtual.charAt(1) > posProx.charAt(1))) {
+                nposAtual++;
+                nposAtual1--;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual++;
+                    nposAtual1--;
+                }
+                return podeIr;
+            }
+            //Diagonal para esquerda
+            //de baixo para cima
+            if ((posAtual.charAt(0) > posProx.charAt(0)) && (posAtual.charAt(1) < posProx.charAt(1))) {
+                nposAtual--;
+                nposAtual1++;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual--;
+                    nposAtual1++;
+                }
+                return podeIr;
+            }
+
+            //de cima para baixo
+            if ((posAtual.charAt(0) > posProx.charAt(0)) && (posAtual.charAt(1) > posProx.charAt(1))) {
+                nposAtual--;
+                nposAtual1--;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual--;
+                    nposAtual1--;
+                }
+                return podeIr;
+            }
+        }//DAMA
+        else if (peca == " D ") {
+            //DAMA ADNDANDO COMO TORRE
+            //Vertical
+            if (posAtual.charAt(0) == posProx.charAt(0)) {
+                //Movimento de baixo para cima
+                if (posAtual.charAt(1) < posProx.charAt(1)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(1));
+                    nposAtual++;
+                    nposProx = Character.getNumericValue(posProx.charAt(1));
+
+                    for (i = nposAtual; i <= nposProx; i++) {
+                        posAtualAux = "" + posAtual.charAt(0) + i;
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                } else//Movimento de baixo para cima
+                if (posAtual.charAt(1) > posProx.charAt(1)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(1));
+                    nposAtual--;
+                    nposProx = Character.getNumericValue(posProx.charAt(1));
+
+                    for (i = nposAtual; i >= nposProx; i--) {
+                        posAtualAux = "" + posAtual.charAt(0) + i;
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                }
+
+            }
+
+            //HORIZONTAL
+            if (posAtual.charAt(1) == posProx.charAt(1)) {
+                //Movimento esquerda para direita
+                if (posAtual.charAt(0) < posProx.charAt(0)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(0));
+                    nposAtual++;
+                    nposProx = Character.getNumericValue(posProx.charAt(0));
+
+                    for (i = nposAtual; i <= nposProx; i++) {
+                        posAtualAux = "" + i + posAtual.charAt(1);
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                } else//Movimento da direita para esquerda
+                if (posAtual.charAt(0) > posProx.charAt(0)) {
+                    //convertendo Char para Int
+                    nposAtual = Character.getNumericValue(posAtual.charAt(0));
+                    nposAtual--;
+                    nposProx = Character.getNumericValue(posProx.charAt(0));
+
+                    for (i = nposAtual; i >= nposProx; i--) {
+                        posAtualAux = "" + i + posAtual.charAt(1);
+                        podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                        if (podeIr == false) {
+                            return podeIr;
+                        }
+                    }
+                    return podeIr;
+
+                }
+
+            }
+            //DAMA ANDANDO COMO BISPO
+            nposAtual = Character.getNumericValue(posAtual.charAt(0));
+            nposAtual1 = Character.getNumericValue(posAtual.charAt(1));
+
+            //Diagonal para direita
+            //de baixo para cima
+            if ((posAtual.charAt(0) < posProx.charAt(0)) && (posAtual.charAt(1) < posProx.charAt(1))) {
+                nposAtual++;
+                nposAtual1++;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual++;
+                    nposAtual1++;
+                }
+                return podeIr;
+            }
+            //de cima para baixo
+            if ((posAtual.charAt(0) < posProx.charAt(0)) && (posAtual.charAt(1) > posProx.charAt(1))) {
+                nposAtual++;
+                nposAtual1--;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual++;
+                    nposAtual1--;
+                }
+                return podeIr;
+            }
+            //Diagonal para esquerda
+            //de baixo para cima
+            if ((posAtual.charAt(0) > posProx.charAt(0)) && (posAtual.charAt(1) < posProx.charAt(1))) {
+                nposAtual--;
+                nposAtual1++;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual--;
+                    nposAtual1++;
+                }
+                return podeIr;
+            }
+
+            //de cima para baixo
+            if ((posAtual.charAt(0) > posProx.charAt(0)) && (posAtual.charAt(1) > posProx.charAt(1))) {
+                nposAtual--;
+                nposAtual1--;
+                while (!posAtualAux.equals(posProx)) {
+                    posAtualAux = "" + nposAtual + nposAtual1;
+                    podeIr = tabuleiro.retornaPeca(posAtualAux) == null;
+                    if (podeIr == false) {
+                        return podeIr;
+                    }
+                    nposAtual--;
+                    nposAtual1--;
+                }
+                return podeIr;
+            }
+
         }
-        
+
         //Resto deu Merda
         view.deuMerda();
         return false;

@@ -62,13 +62,39 @@ public class Visual extends javax.swing.JFrame {
         lbl_11 = new javax.swing.JLabel();
         lbl_l_1 = new javax.swing.JLabel();
         lbl_l_2 = new javax.swing.JLabel();
+        lbl_21 = new javax.swing.JLabel();
+        lbl_41 = new javax.swing.JLabel();
+        lbl_31 = new javax.swing.JLabel();
+        lbl_51 = new javax.swing.JLabel();
+        lbl_61 = new javax.swing.JLabel();
+        lbl_71 = new javax.swing.JLabel();
+        lbl_81 = new javax.swing.JLabel();
+        lbl_82 = new javax.swing.JLabel();
         lbl_12 = new javax.swing.JLabel();
-        lbl_14 = new javax.swing.JLabel();
+        lbl_22 = new javax.swing.JLabel();
+        lbl_32 = new javax.swing.JLabel();
+        lbl_42 = new javax.swing.JLabel();
+        lbl_52 = new javax.swing.JLabel();
+        lbl_62 = new javax.swing.JLabel();
+        lbl_72 = new javax.swing.JLabel();
+        lbl_l_3 = new javax.swing.JLabel();
+        lbl_83 = new javax.swing.JLabel();
         lbl_13 = new javax.swing.JLabel();
-        lbl_15 = new javax.swing.JLabel();
-        lbl_16 = new javax.swing.JLabel();
-        lbl_17 = new javax.swing.JLabel();
-        lbl_18 = new javax.swing.JLabel();
+        lbl_23 = new javax.swing.JLabel();
+        lbl_33 = new javax.swing.JLabel();
+        lbl_43 = new javax.swing.JLabel();
+        lbl_53 = new javax.swing.JLabel();
+        lbl_63 = new javax.swing.JLabel();
+        lbl_73 = new javax.swing.JLabel();
+        lbl_l_4 = new javax.swing.JLabel();
+        lbl_74 = new javax.swing.JLabel();
+        lbl_84 = new javax.swing.JLabel();
+        lbl_14 = new javax.swing.JLabel();
+        lbl_24 = new javax.swing.JLabel();
+        lbl_34 = new javax.swing.JLabel();
+        lbl_44 = new javax.swing.JLabel();
+        lbl_54 = new javax.swing.JLabel();
+        lbl_64 = new javax.swing.JLabel();
         btn_novo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lbl_digitecomando = new javax.swing.JLabel();
@@ -82,7 +108,8 @@ public class Visual extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setAlwaysOnTop(true);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -95,13 +122,78 @@ public class Visual extends javax.swing.JFrame {
         lbl_11.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_11.setFocusable(false);
         lbl_11.setOpaque(true);
-        jPanel1.add(lbl_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 70, 70));
+        jPanel1.add(lbl_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 70, 70));
 
         lbl_l_1.setText("1");
-        jPanel1.add(lbl_l_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        jPanel1.add(lbl_l_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, -1, -1));
 
         lbl_l_2.setText("2");
-        jPanel1.add(lbl_l_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+        jPanel1.add(lbl_l_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, -1, -1));
+
+        lbl_21.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_21.setText("21");
+        lbl_21.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_21.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_21.setFocusable(false);
+        lbl_21.setOpaque(true);
+        jPanel1.add(lbl_21, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 70, 70));
+
+        lbl_41.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_41.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_41.setText("41");
+        lbl_41.setFocusable(false);
+        lbl_41.setOpaque(true);
+        jPanel1.add(lbl_41, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 70, 70));
+
+        lbl_31.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_31.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_31.setText("31");
+        lbl_31.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_31.setFocusable(false);
+        lbl_31.setOpaque(true);
+        jPanel1.add(lbl_31, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 70, 70));
+
+        lbl_51.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_51.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_51.setText("51");
+        lbl_51.setFocusable(false);
+        lbl_51.setOpaque(true);
+        jPanel1.add(lbl_51, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, 70, 70));
+
+        lbl_61.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_61.setText("61");
+        lbl_61.setFocusable(false);
+        lbl_61.setOpaque(true);
+        jPanel1.add(lbl_61, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 70, 70));
+
+        lbl_71.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_71.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_71.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_71.setText("71");
+        lbl_71.setFocusable(false);
+        lbl_71.setOpaque(true);
+        jPanel1.add(lbl_71, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 70, 70));
+
+        lbl_81.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_81.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_81.setText("81");
+        lbl_81.setFocusable(false);
+        lbl_81.setOpaque(true);
+        jPanel1.add(lbl_81, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 70, 70));
+
+        lbl_82.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_82.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_82.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_82.setText("82");
+        lbl_82.setToolTipText("");
+        lbl_82.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_82.setFocusable(false);
+        lbl_82.setOpaque(true);
+        jPanel1.add(lbl_82, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 70, 70));
 
         lbl_12.setBackground(new java.awt.Color(255, 255, 255));
         lbl_12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -110,14 +202,65 @@ public class Visual extends javax.swing.JFrame {
         lbl_12.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_12.setFocusable(false);
         lbl_12.setOpaque(true);
-        jPanel1.add(lbl_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, 70, 70));
+        jPanel1.add(lbl_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 70, 70));
 
-        lbl_14.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_14.setText("14");
-        lbl_14.setFocusable(false);
-        lbl_14.setOpaque(true);
-        jPanel1.add(lbl_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 70, 70));
+        lbl_22.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_22.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_22.setText("22");
+        lbl_22.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_22.setFocusable(false);
+        lbl_22.setOpaque(true);
+        jPanel1.add(lbl_22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 70, 70));
+
+        lbl_32.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_32.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_32.setText("32");
+        lbl_32.setFocusable(false);
+        lbl_32.setOpaque(true);
+        jPanel1.add(lbl_32, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 70, 70));
+
+        lbl_42.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_42.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_42.setText("42");
+        lbl_42.setFocusable(false);
+        lbl_42.setOpaque(true);
+        jPanel1.add(lbl_42, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, 70, 70));
+
+        lbl_52.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_52.setText("52");
+        lbl_52.setFocusable(false);
+        lbl_52.setOpaque(true);
+        jPanel1.add(lbl_52, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 70));
+
+        lbl_62.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_62.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_62.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_62.setText("62");
+        lbl_62.setFocusable(false);
+        lbl_62.setOpaque(true);
+        jPanel1.add(lbl_62, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 70, 70));
+
+        lbl_72.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_72.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_72.setText("72");
+        lbl_72.setFocusable(false);
+        lbl_72.setOpaque(true);
+        jPanel1.add(lbl_72, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 70, 70));
+
+        lbl_l_3.setText("3");
+        jPanel1.add(lbl_l_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, -1, -1));
+
+        lbl_83.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_83.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_83.setText("83");
+        lbl_83.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_83.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_83.setFocusable(false);
+        lbl_83.setOpaque(true);
+        jPanel1.add(lbl_83, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 70, 70));
 
         lbl_13.setBackground(new java.awt.Color(0, 0, 0));
         lbl_13.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,37 +269,122 @@ public class Visual extends javax.swing.JFrame {
         lbl_13.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_13.setFocusable(false);
         lbl_13.setOpaque(true);
-        jPanel1.add(lbl_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 70, 70));
+        jPanel1.add(lbl_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 70, 70));
 
-        lbl_15.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_15.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_15.setText("15");
-        lbl_15.setFocusable(false);
-        lbl_15.setOpaque(true);
-        jPanel1.add(lbl_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 70, 70));
+        lbl_23.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_23.setText("23");
+        lbl_23.setFocusable(false);
+        lbl_23.setOpaque(true);
+        jPanel1.add(lbl_23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 70, 70));
 
-        lbl_16.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_16.setText("16");
-        lbl_16.setFocusable(false);
-        lbl_16.setOpaque(true);
-        jPanel1.add(lbl_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, 70, 70));
+        lbl_33.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_33.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_33.setText("33");
+        lbl_33.setFocusable(false);
+        lbl_33.setOpaque(true);
+        jPanel1.add(lbl_33, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 70, 70));
 
-        lbl_17.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_17.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_17.setText("17");
-        lbl_17.setFocusable(false);
-        lbl_17.setOpaque(true);
-        jPanel1.add(lbl_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 70, 70));
+        lbl_43.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_43.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_43.setText("43");
+        lbl_43.setFocusable(false);
+        lbl_43.setOpaque(true);
+        jPanel1.add(lbl_43, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 70, 70));
 
-        lbl_18.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_18.setText("18");
-        lbl_18.setFocusable(false);
-        lbl_18.setOpaque(true);
-        jPanel1.add(lbl_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, 70, 70));
+        lbl_53.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_53.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_53.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_53.setText("53");
+        lbl_53.setFocusable(false);
+        lbl_53.setOpaque(true);
+        jPanel1.add(lbl_53, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 70, 70));
+
+        lbl_63.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_63.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_63.setText("63");
+        lbl_63.setFocusable(false);
+        lbl_63.setOpaque(true);
+        jPanel1.add(lbl_63, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 70, 70));
+
+        lbl_73.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_73.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_73.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_73.setText("73");
+        lbl_73.setToolTipText("");
+        lbl_73.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_73.setFocusable(false);
+        lbl_73.setOpaque(true);
+        jPanel1.add(lbl_73, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 70, 70));
+
+        lbl_l_4.setText("4");
+        jPanel1.add(lbl_l_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+
+        lbl_74.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_74.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_74.setText("74");
+        lbl_74.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        lbl_74.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_74.setFocusable(false);
+        lbl_74.setOpaque(true);
+        jPanel1.add(lbl_74, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 70, 70));
+
+        lbl_84.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_84.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_84.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_84.setText("84");
+        lbl_84.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_84.setFocusable(false);
+        lbl_84.setOpaque(true);
+        jPanel1.add(lbl_84, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 70, 70));
+
+        lbl_14.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_14.setText("14");
+        lbl_14.setFocusable(false);
+        lbl_14.setOpaque(true);
+        jPanel1.add(lbl_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 70));
+
+        lbl_24.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_24.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_24.setText("24");
+        lbl_24.setFocusable(false);
+        lbl_24.setOpaque(true);
+        jPanel1.add(lbl_24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 70, 70));
+
+        lbl_34.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_34.setText("34");
+        lbl_34.setFocusable(false);
+        lbl_34.setOpaque(true);
+        jPanel1.add(lbl_34, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, 70));
+
+        lbl_44.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_44.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_44.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_44.setText("44");
+        lbl_44.setFocusable(false);
+        lbl_44.setOpaque(true);
+        jPanel1.add(lbl_44, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 70, 70));
+
+        lbl_54.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_54.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_54.setText("54");
+        lbl_54.setFocusable(false);
+        lbl_54.setOpaque(true);
+        jPanel1.add(lbl_54, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 70, 70));
+
+        lbl_64.setBackground(new java.awt.Color(0, 0, 0));
+        lbl_64.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_64.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_64.setText("64");
+        lbl_64.setToolTipText("");
+        lbl_64.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
+        lbl_64.setFocusable(false);
+        lbl_64.setOpaque(true);
+        jPanel1.add(lbl_64, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 70, 70));
 
         btn_novo.setText("NOVO");
         btn_novo.setFocusable(false);
@@ -300,7 +528,7 @@ public class Visual extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -313,7 +541,7 @@ public class Visual extends javax.swing.JFrame {
                             .addComponent(jButton4))
                         .addGap(44, 44, 44))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 627, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
 
@@ -333,7 +561,9 @@ public class Visual extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_jogadaActionPerformed
 
     private void btn_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogadaActionPerformed
-        controlaJogadasView(lbl_jogada.getText());
+        System.out.println("acao");
+        control.controlaJogadas(lbl_jogada.getText());
+        System.out.println("atualizar tab");
         atualizaTabuleiro();
     }//GEN-LAST:event_btn_jogadaActionPerformed
 
@@ -401,16 +631,42 @@ public class Visual extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_12;
     private javax.swing.JLabel lbl_13;
     private javax.swing.JLabel lbl_14;
-    private javax.swing.JLabel lbl_15;
-    private javax.swing.JLabel lbl_16;
-    private javax.swing.JLabel lbl_17;
-    private javax.swing.JLabel lbl_18;
+    private javax.swing.JLabel lbl_21;
+    private javax.swing.JLabel lbl_22;
+    private javax.swing.JLabel lbl_23;
+    private javax.swing.JLabel lbl_24;
+    private javax.swing.JLabel lbl_31;
+    private javax.swing.JLabel lbl_32;
+    private javax.swing.JLabel lbl_33;
+    private javax.swing.JLabel lbl_34;
+    private javax.swing.JLabel lbl_41;
+    private javax.swing.JLabel lbl_42;
+    private javax.swing.JLabel lbl_43;
+    private javax.swing.JLabel lbl_44;
+    private javax.swing.JLabel lbl_51;
+    private javax.swing.JLabel lbl_52;
+    private javax.swing.JLabel lbl_53;
+    private javax.swing.JLabel lbl_54;
+    private javax.swing.JLabel lbl_61;
+    private javax.swing.JLabel lbl_62;
+    private javax.swing.JLabel lbl_63;
+    private javax.swing.JLabel lbl_64;
+    private javax.swing.JLabel lbl_71;
+    private javax.swing.JLabel lbl_72;
+    private javax.swing.JLabel lbl_73;
+    private javax.swing.JLabel lbl_74;
+    private javax.swing.JLabel lbl_81;
+    private javax.swing.JLabel lbl_82;
+    private javax.swing.JLabel lbl_83;
+    private javax.swing.JLabel lbl_84;
     private javax.swing.JLabel lbl_digitecomando;
     private javax.swing.JTextField lbl_jogada;
     private javax.swing.JLabel lbl_jogador1;
     private javax.swing.JLabel lbl_jogador2;
     private javax.swing.JLabel lbl_l_1;
     private javax.swing.JLabel lbl_l_2;
+    private javax.swing.JLabel lbl_l_3;
+    private javax.swing.JLabel lbl_l_4;
     private javax.swing.JLabel lbl_vez;
     // End of variables declaration//GEN-END:variables
 
@@ -418,12 +674,13 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogador1.setText(JOptionPane.showInputDialog(null, "Digite nome do Jogador 1:", "jogador BRANCAS").toUpperCase());
         lbl_jogador2.setText(JOptionPane.showInputDialog(null, "Digite nome do Jogador 2:", "jogador PRETAS").toUpperCase());
         control.processaJogadorVisual(lbl_jogador1.getText(), lbl_jogador2.getText());
+
         if (control.retornaVezBranco()) {
             lbl_vez.setText("VEZ BRANCAS");
         } else {
             lbl_vez.setText("VEZ PRETAS");
         }
-        
+
         retiraNomeLbl();
         atualizaTabuleiro();
 
@@ -432,7 +689,6 @@ public class Visual extends javax.swing.JFrame {
 //        lbl_14.setIcon(new ImageIcon(qb));
 //        lbl_15.setIcon(new ImageIcon(kb));
 //        lbl_jogador1.setText("TESTE");
-
         //JOptionPane.showMessageDialog(null, "Mensagem", "Titulo", 1);  
     }
 
@@ -450,313 +706,786 @@ public class Visual extends javax.swing.JFrame {
         String alteracasa;
         //lbl_11
         alteracasa = descobreCasa("11");
-        if(alteracasa=="tb"){
+        if (alteracasa == "tb") {
             lbl_11.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
+        } else if (alteracasa == "cb") {
             lbl_11.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
+        } else if (alteracasa == "bb") {
             lbl_11.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
+        } else if (alteracasa == "qb") {
             lbl_11.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
+        } else if (alteracasa == "kb") {
             lbl_11.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
+        } else if (alteracasa == "pb") {
             lbl_11.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
+        } else if (alteracasa == "tp") {
             lbl_11.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
+        } else if (alteracasa == "cp") {
             lbl_11.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
+        } else if (alteracasa == "bp") {
             lbl_11.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
+        } else if (alteracasa == "qp") {
             lbl_11.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
+        } else if (alteracasa == "kp") {
             lbl_11.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
+        } else if (alteracasa == "pp") {
             lbl_11.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
+        } else if (alteracasa == "") {
             lbl_11.setIcon(null);
         }
-        
-        //lbl_12
+
+        //lbl_21
         alteracasa = descobreCasa("21");
-        lbl_12.setIcon(new ImageIcon(tb));
-        if(alteracasa=="tb"){
+        lbl_21.setIcon(new ImageIcon(tb));
+        if (alteracasa == "tb") {
+            lbl_21.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_21.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_21.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_21.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_21.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_21.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_21.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_21.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_21.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_21.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_21.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_21.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_21.setIcon(null);
+        }
+        //lbl_31
+        alteracasa = descobreCasa("31");
+        if (alteracasa == "tb") {
+            lbl_31.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_31.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_31.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_31.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_31.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_31.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_31.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_31.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_31.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_31.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_31.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_31.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_31.setIcon(null);
+        }
+        //lbl_41
+        alteracasa = descobreCasa("41");
+        if (alteracasa == "tb") {
+            lbl_41.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_41.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_41.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_41.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_41.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_41.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_41.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_41.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_41.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_41.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_41.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_41.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_41.setIcon(null);
+        }
+        //lbl_51
+        alteracasa = descobreCasa("51");
+        if (alteracasa == "tb") {
+            lbl_51.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_51.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_51.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_51.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_51.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_51.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_51.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_51.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_51.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_51.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_51.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_51.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_51.setIcon(null);
+        }
+        //lbl_61
+        alteracasa = descobreCasa("61");
+        if (alteracasa == "tb") {
+            lbl_61.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_61.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_61.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_61.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_61.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_61.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_61.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_61.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_61.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_61.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_61.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_61.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_61.setIcon(null);
+        }
+        //lbl_71
+        alteracasa = descobreCasa("71");
+        if (alteracasa == "tb") {
+            lbl_71.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_71.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_71.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_71.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_71.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_71.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_71.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_71.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_71.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_71.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_71.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_71.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_71.setIcon(null);
+        }
+        //lbl_81
+        alteracasa = descobreCasa("81");
+        if (alteracasa == "tb") {
+            lbl_81.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_81.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_81.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_81.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_81.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_81.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_81.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_81.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_81.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_81.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_81.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_81.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_81.setIcon(null);
+        }
+
+        //lbl_12
+        alteracasa = descobreCasa("12");
+        if (alteracasa == "tb") {
             lbl_12.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
+        } else if (alteracasa == "cb") {
             lbl_12.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
+        } else if (alteracasa == "bb") {
             lbl_12.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
+        } else if (alteracasa == "qb") {
             lbl_12.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
+        } else if (alteracasa == "kb") {
             lbl_12.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
+        } else if (alteracasa == "pb") {
             lbl_12.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
+        } else if (alteracasa == "tp") {
             lbl_12.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
+        } else if (alteracasa == "cp") {
             lbl_12.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
+        } else if (alteracasa == "bp") {
             lbl_12.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
+        } else if (alteracasa == "qp") {
             lbl_12.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
+        } else if (alteracasa == "kp") {
             lbl_12.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
+        } else if (alteracasa == "pp") {
             lbl_12.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
+        } else if (alteracasa == "") {
             lbl_12.setIcon(null);
         }
+        //lbl_22
+        alteracasa = descobreCasa("22");
+        if (alteracasa == "tb") {
+            lbl_22.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_22.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_22.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_22.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_22.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_22.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_22.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_22.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_22.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_22.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_22.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_22.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_22.setIcon(null);
+        }
+        //lbl_32
+        alteracasa = descobreCasa("32");
+        if (alteracasa == "tb") {
+            lbl_32.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_32.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_32.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_32.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_32.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_32.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_32.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_32.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_32.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_32.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_32.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_32.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_32.setIcon(null);
+        }
+        //lbl_42
+        alteracasa = descobreCasa("42");
+        if (alteracasa == "tb") {
+            lbl_42.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_42.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_42.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_42.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_42.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_42.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_42.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_42.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_42.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_42.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_42.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_42.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_42.setIcon(null);
+        }
+        //lbl_52
+        alteracasa = descobreCasa("52");
+        if (alteracasa == "tb") {
+            lbl_52.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_52.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_52.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_52.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_52.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_52.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_52.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_52.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_52.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_52.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_52.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_52.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_52.setIcon(null);
+        }
+        //lbl_62
+        alteracasa = descobreCasa("62");
+        if (alteracasa == "tb") {
+            lbl_62.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_62.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_62.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_62.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_62.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_62.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_62.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_62.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_62.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_62.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_62.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_62.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_62.setIcon(null);
+        }
+        //lbl_72
+        alteracasa = descobreCasa("72");
+        if (alteracasa == "tb") {
+            lbl_72.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_72.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_72.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_72.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_72.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_72.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_72.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_72.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_72.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_72.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_72.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_72.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_72.setIcon(null);
+        }
+        //lbl_82
+        alteracasa = descobreCasa("82");
+        if (alteracasa == "tb") {
+            lbl_82.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_82.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_82.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_82.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_82.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_82.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_82.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_82.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_82.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_82.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_82.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_82.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_82.setIcon(null);
+        }
         //lbl_13
-        alteracasa = descobreCasa("31");
-        if(alteracasa=="tb"){
+        alteracasa = descobreCasa("13");
+        if (alteracasa == "tb") {
             lbl_13.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
+        } else if (alteracasa == "cb") {
             lbl_13.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
+        } else if (alteracasa == "bb") {
             lbl_13.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
+        } else if (alteracasa == "qb") {
             lbl_13.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
+        } else if (alteracasa == "kb") {
             lbl_13.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
+        } else if (alteracasa == "pb") {
             lbl_13.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
+        } else if (alteracasa == "tp") {
             lbl_13.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
+        } else if (alteracasa == "cp") {
             lbl_13.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
+        } else if (alteracasa == "bp") {
             lbl_13.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
+        } else if (alteracasa == "qp") {
             lbl_13.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
+        } else if (alteracasa == "kp") {
             lbl_13.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
+        } else if (alteracasa == "pp") {
             lbl_13.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_13.setIcon(null);
+        } else if (alteracasa == "") {
+            lbl_13.setIcon(new ImageIcon());
         }
-        //lbl_14
-        alteracasa = descobreCasa("41");
-        if(alteracasa=="tb"){
-            lbl_14.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
-            lbl_14.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
-            lbl_14.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
-            lbl_14.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
-            lbl_14.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
-            lbl_14.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
-            lbl_14.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
-            lbl_14.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
-            lbl_14.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
-            lbl_14.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
-            lbl_14.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
-            lbl_14.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_14.setIcon(null);
+        //lbl_23
+        alteracasa = descobreCasa("23");
+        if (alteracasa == "tb") {
+            lbl_23.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_23.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_23.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_23.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_23.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_23.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_23.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_23.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_23.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_23.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_23.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_23.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_23.setIcon(new ImageIcon());
         }
-        //lbl_15
-        alteracasa = descobreCasa("51");
-        if(alteracasa=="tb"){
-            lbl_15.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
-            lbl_15.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
-            lbl_15.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
-            lbl_15.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
-            lbl_15.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
-            lbl_15.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
-            lbl_15.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
-            lbl_15.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
-            lbl_15.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
-            lbl_15.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
-            lbl_15.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
-            lbl_15.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_15.setIcon(null);
+        //lbl_33
+        alteracasa = descobreCasa("33");
+        if (alteracasa == "tb") {
+            lbl_33.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_33.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_33.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_33.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_33.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_33.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_33.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_33.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_33.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_33.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_33.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_33.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_33.setIcon(new ImageIcon());
         }
-        //lbl_16
-        alteracasa = descobreCasa("61");
-        if(alteracasa=="tb"){
-            lbl_16.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
-            lbl_16.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
-            lbl_16.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
-            lbl_16.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
-            lbl_16.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
-            lbl_16.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
-            lbl_16.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
-            lbl_16.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
-            lbl_16.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
-            lbl_16.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
-            lbl_16.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
-            lbl_16.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_16.setIcon(null);
+        //lbl_43
+        alteracasa = descobreCasa("43");
+        if (alteracasa == "tb") {
+            lbl_43.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_43.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_43.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_43.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_43.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_43.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_43.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_43.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_43.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_43.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_43.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_43.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_43.setIcon(new ImageIcon());
         }
-        //lbl_17
-        alteracasa = descobreCasa("71");
-        if(alteracasa=="tb"){
-            lbl_17.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
-            lbl_17.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
-            lbl_17.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
-            lbl_17.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
-            lbl_17.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
-            lbl_17.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
-            lbl_17.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
-            lbl_17.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
-            lbl_17.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
-            lbl_17.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
-            lbl_17.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
-            lbl_17.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_17.setIcon(null);
+        //lbl_53
+        alteracasa = descobreCasa("53");
+        if (alteracasa == "tb") {
+            lbl_53.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_53.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_53.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_53.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_53.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_53.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_53.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_53.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_53.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_53.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_53.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_53.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_53.setIcon(new ImageIcon());
         }
-        //lbl_18
-        alteracasa = descobreCasa("81");
-        if(alteracasa=="tb"){
-            lbl_18.setIcon(new ImageIcon(tb));
-        }else if (alteracasa=="cb"){
-            lbl_18.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bb"){
-            lbl_18.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qb"){
-            lbl_18.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kb"){
-            lbl_18.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pb"){
-            lbl_18.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="tp"){
-            lbl_18.setIcon(new ImageIcon(pb));
-        }else if (alteracasa=="cp"){
-            lbl_18.setIcon(new ImageIcon(cb));
-        }else if (alteracasa=="bp"){
-            lbl_18.setIcon(new ImageIcon(bb));
-        }else if (alteracasa=="qp"){
-            lbl_18.setIcon(new ImageIcon(qb));
-        }else if (alteracasa=="kp"){
-            lbl_18.setIcon(new ImageIcon(kb));
-        }else if (alteracasa=="pp"){
-            lbl_18.setIcon(new ImageIcon(pb));
-        }else if (alteracasa==""){
-            lbl_18.setIcon(null);
+        //lbl_63
+        alteracasa = descobreCasa("63");
+        if (alteracasa == "tb") {
+            lbl_63.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_63.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_63.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_63.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_63.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_63.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_63.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_63.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_63.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_63.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_63.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_63.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_63.setIcon(new ImageIcon());
         }
-        
-        //String peca = tabuleiro.retornaPeca(posAtual).getNome().getApelidoPeca();
-        //String corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
+        //lbl_73
+        alteracasa = descobreCasa("73");
+        if (alteracasa == "tb") {
+            lbl_73.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_73.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_73.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_73.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_73.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_73.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_73.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_73.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_73.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_73.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_73.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_73.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_63.setIcon(new ImageIcon());
+        }
+        //lbl_83
+        alteracasa = descobreCasa("83");
+        if (alteracasa == "tb") {
+            lbl_83.setIcon(new ImageIcon(tb));
+        } else if (alteracasa == "cb") {
+            lbl_83.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bb") {
+            lbl_83.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qb") {
+            lbl_83.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kb") {
+            lbl_83.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pb") {
+            lbl_83.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "tp") {
+            lbl_83.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "cp") {
+            lbl_83.setIcon(new ImageIcon(cb));
+        } else if (alteracasa == "bp") {
+            lbl_83.setIcon(new ImageIcon(bb));
+        } else if (alteracasa == "qp") {
+            lbl_83.setIcon(new ImageIcon(qb));
+        } else if (alteracasa == "kp") {
+            lbl_83.setIcon(new ImageIcon(kb));
+        } else if (alteracasa == "pp") {
+            lbl_83.setIcon(new ImageIcon(pb));
+        } else if (alteracasa == "") {
+            lbl_83.setIcon(new ImageIcon());
+        }
     }
 
-    public void controlaJogadasView(String jog) {
-
-        if ("desistir".equals(jog)) {
-            //COLOCA INTELIGENCIA COMPUTANDO PONTO PARA OUTRO JOGADOR
-            if (control.vezBranco == true) {
-                control.jogador.addPontuacao(lbl_jogador1.getText(), "v");
-                control.jogador.addPontuacao(lbl_jogador2.getText(), "d");
-            } else {
-                control.jogador.addPontuacao(lbl_jogador1.getText(), "d");
-                control.jogador.addPontuacao(lbl_jogador1.getText(), "v");
-            }
-            control.vezBranco=true;
-            tabuleiro.reiniciaTabuleiro();
-            Visual.this.dispose();
-            control.iniciaMenu();
-            
-          
-        }
-    }
-    
     private void retiraNomeLbl() {
         lbl_11.setText("");
+        lbl_21.setText("");
+        lbl_31.setText("");
+        lbl_41.setText("");
+        lbl_51.setText("");
+        lbl_61.setText("");
+        lbl_71.setText("");
+        lbl_81.setText("");
         lbl_12.setText("");
+        lbl_22.setText("");
+        lbl_32.setText("");
+        lbl_42.setText("");
+        lbl_52.setText("");
+        lbl_62.setText("");
+        lbl_72.setText("");
+        lbl_82.setText("");
         lbl_13.setText("");
+        lbl_23.setText("");
+        lbl_33.setText("");
+        lbl_43.setText("");
+        lbl_53.setText("");
+        lbl_63.setText("");
+        lbl_73.setText("");
+        lbl_83.setText("");
         lbl_14.setText("");
-        lbl_15.setText("");
-        lbl_16.setText("");
-        lbl_17.setText("");
-        lbl_18.setText("");
+        lbl_24.setText("");
+        lbl_34.setText("");
+        lbl_44.setText("");
+        lbl_54.setText("");
+        lbl_64.setText("");
+        lbl_74.setText("");
+        lbl_84.setText("");
     }
 
-    private String descobreCasa(String lbl){
-        if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" T "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+    private String descobreCasa(String lbl) {
+        
+        if (tabuleiro.retornaPecaVIsual(lbl) == " T ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "tb";
-            }else{
+            } else {
                 return "tp";
             }
-        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" C "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == " C ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "bb";
-            }else{
+            } else {
                 return "bp";
             }
-        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" B "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == " B ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "cb";
-            }else{
+            } else {
                 return "cp";
             }
-        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" D "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == " D ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "qb";
-            }else{
+            } else {
                 return "qp";
             }
-        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" K "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == " K ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "kb";
-            }else{
+            } else {
                 return "kp";
             }
-        }else if(tabuleiro.retornaPeca(lbl).getNome().getApelidoPeca()==" P "){
-            if(tabuleiro.retornaPeca(lbl).getCor().getCorPeca()=="(B)"){
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == " P ") {
+            if (tabuleiro.retornaPeca(lbl).getCor().getCorPeca() == "(B)") {
                 return "pb";
-            }else{
+            } else {
                 return "pp";
             }
+        } else if (tabuleiro.retornaPecaVIsual(lbl) == "") {
+            return "";
         }
         return "";
     }
-    
+
+    public void fechaTela() {
+        Visual.this.dispose();
+    }
+
 }//fimVISUAL

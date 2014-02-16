@@ -32,6 +32,14 @@ public class Tabuleiro {
         
     }   
     
+    public String retornaPecaVIsual(String posicao){
+        if(tabuleiro.get(posicao)==null){
+            return "";
+        }
+        return tabuleiro.get(posicao).getNome().getApelidoPeca();
+        
+    }
+    
     public void trocaPeca(String posAtual,String posProx){
         PecaAbstrata aux = retornaPeca(posAtual);
         tabuleiro.remove(posAtual);
