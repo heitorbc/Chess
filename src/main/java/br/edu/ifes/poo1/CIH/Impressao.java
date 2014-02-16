@@ -48,13 +48,14 @@ public class Impressao {
     public void imprimeJogador(Jogador jog) {
 
     }
+    //3
     public void imprimeMenu() {
         System.out.println("##MENU##");
         System.out.println("1 - Inicia Partida");
         System.out.println("2 - Dados da jogadas");
         System.out.println("3 - Sair");
     }
-
+    //2
     public void imprimeModoJogo() {
         System.out.println("##    MENU    ##");
         System.out.println("##TIPO DE JOGO##");
@@ -62,6 +63,7 @@ public class Impressao {
         System.out.println("2 - Humano vs Computador");
         System.out.println("3 - Sair");
     }
+    //1
     public void imprimeTipo() {
         System.out.println("##         MENU         ##");
         System.out.println("##  ESCOLHA A INTERFACE ##");

@@ -44,16 +44,14 @@ public class ControleTotal {
         }
     }
 
-    public void iniciaMenu() {
+    public void iniciaMenu(){
         //Pega os nomes dos jogadores e chama o tabuleiro, (lembrar que jogador Um eh o branco)
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
-
         impresso.imprimeTipo();
         String dado = scanner.nextLine();
         processaTipo(dado);
-
     }
 
     public void controlaJogadas(String jog) {
@@ -76,7 +74,9 @@ public class ControleTotal {
             if (textual == false) {
                 new Visual().fechaTela();
             }
+            scanner.nextLine();
             iniciaMenu();
+            
 
         } else if (jog.equals("empate") || jog.equals("EMPATE")) {
             //Se ambos entrarem em acordo, rola um empate               
@@ -92,6 +92,7 @@ public class ControleTotal {
                 jogador.addPontuacao(nomeJogador[1], "e");
                 tabuleiro.reiniciaTabuleiro();
                 vezBranco = true;
+                scanner.nextLine();
                 iniciaMenu();
             } else {
                 view.opcaoInvalida();
@@ -103,6 +104,7 @@ public class ControleTotal {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0], nomeJogador[1]);
                 alteraVez();
+                scanner.nextLine();
                 iniciaMenu();
 
             } //roque Maior
@@ -112,6 +114,7 @@ public class ControleTotal {
                 System.out.println("Em construção");
                 imprimeJogada(nomeJogador[0], nomeJogador[1]);
                 alteraVez();
+                scanner.nextLine();
                 iniciaMenu();
 
             }
@@ -182,6 +185,7 @@ public class ControleTotal {
             impresso.imprimeModoJogo();
             String comando = scanner.nextLine();
             processaModoJogo(comando);
+            
         }
     }
 
@@ -207,25 +211,10 @@ public class ControleTotal {
             }
         } else {
             view.entradaInvalida();
-            iniciaMenu();
+            impresso.imprimeMenu();
+            String comando = scanner.nextLine();
+            processaMenu(comando);
         }
-    }
-
-    private void imprimeJogada(String jogador1, String jogador2) {
-        if (retornaVezBranco() == true) {
-            view.jogadaJ1(jogador1);
-            //System.out.println("Digite a jogada " + jogador1+ " (B) :");
-            String jogada = scanner.next();
-            controlaJogadas(jogada);
-
-        } else {
-            view.jogadaJ2(jogador2);
-            //System.out.println("Digite a jogada "+ jogador2+" (P) :");
-            String jogada = scanner.next();
-            controlaJogadas(jogada);
-
-        }
-
     }
 
     private void processaTipo(String dado) {
@@ -247,10 +236,24 @@ public class ControleTotal {
         } else {
             view.entradaInvalida();
             iniciaMenu();
-
         }
     }
+    private void imprimeJogada(String jogador1, String jogador2) {
+        if (retornaVezBranco() == true) {
+            view.jogadaJ1(jogador1);
+            //System.out.println("Digite a jogada " + jogador1+ " (B) :");
+            String jogada = scanner.next();
+            controlaJogadas(jogada);
 
+        } else {
+            view.jogadaJ2(jogador2);
+            //System.out.println("Digite a jogada "+ jogador2+" (P) :");
+            String jogada = scanner.next();
+            controlaJogadas(jogada);
+
+        }
+
+    }
     //Identificação do jogador, falta implementar outras coiass.
     public void processaJogador() {
         view.nomeJogadorUm();
