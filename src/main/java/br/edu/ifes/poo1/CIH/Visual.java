@@ -897,7 +897,7 @@ public class Visual extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(65, Short.MAX_VALUE)
                 .addComponent(btn_jogada)
                 .addGap(49, 49, 49))
         );
@@ -1801,15 +1801,15 @@ public class Visual extends javax.swing.JFrame {
                 }
             case " C ":
                 if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
-                    return "bb";
-                } else {
-                    return "bp";
-                }
-            case " B ":
-                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
                     return "cb";
                 } else {
                     return "cp";
+                }
+            case " B ":
+                if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
+                    return "bb";
+                } else {
+                    return "bp";
                 }
             case " D ":
                 if ("(B)".equals(tabuleiro.retornaPeca(lbl).getCor().getCorPeca())) {
