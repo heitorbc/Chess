@@ -11,6 +11,7 @@ import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.xadrez.App;
 import java.util.Scanner;
 
 /**
@@ -27,7 +28,8 @@ public class ControleTotal {
     public String[] nomeJogador = new String[2];
     Mensagens view = new Mensagens();
     Azureus az = new Azureus();
-
+    
+    
     public boolean vezBranco = true;
     public boolean textual = true;
 
@@ -95,7 +97,6 @@ public class ControleTotal {
                     jogador.addPontuacao(nomeJogador[1], "e");
                     tabuleiro.reiniciaTabuleiro();
                     vezBranco = true;
-                    scanner.nextLine();
                     iniciaMenu();
                 } else {
                     view.opcaoInvalida();
@@ -278,7 +279,7 @@ public class ControleTotal {
                     processaMenu(comando);
                     break;
                 case "2":
-                    new Visual().show();
+                    new App().exibetela();
                     textual = false;
                     break;
                 case "3":

@@ -9,6 +9,7 @@ import br.edu.ifes.poo1.CCI.ControleTotal;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import br.edu.ifes.poo1.xadrez.App;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class Visual extends javax.swing.JFrame {
 
     Tabuleiro tabuleiro = new Tabuleiro();
     ControleTotal control = new ControleTotal(tabuleiro);
-
+    //App app = new App();
+            
     public Visual() {
 
         initComponents();
@@ -170,8 +172,8 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogador1 = new javax.swing.JLabel();
         lbl_jogador2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
+        btn_salvar = new javax.swing.JButton();
         lbl_title = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -1300,21 +1302,21 @@ public class Visual extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(656, 73, -1, -1));
 
-        jButton3.setText("Sair");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_sair.setText("Sair");
+        btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_sairActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 656, -1, -1));
+        getContentPane().add(btn_sair, new org.netbeans.lib.awtextra.AbsoluteConstraints(828, 656, -1, -1));
 
-        jButton4.setText("Salvar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btn_salvar.setText("Salvar");
+        btn_salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btn_salvarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 656, -1, -1));
+        getContentPane().add(btn_salvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(735, 656, -1, -1));
 
         lbl_title.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         lbl_title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1765,8 +1767,9 @@ public class Visual extends javax.swing.JFrame {
                     opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente DESISTIR???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
 
                     if (opcao == 0) {
-                        this.dispose();
+                        fechaTela();
                         control.controlaJogadas("desistir");
+                        control.iniciaMenu();
                     } else {
                         lbl_jogada.setText("");
                     }
@@ -1779,8 +1782,9 @@ public class Visual extends javax.swing.JFrame {
                         opcao = JOptionPane.showConfirmDialog(null, "##EMPATE##\n" + control.nomeJogador[0] + " deseja Aceitar o"
                                 + "\nempate proposto por " + control.nomeJogador[1], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
                         if (opcao == 0) {
-                            this.dispose();
+                            fechaTela();
                             control.controlaJogadas("empate");
+                            control.iniciaMenu();
                         } else {
                             control.alteraVez();
                             atualizaTabuleiro();
@@ -1792,6 +1796,7 @@ public class Visual extends javax.swing.JFrame {
                         if (opcao == 0) {
                             fechaTela();
                             control.controlaJogadas("empate");
+                            control.iniciaMenu();
                         } else {
                             control.alteraVez();
                             atualizaTabuleiro();
@@ -1800,26 +1805,26 @@ public class Visual extends javax.swing.JFrame {
 
                     break;
             }
+            alertaOpcaoInvalida();
         }
-        alertaOpcaoInvalida();
+        
 
     }//GEN-LAST:event_btn_jogadaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btn_salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salvarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btn_salvarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
         int opcao = JOptionPane.showConfirmDialog(null, "Ao sair sem salvar os dados \n da partida serão perdidos!!\n"
                 + "Tente Propor um empate ou desista!\n "
                 + "Deseja Sair mesmo assim???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
         if (opcao == 0) {
             fechaTela();
-            tabuleiro.reiniciaTabuleiro();
-            
+             control.iniciaMenu();
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btn_sairActionPerformed
 
     private void lbl_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_11MouseClicked
         lbl_jogada.setText(lbl_jogada.getText() + "11");
@@ -2131,8 +2136,8 @@ public class Visual extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_jogada;
     private javax.swing.JButton btn_novo;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btn_sair;
+    private javax.swing.JButton btn_salvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2444,8 +2449,10 @@ public class Visual extends javax.swing.JFrame {
 
     public void fechaTela() {
 
-        Visual.this.dispose();
-        control.iniciaMenu();
+        this.setVisible(false);
+        limpaImagensLbl();
+        tabuleiro.reiniciaTabuleiro();
+        
     }
 
     private void atualizaVez() {
@@ -5252,6 +5259,75 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogada.setText("");
         JOptionPane.showMessageDialog(null, "####XEQUE####\nATENÇÃO SEU REI ESTA EM XEQUE\n"
                 + "MOVIMENTE SEU REI OU CAPTURE A PEÇA ADVERSARIA", "ALERTA - XEQUE", 2);
+    }
+
+    private void limpaImagensLbl() {
+        
+        lbl_11.setIcon(null);
+        lbl_21.setIcon(null);
+        lbl_31.setIcon(null);
+        lbl_41.setIcon(null);
+        lbl_51.setIcon(null);
+        lbl_61.setIcon(null);
+        lbl_71.setIcon(null);
+        lbl_81.setIcon(null);
+        lbl_12.setIcon(null);
+        lbl_22.setIcon(null);
+        lbl_32.setIcon(null);
+        lbl_42.setIcon(null);
+        lbl_52.setIcon(null);
+        lbl_62.setIcon(null);
+        lbl_72.setIcon(null);
+        lbl_82.setIcon(null);
+        lbl_13.setIcon(null);
+        lbl_23.setIcon(null);
+        lbl_33.setIcon(null);
+        lbl_43.setIcon(null);
+        lbl_53.setIcon(null);
+        lbl_63.setIcon(null);
+        lbl_73.setIcon(null);
+        lbl_83.setIcon(null);
+        lbl_14.setIcon(null);
+        lbl_24.setIcon(null);
+        lbl_34.setIcon(null);
+        lbl_44.setIcon(null);
+        lbl_54.setIcon(null);
+        lbl_64.setIcon(null);
+        lbl_74.setIcon(null);
+        lbl_84.setIcon(null);
+        lbl_15.setIcon(null);
+        lbl_25.setIcon(null);
+        lbl_35.setIcon(null);
+        lbl_45.setIcon(null);
+        lbl_55.setIcon(null);
+        lbl_65.setIcon(null);
+        lbl_75.setIcon(null);
+        lbl_85.setIcon(null);
+        lbl_16.setIcon(null);
+        lbl_26.setIcon(null);
+        lbl_36.setIcon(null);
+        lbl_46.setIcon(null);
+        lbl_56.setIcon(null);
+        lbl_66.setIcon(null);
+        lbl_76.setIcon(null);
+        lbl_86.setIcon(null);
+        lbl_17.setIcon(null);
+        lbl_27.setIcon(null);
+        lbl_37.setIcon(null);
+        lbl_47.setIcon(null);
+        lbl_57.setIcon(null);
+        lbl_67.setIcon(null);
+        lbl_77.setIcon(null);
+        lbl_87.setIcon(null);
+        lbl_18.setIcon(null);
+        lbl_28.setIcon(null);
+        lbl_38.setIcon(null);
+        lbl_48.setIcon(null);
+        lbl_58.setIcon(null);
+        lbl_68.setIcon(null);
+        lbl_78.setIcon(null);
+        lbl_88.setIcon(null);
+        
     }
 
 }//fimVISUAL
