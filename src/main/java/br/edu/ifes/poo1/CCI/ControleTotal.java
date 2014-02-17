@@ -10,6 +10,7 @@ import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
+import br.edu.ifes.poo1.util.PecaNome;
 import java.util.Scanner;
 
 /**
@@ -73,7 +74,9 @@ public class ControleTotal {
 
             vezBranco = true;
             tabuleiro.reiniciaTabuleiro();
-
+            if (textual == true) {
+                scanner.nextLine();
+            }
             iniciaMenu();
 
         } else if (jog.equals("empate") || jog.equals("EMPATE")) {
@@ -86,12 +89,13 @@ public class ControleTotal {
                 char desejo = leitura.charAt(0);
                 if (desejo == 'N') {
                     alteraVez();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    processaJogada(nomeJogador[0], nomeJogador[1]);
                 } else if (desejo == 'S') {
                     jogador.addPontuacao(nomeJogador[0], "e");
                     jogador.addPontuacao(nomeJogador[1], "e");
                     tabuleiro.reiniciaTabuleiro();
                     vezBranco = true;
+                    scanner.nextLine();
                     iniciaMenu();
                 } else {
                     view.opcaoInvalida();
@@ -102,27 +106,13 @@ public class ControleTotal {
                 jogador.addPontuacao(nomeJogador[1], "e");
                 tabuleiro.reiniciaTabuleiro();
                 vezBranco = true;
+                scanner.nextLine();
                 iniciaMenu();
             }
-            //CONTROLA JOGADAS DE XADREZ
+
+            
         } else {
-            if (jog.length() == 3) {
-                System.out.println("Em construção");
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                alteraVez();
-                iniciaMenu();
-
-            } //roque Maior
-
-            //roqueMenor
-            if ((jog.length() == 5) && (jog.charAt(0) == 'O')) {
-                System.out.println("Em construção");
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
-                alteraVez();
-                iniciaMenu();
-
-            }
-
+            //CONTROLA JOGADAS DE XADREZ
             String posAtual = "" + jog.charAt(0) + jog.charAt(1);
             String posProx = "" + jog.charAt(2) + jog.charAt(3);
             String peca = "";
@@ -132,10 +122,48 @@ public class ControleTotal {
                 corPeca = tabuleiro.retornaPeca(posAtual).getCor().toString();
             } catch (Exception e) {
                 view.entradaInvalida();
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                processaJogada(nomeJogador[0], nomeJogador[1]);
             }
+
+            //roques
+            if ((jog.equals("O-O-O")) || (jog.equals("O-O"))) {
+                if (realizaRoques(jog) == true) {
+                    alteraVez();
+                    iniciaJogada();
+
+                } else {
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    }
+                }
+                //jogada de XEQUE
+            } else if ((jog.length() == 5) && (jog.charAt(4) == '+')) {
+                //movimentaPeca(posAtual, posProx, peca, corPeca);
+                if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) && tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                }
+                if (textual == true) {
+                    view.imprimeXeque();
+                } else {
+                    new Visual().alertaReiemXeque();
+                }
+                alteraVez();
+                realizaXeque(posProx);
+                
+                
+            }//XEQUE MATE #####
+            else if ((jog.length() == 5) && (jog.charAt(4) == '#') && (tabuleiro.retornaPeca(posProx) != null)) {
+                if (tabuleiro.retornaPeca(posProx).getNome().toString().equals(" K ")) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    realizaXequeMate();
+                }
+
+            }
+            //antiga posicao try
+
             //JOGADA DE CAPTURA 
-            if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
+            else if ((jog.length() == 5) && (jog.charAt(2) == 'x')) {
                 String posAtualCaptura = "" + jog.charAt(0) + jog.charAt(1);
                 String posProxCaptura = "" + jog.charAt(3) + jog.charAt(4);
                 capturaPeca(posAtualCaptura, posProxCaptura, peca, corPeca);
@@ -144,11 +172,10 @@ public class ControleTotal {
             else if (jog.length() == 4) {
                 movimentaPeca(posAtual, posProx, peca, corPeca);
 
-            } else {
+            } else {//erro de movimentação = JOGADA INVALIDA
                 if (textual == true) {
-
                     view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    processaJogada(nomeJogador[0], nomeJogador[1]);
                 }
             }
         }
@@ -157,12 +184,8 @@ public class ControleTotal {
     public void iniciaJogada() {
         if (textual == true) {
             impresso.Impressao(tabuleiro);
-            if (vezBranco == true) {
-                System.out.println("VEZ BRANCO");
-            } else {
-                System.out.println("VEZ PRETA");
-            }
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+            view.imprimeVez(vezBranco);
+            processaJogada(nomeJogador[0], nomeJogador[1]);
 
         }
     }
@@ -216,20 +239,20 @@ public class ControleTotal {
             }
         } else {
             view.entradaInvalida();
-            iniciaMenu();
+            impresso.imprimeMenu();
+            String comando = scanner.nextLine();
+            processaMenu(comando);
         }
     }
 
-    private void imprimeJogada(String jogador1, String jogador2) {
+    private void processaJogada(String jogador1, String jogador2) {
         if (retornaVezBranco() == true) {
             view.jogadaJ1(jogador1);
-            //System.out.println("Digite a jogada " + jogador1+ " (B) :");
             String jogada = scanner.next();
             controlaJogadas(jogada);
 
         } else {
             view.jogadaJ2(jogador2);
-            //System.out.println("Digite a jogada "+ jogador2+" (P) :");
             String jogada = scanner.next();
             controlaJogadas(jogada);
 
@@ -261,8 +284,8 @@ public class ControleTotal {
         }
     }
 
-    //Identificação do jogador, falta implementar outras coiass.
     public void processaJogador() {
+
         view.nomeJogadorUm();
         nomeJogador[0] = scanner.next().toUpperCase();
         if (!jogador.jogadores.containsKey(nomeJogador[0])) {
@@ -276,59 +299,110 @@ public class ControleTotal {
     }
 
     public void processaJogadorVisual(String j1, String j2) {
-        if ((!jogador.jogadores.containsKey(j1)) && (!jogador.jogadores.containsKey(j2))) {
-            nomeJogador[0] = j1;
-            jogador.criaJogador(j1);
-            nomeJogador[1] = j2;
-            jogador.criaJogador(j2);
+        nomeJogador[0] = j1;
+        nomeJogador[1] = j2;
+        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+            jogador.criaJogador(nomeJogador[0]);
+        }
+        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+            jogador.criaJogador(nomeJogador[1]);
         }
     }
 
     public void capturaPeca(String posAtual, String posProx, String peca, String corPeca) {
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
-
+            String opcao;
+            String posDir = "" + (Integer.parseInt(posAtual.charAt(0) + "") + 1) + posAtual.charAt(1);
+            String posEsq = "" + (Integer.parseInt(posAtual.charAt(0) + "") - 1) + posAtual.charAt(1);
             if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
                 if ((tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) != null)) {
                     tabuleiro.trocaPeca(posAtual, posProx);
+                    //verificaPromocaoparaPEAOpreto
+                    if (posProx.charAt(1) == '8') {
+                        scanner.nextLine();
+                        impresso.imprimePromocao();
+                        opcao = scanner.nextLine();
+                        tabuleiro.promovePeca(opcao.charAt(0), posProx, vezBranco);
+                    }
+                    alteraVez();
+                    iniciaJogada();
+                    //EnPASSANT para peao BRANCO
+                } else if ((posAtual.charAt(1) == '5') && ((tabuleiro.retornaPeca(posEsq) != null) || (tabuleiro.retornaPeca(posDir) != null)) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    if (posProx.charAt(0) == posDir.charAt(0)) {
+                        tabuleiro.removePeca(posDir);
+                    } else if (posProx.charAt(0) == posEsq.charAt(0)) {
+                        tabuleiro.removePeca(posEsq);
+                    }
                     alteraVez();
                     iniciaJogada();
                 } else {
                     if (textual == true) {
                         view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
                     }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
 
                 if ((tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) != null)) {
                     tabuleiro.trocaPeca(posAtual, posProx);
+                    //verificaPromocaoparaPEAOpreto
+                    if (posProx.charAt(1) == '1') {
+                        impresso.imprimePromocao();
+                        opcao = scanner.nextLine();
+                        tabuleiro.promovePeca(opcao.charAt(0), posProx, vezBranco);
+                    }
+                    alteraVez();
+                    iniciaJogada();
+                    //EnPASSANT para peao PRETO
+                } else if ((posAtual.charAt(1) == '4') && ((tabuleiro.retornaPeca(posEsq) != null) || (tabuleiro.retornaPeca(posDir) != null)) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    if (posProx.charAt(0) == posDir.charAt(0)) {
+                        tabuleiro.removePeca(posDir);
+                    } else if (posProx.charAt(0) == posEsq.charAt(0)) {
+                        tabuleiro.removePeca(posEsq);
+                    }
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " T ") {//TORRE
                 //movimenta
                 if ((tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) != null)) {
+                    tabuleiro.retornaPeca(posAtual).alteraMovimentado();
                     tabuleiro.trocaPeca(posAtual, posProx);
                     alteraVez();
                     iniciaJogada();
                 } else {
                     if (textual == true) {
                         view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
                     }
                 }
             } else if (peca == " C ") {//CAVALO
                 //movimenta 
                 if ((tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) != null)) {
                     tabuleiro.trocaPeca(posAtual, posProx);
-                    iniciaJogada();
                     alteraVez();
+                    iniciaJogada();
+
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " B ") {//BISPO
                 //Movimento
@@ -337,8 +411,12 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " D ") {//DAMA
                 //movimenta
@@ -347,74 +425,111 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
-            } else if (peca == " R ") {//REI
+            } else if (peca == " K ") {//REI
                 //movimenta 
                 if ((tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) != null)) {
+                    tabuleiro.retornaPeca(posAtual).alteraMovimentado();
                     tabuleiro.trocaPeca(posAtual, posProx);
+                    
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else {
-                view.opcaoInvalida();
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                if (textual == true) {
+                    view.movimentoInvalido();
+                    processaJogada(nomeJogador[0], nomeJogador[1]);
+                } else {
+                    new Visual().alertaMovInvalido();
+                }
             }
         } else {
             //pos atual nao é a peca do jogador da vez
-            view.naoEhSuaVez();
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+            if (textual == true) {
+                view.naoEhSuaVez();
+                processaJogada(nomeJogador[0], nomeJogador[1]);
+            }
         }
     }
 
     public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca) {
-
         //Alguma situações não trocava a peça, acho que resolvi adicionando alteraVez() nas outras peças
-        //System.out.println(tabuleiro.retornaPeca(posAtual));
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
-
+            String opcao;
             if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.BRANCO) {//PEAO Branco
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
-                    tabuleiro.trocaPeca(posAtual, posProx);
-                    alteraVez();
                     if (textual == true) {
-                        iniciaJogada();
+                        scanner.nextLine();
                     }
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    //verificaPromocaoparaPEAOpreto
+                    if (posProx.charAt(1) == '8') {
+                        impresso.imprimePromocao();
+                        opcao = scanner.nextLine();
+                        tabuleiro.promovePeca(opcao.charAt(0), posProx, vezBranco);
+                    }
+                    alteraVez();
+                    iniciaJogada();
+
                 } else {
                     if (textual == true) {
-
                         view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
                     }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
 
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
-                    tabuleiro.trocaPeca(posAtual, posProx);
-                    alteraVez();
                     if (textual == true) {
-                        iniciaJogada();
+                        scanner.nextLine();
                     }
+                    tabuleiro.trocaPeca(posAtual, posProx);
+                    //verificaPromocaoparaPEAOpreto
+                    if (posProx.charAt(1) == '1') {
+                        impresso.imprimePromocao();
+                        opcao = scanner.nextLine();
+                        tabuleiro.promovePeca(opcao.charAt(0), posProx, vezBranco);
+                    }
+                    alteraVez();
+                    iniciaJogada();
                 } else {
                     if (textual == true) {
-
                         view.movimentoInvalido();
-                        imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
                     }
                 }
             } else if (peca == " T ") {//TORRE
                 //movimenta
+
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null) && caminhoLivre(posAtual, posProx, peca, corPeca)) {
+                    tabuleiro.retornaPeca(posAtual).alteraMovimentado();
                     tabuleiro.trocaPeca(posAtual, posProx);
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " C ") {//CAVALO
                 //movimenta 
@@ -423,8 +538,12 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " B ") {//BISPO
                 //Movimento
@@ -433,8 +552,12 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else if (peca == " D ") {//DAMA
                 //movimenta
@@ -443,27 +566,44 @@ public class ControleTotal {
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
-            } else if (peca == " R ") {//REI
+            } else if (peca == " K ") {//REI
                 //movimenta 
                 if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx) == true) && (tabuleiro.retornaPeca(posProx) == null)) {
+                    tabuleiro.retornaPeca(posAtual).alteraMovimentado();
                     tabuleiro.trocaPeca(posAtual, posProx);
                     alteraVez();
                     iniciaJogada();
                 } else {
-                    view.movimentoInvalido();
-                    imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                    if (textual == true) {
+                        view.movimentoInvalido();
+                        processaJogada(nomeJogador[0], nomeJogador[1]);
+                    } else {
+                        new Visual().alertaMovInvalido();
+                    }
                 }
             } else {
-                view.opcaoInvalida();
-                imprimeJogada(nomeJogador[0], nomeJogador[1]);
+                if (textual == true) {
+                    view.opcaoInvalida();
+                    processaJogada(nomeJogador[0], nomeJogador[1]);
+                } else {
+                    new Visual().alertaOpcaoInvalida();
+                }
             }
         } else {
             //pos atual nao é a peca do jogador da vez
-            view.naoEhSuaVez();
-            imprimeJogada(nomeJogador[0], nomeJogador[1]);
+            if (textual == true) {
+                view.naoEhSuaVez();
+                processaJogada(nomeJogador[0], nomeJogador[1]);
+            } else {
+                new Visual().alertaNaoEhSuaVez();
+            }
         }
 
     }
@@ -551,7 +691,6 @@ public class ControleTotal {
                 }
 
             }
-
             //HORIZONTAL
             if (posAtual.charAt(1) == posProx.charAt(1)) {
                 //Movimento esquerda para direita
@@ -811,4 +950,100 @@ public class ControleTotal {
         return false;
     }
 
-}
+    public boolean realizaRoques(String entrada) {
+        if ((retornaVezBranco()) && (tabuleiro.retornaPeca("51") != null)) {
+            //roqueMaiorBranco
+            if (tabuleiro.retornaPeca("11") != null) {
+                if (entrada.equals("O-O-O") && (!tabuleiro.retornaPeca("51").getMovimentado()) && ((!tabuleiro.retornaPeca("11").getMovimentado())) && (tabuleiro.retornaPeca("21") == null) && (tabuleiro.retornaPeca("31") == null) && (tabuleiro.retornaPeca("41") == null)) {
+                    //trocandoREi
+                    tabuleiro.trocaPeca("51", "31");
+                    //trocandoTorre
+                    tabuleiro.trocaPeca("11", "41");
+                    return true;
+                }
+            }  //roqueMenorBranco
+            if (tabuleiro.retornaPeca("81") != null) {
+                if (entrada.equals("O-O") && (!tabuleiro.retornaPeca("51").getMovimentado()) && ((!tabuleiro.retornaPeca("81").getMovimentado())) && (tabuleiro.retornaPeca("61") == null) && (tabuleiro.retornaPeca("71") == null)) {
+                    //trocandoREi
+                    tabuleiro.trocaPeca("51", "71");
+                    //trocandoTorre
+                    tabuleiro.trocaPeca("81", "61");
+                    return true;
+
+                }
+            }
+        } else if (tabuleiro.retornaPeca("58") != null) {
+            //roqueMaiorPreto
+            if (tabuleiro.retornaPeca("18") != null) {
+                if (entrada.equals("O-O-O") && (!tabuleiro.retornaPeca("58").getMovimentado()) && ((!tabuleiro.retornaPeca("18").getMovimentado())) && (tabuleiro.retornaPeca("28") == null) && (tabuleiro.retornaPeca("38") == null) && (tabuleiro.retornaPeca("48") == null)) {
+                    //trocandoREi
+                    tabuleiro.trocaPeca("58", "38");
+                    //trocandoTorre
+                    tabuleiro.trocaPeca("18", "48");
+                    return true;
+                }
+            }//roqueMaiorBranco
+            if (tabuleiro.retornaPeca("88") != null) {
+                if (entrada.equals("O-O") && (!tabuleiro.retornaPeca("58").getMovimentado()) && ((!tabuleiro.retornaPeca("88").getMovimentado())) && (tabuleiro.retornaPeca("68") == null) && (tabuleiro.retornaPeca("78") == null)) {
+                    //trocandoREi
+                    tabuleiro.trocaPeca("58", "78");
+                    //trocandoTorre
+                    tabuleiro.trocaPeca("88", "68");
+                    return true;
+
+                }
+            }
+
+        }
+        return false;
+
+    }
+
+    public void realizaXeque(String posPecaXeque) {
+        String jogada;
+        impresso.Impressao(tabuleiro);
+        view.imprimeVez(vezBranco);
+        if (retornaVezBranco() == true) {
+            view.jogadaJ1(nomeJogador[0]);
+            jogada = scanner.next();
+        } else {
+            view.jogadaJ2(nomeJogador[1]);
+            jogada = scanner.next();
+
+        }
+        System.out.println(jogada.length()+" == 5) && ("+jogada.charAt(2) +" == 'x') && ("+posPecaXeque+".equals("+ jogada.charAt(3) + jogada.charAt(4));
+        if ((jogada.length() == 5) && (jogada.charAt(2) == 'x') && (posPecaXeque.equals("" + jogada.charAt(3) + jogada.charAt(4)))) { //verifica se é captura OU
+            System.out.println("entrou captura");
+            System.out.println("posatual "+jogada.charAt(0) + jogada.charAt(1)+" | posprox"+jogada.charAt(3) + jogada.charAt(4));
+            System.out.println("peça ="+tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getNome().getApelidoPeca().toString()+"corpeca "+ tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getCor().toString());
+            capturaPeca("" + jogada.charAt(0) + jogada.charAt(1), "" + jogada.charAt(3) + jogada.charAt(4), tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getNome().getApelidoPeca().toString(), tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getCor().toString());
+
+        } else if ((jogada.length() == 4) && (tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getNome().toString() == " K ")) { //movimento com o REI
+            System.out.println("entrou movimento");
+            movimentaPeca("" + jogada.charAt(0) + jogada.charAt(1), "" + jogada.charAt(2) + jogada.charAt(3), tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getNome().toString(), tabuleiro.retornaPeca("" + jogada.charAt(0) + jogada.charAt(1)).getCor().toString());
+        } else {
+            System.out.println("entrou Else Realiza xeque");
+            //xequemate
+            realizaXequeMate();
+        }
+
+    }
+
+    public void realizaXequeMate() {
+        alteraVez();
+        
+        view.imprimeXequeMate();
+        if (vezBranco == true) {
+            jogador.addPontuacao(nomeJogador[0], "v");
+            jogador.addPontuacao(nomeJogador[1], "d");
+
+        } else {
+            jogador.addPontuacao(nomeJogador[0], "d");
+            jogador.addPontuacao(nomeJogador[1], "v");
+        }
+        tabuleiro.reiniciaTabuleiro();
+        processaMenu("2");
+    }
+
+}//fimClasse
+

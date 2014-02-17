@@ -16,10 +16,12 @@ import br.edu.ifes.poo1.util.PecaNome;
 public abstract class PecaAbstrata implements Peca{
     protected Cor cor;
     protected PecaNome nome;
+    public boolean movimentado;
 
     public PecaAbstrata(Cor cor, PecaNome nome) {
         this.cor = cor;
         this.nome = nome;
+        this.movimentado=false;
     }
 
 
@@ -39,6 +41,14 @@ public abstract class PecaAbstrata implements Peca{
     public void setNome(PecaNome nome) {
         this.nome = nome;
     }
+    
+    public boolean getMovimentado(){
+        return movimentado;
+    }
+    public void alteraMovimentado(){
+        this.movimentado=true;
+    }
+    
     
     @Override
     public abstract boolean podeAndarQuanto(String posicaoAtual, String proximaPosicao);

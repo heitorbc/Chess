@@ -63,4 +63,24 @@ public class Mensagens {
     public void deuMerda(){
         System.out.println("Deu merda foi para o ultimo retorno");
     }
+    
+    public void imprimeVez(boolean vezBranco){
+        if (vezBranco == true) {
+                System.out.println("VEZ BRANCO");
+            } else {
+                System.out.println("VEZ PRETA");
+            }
+        
+    }
+    
+    public void imprimeXeque(){
+        System.out.println("ATENÇÃO: O SEU REI ESTÁ EM XEQUE!\n"
+                + "MOVIMENTE O REI OU CAPTURE A PEÇA ADVERSÁRIA!!!");
+    }
+    
+    public void imprimeXequeMate(){
+        System.out.println("#### FIM DE JOGO ####\n XEQUE MATE ");
+    }
+    
+    
 }

@@ -22,7 +22,7 @@ public class Jogador {
     public void criaJogador(String nome) {
         for (int i = 0; i < 3; i++) {
             pontos.add(0);
-        }        
+        }
         jogadores.put(nome, pontos);
     }
 

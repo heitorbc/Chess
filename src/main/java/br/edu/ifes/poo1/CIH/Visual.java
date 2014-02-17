@@ -11,6 +11,8 @@ import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
 import java.awt.Color;
 import java.awt.Image;
+import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -43,12 +45,13 @@ public class Visual extends javax.swing.JFrame {
     ControleTotal control = new ControleTotal(tabuleiro);
 
     public Visual() {
-        
+
         initComponents();
         lbl_digitecomando.setEnabled(false);
         btn_jogada.setVisible(false);
         btn_jogada.setEnabled(false);
-        control.textual=false;
+        control.textual = false;
+
     }
 
     /**
@@ -237,6 +240,11 @@ public class Visual extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Xadrez - POO1");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -250,6 +258,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_11.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_11.setFocusable(false);
         lbl_11.setOpaque(true);
+        lbl_11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_11MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 540, 70, 70));
 
         lbl_c2.setText("2");
@@ -265,6 +278,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_21.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_21.setFocusable(false);
         lbl_21.setOpaque(true);
+        lbl_21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_21MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_21, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, 70, 70));
 
         lbl_41.setBackground(new java.awt.Color(255, 255, 255));
@@ -272,6 +290,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_41.setText("41");
         lbl_41.setFocusable(false);
         lbl_41.setOpaque(true);
+        lbl_41.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_41MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_41, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 540, 70, 70));
 
         lbl_31.setBackground(new java.awt.Color(0, 0, 0));
@@ -281,6 +304,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_31.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_31.setFocusable(false);
         lbl_31.setOpaque(true);
+        lbl_31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_31MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_31, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 70, 70));
 
         lbl_51.setBackground(new java.awt.Color(0, 0, 0));
@@ -289,6 +317,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_51.setText("51");
         lbl_51.setFocusable(false);
         lbl_51.setOpaque(true);
+        lbl_51.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_51MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_51, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, 70, 70));
 
         lbl_61.setBackground(new java.awt.Color(255, 255, 255));
@@ -296,6 +329,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_61.setText("61");
         lbl_61.setFocusable(false);
         lbl_61.setOpaque(true);
+        lbl_61.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_61MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_61, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 540, 70, 70));
 
         lbl_71.setBackground(new java.awt.Color(0, 0, 0));
@@ -304,6 +342,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_71.setText("71");
         lbl_71.setFocusable(false);
         lbl_71.setOpaque(true);
+        lbl_71.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_71MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_71, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 70, 70));
 
         lbl_81.setBackground(new java.awt.Color(255, 255, 255));
@@ -311,6 +354,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_81.setText("81");
         lbl_81.setFocusable(false);
         lbl_81.setOpaque(true);
+        lbl_81.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_81MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_81, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 540, 70, 70));
 
         lbl_82.setBackground(new java.awt.Color(0, 0, 0));
@@ -321,6 +369,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_82.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_82.setFocusable(false);
         lbl_82.setOpaque(true);
+        lbl_82.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_82MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_82, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 70, 70));
 
         lbl_12.setBackground(new java.awt.Color(255, 255, 255));
@@ -330,6 +383,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_12.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_12.setFocusable(false);
         lbl_12.setOpaque(true);
+        lbl_12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_12MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 70, 70));
 
         lbl_22.setBackground(new java.awt.Color(0, 0, 0));
@@ -339,6 +397,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_22.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_22.setFocusable(false);
         lbl_22.setOpaque(true);
+        lbl_22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_22MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 70, 70));
 
         lbl_32.setBackground(new java.awt.Color(255, 255, 255));
@@ -346,6 +409,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_32.setText("32");
         lbl_32.setFocusable(false);
         lbl_32.setOpaque(true);
+        lbl_32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_32MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_32, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 70, 70));
 
         lbl_42.setBackground(new java.awt.Color(0, 0, 0));
@@ -354,6 +422,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_42.setText("42");
         lbl_42.setFocusable(false);
         lbl_42.setOpaque(true);
+        lbl_42.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_42MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_42, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, 70, 70));
 
         lbl_52.setBackground(new java.awt.Color(255, 255, 255));
@@ -361,6 +434,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_52.setText("52");
         lbl_52.setFocusable(false);
         lbl_52.setOpaque(true);
+        lbl_52.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_52MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_52, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 70));
 
         lbl_62.setBackground(new java.awt.Color(0, 0, 0));
@@ -369,6 +447,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_62.setText("62");
         lbl_62.setFocusable(false);
         lbl_62.setOpaque(true);
+        lbl_62.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_62MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_62, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 470, 70, 70));
 
         lbl_72.setBackground(new java.awt.Color(255, 255, 255));
@@ -376,6 +459,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_72.setText("72");
         lbl_72.setFocusable(false);
         lbl_72.setOpaque(true);
+        lbl_72.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_72MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_72, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, 70, 70));
 
         lbl_l3.setText("3");
@@ -388,6 +476,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_83.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_83.setFocusable(false);
         lbl_83.setOpaque(true);
+        lbl_83.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_83MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_83, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 70, 70));
 
         lbl_13.setBackground(new java.awt.Color(0, 0, 0));
@@ -397,6 +490,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_13.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_13.setFocusable(false);
         lbl_13.setOpaque(true);
+        lbl_13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_13MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 70, 70));
 
         lbl_23.setBackground(new java.awt.Color(255, 255, 255));
@@ -404,6 +502,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_23.setText("23");
         lbl_23.setFocusable(false);
         lbl_23.setOpaque(true);
+        lbl_23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_23MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 70, 70));
 
         lbl_33.setBackground(new java.awt.Color(0, 0, 0));
@@ -412,6 +515,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_33.setText("33");
         lbl_33.setFocusable(false);
         lbl_33.setOpaque(true);
+        lbl_33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_33MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_33, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 400, 70, 70));
 
         lbl_43.setBackground(new java.awt.Color(255, 255, 255));
@@ -419,6 +527,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_43.setText("43");
         lbl_43.setFocusable(false);
         lbl_43.setOpaque(true);
+        lbl_43.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_43MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_43, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 70, 70));
 
         lbl_53.setBackground(new java.awt.Color(0, 0, 0));
@@ -427,6 +540,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_53.setText("53");
         lbl_53.setFocusable(false);
         lbl_53.setOpaque(true);
+        lbl_53.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_53MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_53, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 70, 70));
 
         lbl_63.setBackground(new java.awt.Color(255, 255, 255));
@@ -434,6 +552,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_63.setText("63");
         lbl_63.setFocusable(false);
         lbl_63.setOpaque(true);
+        lbl_63.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_63MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_63, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 400, 70, 70));
 
         lbl_73.setBackground(new java.awt.Color(0, 0, 0));
@@ -444,6 +567,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_73.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_73.setFocusable(false);
         lbl_73.setOpaque(true);
+        lbl_73.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_73MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_73, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, 70, 70));
 
         lbl_l4.setText("4");
@@ -456,6 +584,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_74.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_74.setFocusable(false);
         lbl_74.setOpaque(true);
+        lbl_74.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_74MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_74, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 70, 70));
 
         lbl_84.setBackground(new java.awt.Color(0, 0, 0));
@@ -465,6 +598,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_84.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_84.setFocusable(false);
         lbl_84.setOpaque(true);
+        lbl_84.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_84MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_84, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 70, 70));
 
         lbl_14.setBackground(new java.awt.Color(255, 255, 255));
@@ -472,6 +610,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_14.setText("14");
         lbl_14.setFocusable(false);
         lbl_14.setOpaque(true);
+        lbl_14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_14MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 70, 70));
 
         lbl_24.setBackground(new java.awt.Color(0, 0, 0));
@@ -480,6 +623,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_24.setText("24");
         lbl_24.setFocusable(false);
         lbl_24.setOpaque(true);
+        lbl_24.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_24MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 70, 70));
 
         lbl_34.setBackground(new java.awt.Color(255, 255, 255));
@@ -487,6 +635,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_34.setText("34");
         lbl_34.setFocusable(false);
         lbl_34.setOpaque(true);
+        lbl_34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_34MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_34, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 70, 70));
 
         lbl_44.setBackground(new java.awt.Color(0, 0, 0));
@@ -495,6 +648,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_44.setText("44");
         lbl_44.setFocusable(false);
         lbl_44.setOpaque(true);
+        lbl_44.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_44MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_44, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 70, 70));
 
         lbl_54.setBackground(new java.awt.Color(255, 255, 255));
@@ -502,6 +660,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_54.setText("54");
         lbl_54.setFocusable(false);
         lbl_54.setOpaque(true);
+        lbl_54.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_54MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_54, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 70, 70));
 
         lbl_64.setBackground(new java.awt.Color(0, 0, 0));
@@ -512,6 +675,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_64.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_64.setFocusable(false);
         lbl_64.setOpaque(true);
+        lbl_64.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_64MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_64, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, 70, 70));
 
         lbl_l1.setText("1");
@@ -546,6 +714,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_85.setText("85");
         lbl_85.setFocusable(false);
         lbl_85.setOpaque(true);
+        lbl_85.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_85MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_85, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 260, 70, 70));
 
         lbl_26.setBackground(new java.awt.Color(0, 0, 0));
@@ -554,6 +727,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_26.setText("26");
         lbl_26.setFocusable(false);
         lbl_26.setOpaque(true);
+        lbl_26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_26MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 70, 70));
 
         lbl_25.setBackground(new java.awt.Color(255, 255, 255));
@@ -561,6 +739,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_25.setText("25");
         lbl_25.setFocusable(false);
         lbl_25.setOpaque(true);
+        lbl_25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_25MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 70, 70));
 
         lbl_35.setBackground(new java.awt.Color(0, 0, 0));
@@ -569,6 +752,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_35.setText("35");
         lbl_35.setFocusable(false);
         lbl_35.setOpaque(true);
+        lbl_35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_35MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_35, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 70, 70));
 
         lbl_45.setBackground(new java.awt.Color(255, 255, 255));
@@ -576,6 +764,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_45.setText("45");
         lbl_45.setFocusable(false);
         lbl_45.setOpaque(true);
+        lbl_45.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_45MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_45, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 70, 70));
 
         lbl_55.setBackground(new java.awt.Color(0, 0, 0));
@@ -586,6 +779,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_55.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_55.setFocusable(false);
         lbl_55.setOpaque(true);
+        lbl_55.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_55MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_55, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 70, 70));
 
         lbl_65.setBackground(new java.awt.Color(255, 255, 255));
@@ -595,6 +793,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_65.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_65.setFocusable(false);
         lbl_65.setOpaque(true);
+        lbl_65.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_65MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_65, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 70, 70));
 
         lbl_75.setBackground(new java.awt.Color(0, 0, 0));
@@ -604,6 +807,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_75.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_75.setFocusable(false);
         lbl_75.setOpaque(true);
+        lbl_75.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_75MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_75, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 70, 70));
 
         lbl_15.setBackground(new java.awt.Color(0, 0, 0));
@@ -612,6 +820,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_15.setText("15");
         lbl_15.setFocusable(false);
         lbl_15.setOpaque(true);
+        lbl_15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_15MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 70, 70));
 
         lbl_27.setBackground(new java.awt.Color(255, 255, 255));
@@ -619,6 +832,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_27.setText("27");
         lbl_27.setFocusable(false);
         lbl_27.setOpaque(true);
+        lbl_27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_27MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 70, 70));
 
         lbl_28.setBackground(new java.awt.Color(0, 0, 0));
@@ -627,6 +845,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_28.setText("28");
         lbl_28.setFocusable(false);
         lbl_28.setOpaque(true);
+        lbl_28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_28MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_28, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 70, 70));
 
         lbl_16.setBackground(new java.awt.Color(255, 255, 255));
@@ -634,6 +857,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_16.setText("16");
         lbl_16.setFocusable(false);
         lbl_16.setOpaque(true);
+        lbl_16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_16MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 70, 70));
 
         lbl_17.setBackground(new java.awt.Color(0, 0, 0));
@@ -642,6 +870,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_17.setText("17");
         lbl_17.setFocusable(false);
         lbl_17.setOpaque(true);
+        lbl_17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_17MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 70, 70));
 
         lbl_18.setBackground(new java.awt.Color(255, 255, 255));
@@ -649,6 +882,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_18.setText("18");
         lbl_18.setFocusable(false);
         lbl_18.setOpaque(true);
+        lbl_18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_18MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 70, 70));
 
         lbl_36.setBackground(new java.awt.Color(255, 255, 255));
@@ -656,6 +894,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_36.setText("36");
         lbl_36.setFocusable(false);
         lbl_36.setOpaque(true);
+        lbl_36.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_36MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_36, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 70, 70));
 
         lbl_37.setBackground(new java.awt.Color(0, 0, 0));
@@ -664,6 +907,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_37.setText("37");
         lbl_37.setFocusable(false);
         lbl_37.setOpaque(true);
+        lbl_37.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_37MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_37, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 70, 70));
 
         lbl_38.setBackground(new java.awt.Color(255, 255, 255));
@@ -671,6 +919,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_38.setText("38");
         lbl_38.setFocusable(false);
         lbl_38.setOpaque(true);
+        lbl_38.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_38MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_38, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 70, 70));
 
         lbl_46.setBackground(new java.awt.Color(0, 0, 0));
@@ -679,6 +932,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_46.setText("46");
         lbl_46.setFocusable(false);
         lbl_46.setOpaque(true);
+        lbl_46.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_46MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_46, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 70, 70));
 
         lbl_47.setBackground(new java.awt.Color(255, 255, 255));
@@ -686,6 +944,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_47.setText("47");
         lbl_47.setFocusable(false);
         lbl_47.setOpaque(true);
+        lbl_47.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_47MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_47, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 70, 70));
 
         lbl_48.setBackground(new java.awt.Color(0, 0, 0));
@@ -694,6 +957,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_48.setText("48");
         lbl_48.setFocusable(false);
         lbl_48.setOpaque(true);
+        lbl_48.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_48MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_48, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 70, 70));
 
         lbl_56.setBackground(new java.awt.Color(255, 255, 255));
@@ -701,6 +969,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_56.setText("56");
         lbl_56.setFocusable(false);
         lbl_56.setOpaque(true);
+        lbl_56.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_56MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_56, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 190, 70, 70));
 
         lbl_57.setBackground(new java.awt.Color(0, 0, 0));
@@ -709,6 +982,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_57.setText("57");
         lbl_57.setFocusable(false);
         lbl_57.setOpaque(true);
+        lbl_57.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_57MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_57, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 70, 70));
 
         lbl_58.setBackground(new java.awt.Color(255, 255, 255));
@@ -716,6 +994,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_58.setText("58");
         lbl_58.setFocusable(false);
         lbl_58.setOpaque(true);
+        lbl_58.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_58MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_58, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 70, 70));
 
         lbl_66.setBackground(new java.awt.Color(0, 0, 0));
@@ -724,6 +1007,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_66.setText("66");
         lbl_66.setFocusable(false);
         lbl_66.setOpaque(true);
+        lbl_66.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_66MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_66, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 70, 70));
 
         lbl_67.setBackground(new java.awt.Color(255, 255, 255));
@@ -731,6 +1019,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_67.setText("67");
         lbl_67.setFocusable(false);
         lbl_67.setOpaque(true);
+        lbl_67.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_67MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_67, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 70, 70));
 
         lbl_68.setBackground(new java.awt.Color(0, 0, 0));
@@ -741,6 +1034,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_68.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_68.setFocusable(false);
         lbl_68.setOpaque(true);
+        lbl_68.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_68MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_68, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 70, 70));
 
         lbl_76.setBackground(new java.awt.Color(255, 255, 255));
@@ -748,6 +1046,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_76.setText("76");
         lbl_76.setFocusable(false);
         lbl_76.setOpaque(true);
+        lbl_76.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_76MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_76, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, 70, 70));
 
         lbl_77.setBackground(new java.awt.Color(0, 0, 0));
@@ -758,6 +1061,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_77.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_77.setFocusable(false);
         lbl_77.setOpaque(true);
+        lbl_77.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_77MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_77, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 70, 70));
 
         lbl_78.setBackground(new java.awt.Color(255, 255, 255));
@@ -767,6 +1075,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_78.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_78.setFocusable(false);
         lbl_78.setOpaque(true);
+        lbl_78.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_78MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_78, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 50, 70, 70));
 
         lbl_86.setBackground(new java.awt.Color(0, 0, 0));
@@ -777,6 +1090,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_86.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_86.setFocusable(false);
         lbl_86.setOpaque(true);
+        lbl_86.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_86MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_86, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 70, 70));
 
         lbl_87.setBackground(new java.awt.Color(255, 255, 255));
@@ -786,6 +1104,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_87.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_87.setFocusable(false);
         lbl_87.setOpaque(true);
+        lbl_87.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_87MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_87, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 70, 70));
 
         lbl_88.setBackground(new java.awt.Color(0, 0, 0));
@@ -795,6 +1118,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_88.setDebugGraphicsOptions(javax.swing.DebugGraphics.BUFFERED_OPTION);
         lbl_88.setFocusable(false);
         lbl_88.setOpaque(true);
+        lbl_88.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_88MouseClicked(evt);
+            }
+        });
         jPanel1.add(lbl_88, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 50, 70, 70));
 
         lbl_l6.setText("6");
@@ -874,6 +1202,11 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogada.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lbl_jogadaActionPerformed(evt);
+            }
+        });
+        lbl_jogada.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lbl_jogadaKeyPressed(evt);
             }
         });
 
@@ -1237,7 +1570,7 @@ public class Visual extends javax.swing.JFrame {
 
         jLabel40.setBackground(new java.awt.Color(255, 255, 255));
         jLabel40.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel40.setText("64");
+        jLabel40.setText("65");
         jLabel40.setOpaque(true);
         getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 460, 30, 30));
 
@@ -1422,16 +1755,17 @@ public class Visual extends javax.swing.JFrame {
 
     private void btn_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogadaActionPerformed
         String jogada = lbl_jogada.getText();
-        if (jogada.length() == 4) {
+        if ((jogada.length() == 4) || ((jogada.length() == 5)&& (jogada.charAt(2)=='x'))) {
             control.controlaJogadas(jogada);
+            
             atualizaTabuleiro();
-        } else {
+        }  else {
             switch (jogada) {
                 case "desistir":
                     opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente DESISTIR???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
 
                     if (opcao == 0) {
-                        fechaTela();
+                        this.dispose();
                         control.controlaJogadas("desistir");
                     } else {
                         lbl_jogada.setText("");
@@ -1445,7 +1779,7 @@ public class Visual extends javax.swing.JFrame {
                         opcao = JOptionPane.showConfirmDialog(null, "##EMPATE##\n" + control.nomeJogador[0] + " deseja Aceitar o"
                                 + "\nempate proposto por " + control.nomeJogador[1], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
                         if (opcao == 0) {
-                            fechaTela();
+                            this.dispose();
                             control.controlaJogadas("empate");
                         } else {
                             control.alteraVez();
@@ -1467,6 +1801,7 @@ public class Visual extends javax.swing.JFrame {
                     break;
             }
         }
+        alertaOpcaoInvalida();
 
     }//GEN-LAST:event_btn_jogadaActionPerformed
 
@@ -1481,9 +1816,281 @@ public class Visual extends javax.swing.JFrame {
                 + "Deseja Sair mesmo assim???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
         if (opcao == 0) {
             fechaTela();
-            control.iniciaMenu();
+            tabuleiro.reiniciaTabuleiro();
+            
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void lbl_11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_11MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "11");
+    }//GEN-LAST:event_lbl_11MouseClicked
+
+    private void lbl_21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_21MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "21");
+    }//GEN-LAST:event_lbl_21MouseClicked
+
+    private void lbl_31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_31MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "31");
+    }//GEN-LAST:event_lbl_31MouseClicked
+
+    private void lbl_41MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_41MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "41");
+    }//GEN-LAST:event_lbl_41MouseClicked
+
+    private void lbl_51MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_51MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "51");
+    }//GEN-LAST:event_lbl_51MouseClicked
+
+    private void lbl_61MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_61MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "61");
+    }//GEN-LAST:event_lbl_61MouseClicked
+
+    private void lbl_71MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_71MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "71");
+    }//GEN-LAST:event_lbl_71MouseClicked
+
+    private void lbl_81MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_81MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "81");
+    }//GEN-LAST:event_lbl_81MouseClicked
+
+    private void lbl_12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_12MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "12");
+    }//GEN-LAST:event_lbl_12MouseClicked
+
+    private void lbl_22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_22MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "22");
+    }//GEN-LAST:event_lbl_22MouseClicked
+
+    private void lbl_32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_32MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "32");
+    }//GEN-LAST:event_lbl_32MouseClicked
+
+    private void lbl_42MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_42MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "42");
+    }//GEN-LAST:event_lbl_42MouseClicked
+
+    private void lbl_52MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_52MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "52");
+    }//GEN-LAST:event_lbl_52MouseClicked
+
+    private void lbl_62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_62MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "62");
+    }//GEN-LAST:event_lbl_62MouseClicked
+
+    private void lbl_72MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_72MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "72");
+    }//GEN-LAST:event_lbl_72MouseClicked
+
+    private void lbl_82MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_82MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "82");
+    }//GEN-LAST:event_lbl_82MouseClicked
+
+    private void lbl_13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_13MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "13");
+    }//GEN-LAST:event_lbl_13MouseClicked
+
+    private void lbl_23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_23MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "23");
+    }//GEN-LAST:event_lbl_23MouseClicked
+
+    private void lbl_33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_33MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "33");
+    }//GEN-LAST:event_lbl_33MouseClicked
+
+    private void lbl_43MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_43MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "43");
+    }//GEN-LAST:event_lbl_43MouseClicked
+
+    private void lbl_53MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_53MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "53");
+    }//GEN-LAST:event_lbl_53MouseClicked
+
+    private void lbl_63MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_63MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "63");
+    }//GEN-LAST:event_lbl_63MouseClicked
+
+    private void lbl_73MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_73MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "73");
+    }//GEN-LAST:event_lbl_73MouseClicked
+
+    private void lbl_83MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_83MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "83");
+    }//GEN-LAST:event_lbl_83MouseClicked
+
+    private void lbl_14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_14MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "14");
+    }//GEN-LAST:event_lbl_14MouseClicked
+
+    private void lbl_24MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_24MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "24");
+    }//GEN-LAST:event_lbl_24MouseClicked
+
+    private void lbl_34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_34MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "34");
+    }//GEN-LAST:event_lbl_34MouseClicked
+
+    private void lbl_44MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_44MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "44");
+    }//GEN-LAST:event_lbl_44MouseClicked
+
+    private void lbl_54MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_54MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "54");
+    }//GEN-LAST:event_lbl_54MouseClicked
+
+    private void lbl_64MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_64MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "64");
+    }//GEN-LAST:event_lbl_64MouseClicked
+
+    private void lbl_74MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_74MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "74");
+    }//GEN-LAST:event_lbl_74MouseClicked
+
+    private void lbl_84MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_84MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "84");
+    }//GEN-LAST:event_lbl_84MouseClicked
+
+    private void lbl_15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_15MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "15");
+    }//GEN-LAST:event_lbl_15MouseClicked
+
+    private void lbl_25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_25MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "25");
+    }//GEN-LAST:event_lbl_25MouseClicked
+
+    private void lbl_35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_35MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "35");
+    }//GEN-LAST:event_lbl_35MouseClicked
+
+    private void lbl_45MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_45MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "45");
+    }//GEN-LAST:event_lbl_45MouseClicked
+
+    private void lbl_55MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_55MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "55");
+    }//GEN-LAST:event_lbl_55MouseClicked
+
+    private void lbl_65MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_65MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "65");
+    }//GEN-LAST:event_lbl_65MouseClicked
+
+    private void lbl_75MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_75MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "75");
+    }//GEN-LAST:event_lbl_75MouseClicked
+
+    private void lbl_85MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_85MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "85");
+    }//GEN-LAST:event_lbl_85MouseClicked
+
+    private void lbl_16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_16MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "16");
+    }//GEN-LAST:event_lbl_16MouseClicked
+
+    private void lbl_26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_26MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "26");
+    }//GEN-LAST:event_lbl_26MouseClicked
+
+    private void lbl_36MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_36MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "36");
+    }//GEN-LAST:event_lbl_36MouseClicked
+
+    private void lbl_46MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_46MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "46");
+    }//GEN-LAST:event_lbl_46MouseClicked
+
+    private void lbl_56MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_56MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "56");
+    }//GEN-LAST:event_lbl_56MouseClicked
+
+    private void lbl_66MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_66MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "66");
+    }//GEN-LAST:event_lbl_66MouseClicked
+
+    private void lbl_76MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_76MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "76");
+    }//GEN-LAST:event_lbl_76MouseClicked
+
+    private void lbl_86MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_86MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "86");
+    }//GEN-LAST:event_lbl_86MouseClicked
+
+    private void lbl_17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_17MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "17");
+    }//GEN-LAST:event_lbl_17MouseClicked
+
+    private void lbl_27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_27MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "27");
+    }//GEN-LAST:event_lbl_27MouseClicked
+
+    private void lbl_37MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_37MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "37");
+    }//GEN-LAST:event_lbl_37MouseClicked
+
+    private void lbl_47MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_47MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "47");
+    }//GEN-LAST:event_lbl_47MouseClicked
+
+    private void lbl_57MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_57MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "57");
+    }//GEN-LAST:event_lbl_57MouseClicked
+
+    private void lbl_67MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_67MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "67");
+    }//GEN-LAST:event_lbl_67MouseClicked
+
+    private void lbl_77MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_77MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "77");
+    }//GEN-LAST:event_lbl_77MouseClicked
+
+    private void lbl_87MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_87MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "87");
+    }//GEN-LAST:event_lbl_87MouseClicked
+
+    private void lbl_18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_18MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "18");
+    }//GEN-LAST:event_lbl_18MouseClicked
+
+    private void lbl_28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_28MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "28");
+    }//GEN-LAST:event_lbl_28MouseClicked
+
+    private void lbl_38MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_38MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "38");
+    }//GEN-LAST:event_lbl_38MouseClicked
+
+    private void lbl_48MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_48MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "48");
+    }//GEN-LAST:event_lbl_48MouseClicked
+
+    private void lbl_58MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_58MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "58");
+    }//GEN-LAST:event_lbl_58MouseClicked
+
+    private void lbl_68MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_68MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "68");
+    }//GEN-LAST:event_lbl_68MouseClicked
+
+    private void lbl_78MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_78MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "78");
+    }//GEN-LAST:event_lbl_78MouseClicked
+
+    private void lbl_88MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_88MouseClicked
+        lbl_jogada.setText(lbl_jogada.getText() + "88");
+    }//GEN-LAST:event_lbl_88MouseClicked
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+
+    }//GEN-LAST:event_formKeyPressed
+
+    private void lbl_jogadaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lbl_jogadaKeyPressed
+        if (evt.getKeyChar() == 27) {
+            lbl_jogada.setText("");
+        }
+        if (evt.getKeyChar() == 10) {
+            btn_jogadaActionPerformed(null);
+        }
+
+
+    }//GEN-LAST:event_lbl_jogadaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -1838,7 +2445,7 @@ public class Visual extends javax.swing.JFrame {
     public void fechaTela() {
 
         Visual.this.dispose();
-
+        control.iniciaMenu();
     }
 
     private void atualizaVez() {
@@ -4624,6 +5231,27 @@ public class Visual extends javax.swing.JFrame {
                 lbl_88.setIcon(null);
                 break;
         }
+    }
+
+    public void alertaMovInvalido() {
+        lbl_jogada.setText("");
+        JOptionPane.showMessageDialog(null, "####ERRO####\nMOVIMENTO INVÁLIDO", "Erro - Movimento", 1);
+    }
+    
+    public void alertaOpcaoInvalida() {
+        lbl_jogada.setText("");
+        JOptionPane.showMessageDialog(null, "####ERRO####\nOPCAO INVÁLIDO", "Erro - OPCAO", 3);
+    }
+    
+    public void alertaNaoEhSuaVez() {
+        lbl_jogada.setText("");
+        JOptionPane.showMessageDialog(null, "####ERRO####\nNÃO É A SUA VEZ", "Erro - VEZ", 2);
+    }
+    
+    public void alertaReiemXeque() {
+        lbl_jogada.setText("");
+        JOptionPane.showMessageDialog(null, "####XEQUE####\nATENÇÃO SEU REI ESTA EM XEQUE\n"
+                + "MOVIMENTE SEU REI OU CAPTURE A PEÇA ADVERSARIA", "ALERTA - XEQUE", 2);
     }
 
 }//fimVISUAL

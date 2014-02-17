@@ -70,6 +70,15 @@ public class Impressao {
         System.out.println("3 - Sair");
     }
     
+    public void imprimePromocao(){
+        System.out.println("##      PROMOÇÃO      ##");
+        System.out.println("##       OPÇÕES       ##");
+        System.out.println("1 - DAMA");
+        System.out.println("2 - BISPO");
+        System.out.println("3 - CAVALO");
+        System.out.println("3 - TORRE");
+    }
+    
     public void imprimeDados(HashMap<String, ArrayList<Integer>> jogadores){
         System.out.println("    NOME     | Vitoria  |  Empate  |  Derrota ");
         
