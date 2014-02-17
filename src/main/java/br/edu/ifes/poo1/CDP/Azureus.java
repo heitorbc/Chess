@@ -36,8 +36,7 @@ public class Azureus {
                                 return posAtual + posProx;
                                 
                             }
-                        }
-                        if (tabuleiro.retornaPeca(posAtual).getCor().toString().equals("BRANCO")) {//posicao prox = BRANCO
+                        }else if (tabuleiro.retornaPeca(posAtual).getCor().toString().equals("BRANCO")) {//posicao prox = BRANCO
                             //testa captura
                             if (tabuleiro.retornaPeca(posAtual).podeCapturar(posAtual, posProx)) {
                                 return posAtual + "x" + posProx;
