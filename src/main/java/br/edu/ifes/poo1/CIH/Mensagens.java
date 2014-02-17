@@ -81,6 +81,10 @@ public class Mensagens {
     public void imprimeXequeMate(){
         System.out.println("#### FIM DE JOGO ####\n XEQUE MATE ");
     }
+
+    public void imprimeFrase(String jog) {
+        System.out.println(jog);
+    }
     
     
 }
