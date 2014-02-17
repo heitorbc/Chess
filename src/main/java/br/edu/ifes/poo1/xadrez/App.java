@@ -10,7 +10,7 @@ import br.edu.ifes.poo1.CIH.Visual;
  *
  */
 public class App {
-    private Visual tela = new Visual();
+    private static Visual tela = new Visual();
     
     public static void main(String[] args) {
 

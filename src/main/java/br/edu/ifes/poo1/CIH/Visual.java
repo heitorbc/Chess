@@ -41,10 +41,10 @@ public class Visual extends javax.swing.JFrame {
     Image kb = this.getToolkit().createImage(caminho + "reibranco.png");
     Image pb = this.getToolkit().createImage(caminho + "peaobranco.png");
     int opcao;
-
+    
     Tabuleiro tabuleiro = new Tabuleiro();
     ControleTotal control = new ControleTotal(tabuleiro);
-    //App app = new App();
+    
             
     public Visual() {
 

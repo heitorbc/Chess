@@ -30,6 +30,7 @@ public class ControleTotal {
     Azureus az = new Azureus();
     
     
+    
     public boolean vezBranco = true;
     public boolean textual = true;
 
@@ -54,7 +55,7 @@ public class ControleTotal {
         //e inicia a partida
         //Mas primeiro exibi as três opções para os jogadores,
         //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
-
+        
         impresso.imprimeTipo();
         String dado = scanner.nextLine();
         processaTipo(dado);
@@ -1059,6 +1060,7 @@ public class ControleTotal {
         tabuleiro.reiniciaTabuleiro();
         processaMenu("2");
     }
-
+    
+ 
 }//fimClasse
 
