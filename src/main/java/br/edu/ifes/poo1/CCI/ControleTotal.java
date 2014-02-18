@@ -11,7 +11,6 @@ import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
-import br.edu.ifes.poo1.xadrez.App;
 import java.util.Scanner;
 
 /**
@@ -21,6 +20,7 @@ import java.util.Scanner;
 public class ControleTotal {
 
     //ExibeMEnu
+    Visual tela = null;
     Tabuleiro tabuleiro = new Tabuleiro();
     public Jogador jogador = new Jogador();
     Impressao impresso = new Impressao();
@@ -28,14 +28,15 @@ public class ControleTotal {
     public String[] nomeJogador = new String[2];
     Mensagens view = new Mensagens();
     Azureus az = new Azureus();
-    
-    
-    
+
     public boolean vezBranco = true;
     public boolean textual = true;
 
     public ControleTotal(Tabuleiro tab) {
+        tela = new Visual(tab, this);
         this.tabuleiro = tab;
+        tela.setVisible(false);
+
     }
 
     public boolean retornaVezBranco() {
@@ -51,11 +52,6 @@ public class ControleTotal {
     }
 
     public void iniciaMenu() {
-        //Pega os nomes dos jogadores e chama o tabuleiro, (lembrar que jogador Um eh o branco)
-        //e inicia a partida
-        //Mas primeiro exibi as três opções para os jogadores,
-        //1ºIniciar nova partida, 2ºDados da partida, 3º Sair.
-        
         impresso.imprimeTipo();
         String dado = scanner.nextLine();
         processaTipo(dado);
@@ -152,7 +148,7 @@ public class ControleTotal {
                 if (textual == true) {
                     view.imprimeXeque();
                 } else {
-                    new Visual().alertaReiemXeque();
+                    tela.alertaReiemXeque();
                 }
                 alteraVez();
                 realizaXeque(posProx);
@@ -228,7 +224,7 @@ public class ControleTotal {
     }
 
     private void processaMenu(String dado) {
-        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))|| (dado.equals("4"))) {
 
             switch (dado) {
                 case "1":
@@ -237,12 +233,19 @@ public class ControleTotal {
                     processaModoJogo(comando);
                     break;
                 case "2":
-                    impresso.imprimeDados(jogador.jogadores);
+                    //RETOMAR PARTIDA
+                    System.out.println("NAO IMPLEMENTADO");
                     impresso.imprimeMenu();
                     comando = scanner.nextLine();
                     processaMenu(comando);
                     break;
                 case "3":
+                    impresso.imprimeDados(jogador.jogadores);
+                    impresso.imprimeMenu();
+                    comando = scanner.nextLine();
+                    processaMenu(comando);
+                    break;
+                case "4":
                     System.exit(0);
                     break;
 
@@ -271,16 +274,17 @@ public class ControleTotal {
     }
 
     private void processaTipo(String dado) {
-        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3") )) {
+            String comando = "";
             switch (dado) {
                 case "1":
                     textual = true;
                     impresso.imprimeMenu();
-                    String comando = scanner.nextLine();
+                    comando = scanner.nextLine();
                     processaMenu(comando);
                     break;
                 case "2":
-                    new App().exibetela();
+                    tela.setVisible(true);
                     textual = false;
                     break;
                 case "3":
@@ -363,7 +367,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
@@ -393,7 +397,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " T ") {//TORRE
@@ -408,7 +412,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " C ") {//CAVALO
@@ -423,7 +427,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " B ") {//BISPO
@@ -437,7 +441,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " D ") {//DAMA
@@ -451,7 +455,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " K ") {//REI
@@ -467,7 +471,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else {
@@ -475,7 +479,7 @@ public class ControleTotal {
                     view.movimentoInvalido();
                     processaJogada(nomeJogador[0], nomeJogador[1]);
                 } else {
-                    new Visual().alertaMovInvalido();
+                    tela.alertaMovInvalido();
                 }
             }
         } else {
@@ -511,7 +515,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " P " && tabuleiro.retornaPeca(posAtual).getCor() == Cor.PRETO) {//PEAO Preto
@@ -533,7 +537,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " T ") {//TORRE
@@ -549,7 +553,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " C ") {//CAVALO
@@ -563,7 +567,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " B ") {//BISPO
@@ -577,7 +581,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " D ") {//DAMA
@@ -591,7 +595,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else if (peca == " K ") {//REI
@@ -606,7 +610,7 @@ public class ControleTotal {
                         view.movimentoInvalido();
                         processaJogada(nomeJogador[0], nomeJogador[1]);
                     } else {
-                        new Visual().alertaMovInvalido();
+                        tela.alertaMovInvalido();
                     }
                 }
             } else {
@@ -614,7 +618,7 @@ public class ControleTotal {
                     view.opcaoInvalida();
                     processaJogada(nomeJogador[0], nomeJogador[1]);
                 } else {
-                    new Visual().alertaOpcaoInvalida();
+                    tela.alertaOpcaoInvalida();
                 }
             }
         } else {
@@ -623,7 +627,7 @@ public class ControleTotal {
                 view.naoEhSuaVez();
                 processaJogada(nomeJogador[0], nomeJogador[1]);
             } else {
-                new Visual().alertaNaoEhSuaVez();
+                tela.alertaNaoEhSuaVez();
             }
         }
 
@@ -1060,7 +1064,6 @@ public class ControleTotal {
         tabuleiro.reiniciaTabuleiro();
         processaMenu("2");
     }
-    
- 
+
 }//fimClasse
 
