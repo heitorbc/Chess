@@ -9,12 +9,13 @@ package br.edu.ifes.poo1.CDP.Pecas;
 import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import java.io.Serializable;
 
 /**
  *
  * @author Henrique
  */
-public class PeaoPreto extends PecaAbstrata{
+public class PeaoPreto extends PecaAbstrata implements Serializable{
 
     public PeaoPreto(Cor cor) {
         super(cor, PecaNome.PEAO);

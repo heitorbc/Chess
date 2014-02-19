@@ -7,12 +7,18 @@ package br.edu.ifes.poo1.CDP.Pecas;
 import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import java.io.Serializable;
 
 /**
  * @author 20121BSI0082
  */
-public class Cavalo extends PecaAbstrata{
+public class Cavalo extends PecaAbstrata implements Serializable{ 
 
+    public Cavalo()
+    {
+        super();
+    }
+    
     public Cavalo(Cor cor) {
         super(cor, PecaNome.CAVALO);
     }

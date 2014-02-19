@@ -12,13 +12,14 @@ import br.edu.ifes.poo1.CDP.Pecas.PeaoPreto;
 import br.edu.ifes.poo1.CDP.Pecas.Rei;
 import br.edu.ifes.poo1.CDP.Pecas.Torre;
 import br.edu.ifes.poo1.util.Cor;
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
  *
  * @author 20121BSI0082
  */
-public class Tabuleiro {
+public class Tabuleiro implements Serializable{
 
     private final HashMap<String, PecaAbstrata> tabuleiro = new HashMap<>();
 

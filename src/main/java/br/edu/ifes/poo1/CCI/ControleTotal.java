@@ -6,31 +6,53 @@ package br.edu.ifes.poo1.CCI;
 
 import br.edu.ifes.poo1.CDP.Azureus;
 import br.edu.ifes.poo1.CDP.Jogador;
+import br.edu.ifes.poo1.CDP.Partida;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
+import br.edu.ifes.poo1.CGD.Dados;
 import br.edu.ifes.poo1.CIH.Impressao;
 import br.edu.ifes.poo1.CIH.Mensagens;
 import br.edu.ifes.poo1.CIH.Visual;
 import br.edu.ifes.poo1.util.Cor;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
  *
  * @author 20121BSI0082
  */
-public class ControleTotal {
+public class ControleTotal implements Serializable {
 
     //ExibeMEnu
-    Visual tela = null;
-    Tabuleiro tabuleiro = new Tabuleiro();
+    private Visual tela = null;
+    private Tabuleiro tabuleiro = new Tabuleiro();
     public Jogador jogador = new Jogador();
-    Impressao impresso = new Impressao();
-    Scanner scanner = new Scanner(System.in);
+    private Impressao impresso = new Impressao();
+    private Scanner scanner = new Scanner(System.in);
     public String[] nomeJogador = new String[2];
-    Mensagens view = new Mensagens();
-    Azureus az = new Azureus();
+    private Mensagens view = new Mensagens();
+    private Azureus az = new Azureus();
+    private Dados dados = new Dados();
+    private ArrayList<Partida> partidas = new ArrayList<>();
+    private boolean vezBranco = true;
+    private boolean textual = true;
 
-    public boolean vezBranco = true;
-    public boolean textual = true;
+    public boolean isVezBranco() {
+        return vezBranco;
+    }
+
+    public void setVezBranco(boolean vezBranco) {
+        this.vezBranco = vezBranco;
+    }
+
+    public boolean isTextual() {
+        return textual;
+    }
+
+    public void setTextual(boolean textual) {
+        this.textual = textual;
+    }
 
     public ControleTotal(Tabuleiro tab) {
         tela = new Visual(tab, this);
@@ -51,16 +73,28 @@ public class ControleTotal {
         }
     }
 
-    public void iniciaMenu() {
+    public void iniciaMenu() throws ClassNotFoundException {
+
         impresso.imprimeTipo();
-        String dado = scanner.nextLine();
-        processaTipo(dado);
+        String entrada = scanner.nextLine();
+        processaTipo(entrada);
 
     }
 
-    public void controlaJogadas(String jog) {
+    public void controlaJogadas(String jog) throws ClassNotFoundException {
         //CONTROLA JOGADAS TEXTUAIS
-        if (jog.equals("desistir") || jog.equals("DESISTIR")) {
+        if (jog.equals("salvar") || jog.equals("SALVAR")) {
+            // Salva de uma vez, tabuleiro com o estado atual + os Jogadores em questão.
+            //Como passar cada jogador?
+            Partida partidaAtual = new Partida(tabuleiro, nomeJogador[0], jogador.retornaPontos(nomeJogador[0]), nomeJogador[1], jogador.retornaPontos(nomeJogador[1]), vezBranco);
+            salvarPartida(partidaAtual);
+            if (textual == true) {
+                scanner.nextLine();
+            }
+            iniciaMenu();
+
+            //Sair da partida = desistir   
+        } else if (jog.equals("desistir") || jog.equals("DESISTIR")) {
             //COLOCA PONTO PARA JOGADORES
             if (vezBranco == true) {
                 jogador.addPontuacao(nomeJogador[1], "v");
@@ -181,7 +215,7 @@ public class ControleTotal {
         }
     }
 
-    public void iniciaJogada() {
+    public void iniciaJogada() throws ClassNotFoundException {
         String jog;
         if (textual == true) {
             impresso.Impressao(tabuleiro);
@@ -190,7 +224,7 @@ public class ControleTotal {
                 processaJogada(nomeJogador[0], nomeJogador[1]);
             } else {
 
-                jog = az.processaJogadaAzureus(tabuleiro);
+                jog = az.processaJogadaAzureus(tabuleiro, this);
                 view.imprimeFrase(jog);
                 controlaJogadas(jog);
 
@@ -198,7 +232,7 @@ public class ControleTotal {
         }
     }
 
-    private void processaModoJogo(String dado) {
+    private void processaModoJogo(String dado) throws ClassNotFoundException {
         if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
 
             switch (dado) {
@@ -223,8 +257,8 @@ public class ControleTotal {
         }
     }
 
-    private void processaMenu(String dado) {
-        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))|| (dado.equals("4"))) {
+    private void processaMenu(String dado) throws ClassNotFoundException {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3")) || (dado.equals("4"))) {
 
             switch (dado) {
                 case "1":
@@ -234,13 +268,22 @@ public class ControleTotal {
                     break;
                 case "2":
                     //RETOMAR PARTIDA
-                    System.out.println("NAO IMPLEMENTADO");
+                    // 1 fazer load das partidas
+                    // 2 imprimir partidas disponiveis
+                    // 3 setar partida selecionada (tabuleiro, jogador, vez)
+                    int contador=1;
+                    partidas = dados.loadPartida();
+                    view.imprimeEscolhaPartida();
+                        for(Partida p: partidas){
+                            view.imprimeDadosPartida(contador,p);
+                            contador++;
+                        }
                     impresso.imprimeMenu();
                     comando = scanner.nextLine();
                     processaMenu(comando);
                     break;
                 case "3":
-                    impresso.imprimeDados(jogador.jogadores);
+                    impresso.imprimeDados(jogador.getJogadores());
                     impresso.imprimeMenu();
                     comando = scanner.nextLine();
                     processaMenu(comando);
@@ -258,7 +301,7 @@ public class ControleTotal {
         }
     }
 
-    private void processaJogada(String jogador1, String jogador2) {
+    private void processaJogada(String jogador1, String jogador2) throws ClassNotFoundException {
         if (retornaVezBranco() == true) {
             view.jogadaJ1(jogador1);
             String jogada = scanner.next();
@@ -268,13 +311,12 @@ public class ControleTotal {
             view.jogadaJ2(jogador2);
             String jogada = scanner.next();
             controlaJogadas(jogada);
-
         }
 
     }
 
-    private void processaTipo(String dado) {
-        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3") )) {
+    private void processaTipo(String dado) throws ClassNotFoundException {
+        if ((dado.equals("1")) || (dado.equals("2")) || (dado.equals("3"))) {
             String comando = "";
             switch (dado) {
                 case "1":
@@ -294,18 +336,17 @@ public class ControleTotal {
         } else {
             view.entradaInvalida();
             iniciaMenu();
-
         }
     }
 
     public void processaJogadorAzureus() {
         view.nomeJogadorUm();
         nomeJogador[0] = scanner.next().toUpperCase();
-        if (!jogador.jogadores.containsKey(nomeJogador[0])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[0])) {
             jogador.criaJogador(nomeJogador[0]);
         }
         nomeJogador[1] = "AZUREUS";
-        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[1])) {
             jogador.criaJogador(nomeJogador[1]);
         }
     }
@@ -314,12 +355,12 @@ public class ControleTotal {
 
         view.nomeJogadorUm();
         nomeJogador[0] = scanner.next().toUpperCase();
-        if (!jogador.jogadores.containsKey(nomeJogador[0])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[0])) {
             jogador.criaJogador(nomeJogador[0]);
         }
         view.nomeJogadorDois();
         nomeJogador[1] = scanner.next().toUpperCase();
-        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[1])) {
             jogador.criaJogador(nomeJogador[1]);
         }
     }
@@ -327,15 +368,15 @@ public class ControleTotal {
     public void processaJogadorVisual(String j1, String j2) {
         nomeJogador[0] = j1;
         nomeJogador[1] = j2;
-        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[1])) {
             jogador.criaJogador(nomeJogador[0]);
         }
-        if (!jogador.jogadores.containsKey(nomeJogador[1])) {
+        if (!jogador.getJogadores().containsKey(nomeJogador[1])) {
             jogador.criaJogador(nomeJogador[1]);
         }
     }
 
-    public void capturaPeca(String posAtual, String posProx, String peca, String corPeca) {
+    public void capturaPeca(String posAtual, String posProx, String peca, String corPeca) throws ClassNotFoundException {
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
             String opcao;
             String posDir = "" + (Integer.parseInt(posAtual.charAt(0) + "") + 1) + posAtual.charAt(1);
@@ -491,7 +532,7 @@ public class ControleTotal {
         }
     }
 
-    public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca) {
+    public void movimentaPeca(String posAtual, String posProx, String peca, String corPeca) throws ClassNotFoundException {
         //Alguma situações não trocava a peça, acho que resolvi adicionando alteraVez() nas outras peças
         view.imprimeFrase("");
         if ((retornaVezBranco() == true && corPeca.equals("BRANCO")) || (retornaVezBranco() == false && corPeca.equals("PRETO"))) {
@@ -1022,7 +1063,7 @@ public class ControleTotal {
 
     }
 
-    public void realizaXeque(String posPecaXeque) {
+    public void realizaXeque(String posPecaXeque) throws ClassNotFoundException {
         String jogada;
         impresso.Impressao(tabuleiro);
         view.imprimeVez(vezBranco);
@@ -1049,7 +1090,7 @@ public class ControleTotal {
 
     }
 
-    public void realizaXequeMate() {
+    public void realizaXequeMate() throws ClassNotFoundException {
         alteraVez();
         scanner.nextLine();
         view.imprimeXequeMate();
@@ -1063,6 +1104,15 @@ public class ControleTotal {
         }
         tabuleiro.reiniciaTabuleiro();
         processaMenu("2");
+    }
+
+    public void salvarPartida(Partida partidaAtual) throws ClassNotFoundException {
+
+        String dataHora = new Date().toString();
+        partidaAtual.setDataHoraPartida(dataHora);
+        dados.savePartida(partidaAtual);
+        view.partidaSalva();
+
     }
 
 }//fimClasse

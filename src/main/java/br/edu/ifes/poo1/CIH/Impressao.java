@@ -7,6 +7,7 @@ package br.edu.ifes.poo1.CIH;
 import br.edu.ifes.poo1.CDP.Jogador;
 import br.edu.ifes.poo1.CDP.Tabuleiro;
 import br.edu.ifes.poo1.util.Cor;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -15,7 +16,7 @@ import java.util.Set;
  *
  * @author Henrique
  */
-public class Impressao {
+public class Impressao implements Serializable{
 
     public void Impressao(Tabuleiro tab) {
 

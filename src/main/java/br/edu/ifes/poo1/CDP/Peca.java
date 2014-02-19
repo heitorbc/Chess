@@ -7,12 +7,13 @@
 package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.util.Cor;
+import java.io.Serializable;
 
 /**
  *
  * @author Henrique
  */
-public interface Peca {
+public interface Peca{
     public Cor getCor();
     
     //public PecaNome getPecaNome();

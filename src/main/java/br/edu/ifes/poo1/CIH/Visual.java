@@ -14,6 +14,8 @@ import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -41,11 +43,10 @@ public class Visual extends javax.swing.JFrame {
     Image kb = this.getToolkit().createImage(caminho + "reibranco.png");
     Image pb = this.getToolkit().createImage(caminho + "peaobranco.png");
     int opcao;
-    
+
     Tabuleiro tabuleiro = null;
     ControleTotal control = null;
-    
-            
+
     public Visual(Tabuleiro tabuleiro, ControleTotal control) {
 
         initComponents();
@@ -54,7 +55,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_digitecomando.setEnabled(false);
         btn_jogada.setVisible(false);
         btn_jogada.setEnabled(false);
-        control.textual = false;
+        control.setTextual(false);
 
     }
 
@@ -1750,7 +1751,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_digitecomando.setEnabled(true);
         btn_jogada.setEnabled(true);
         btn_jogada.setVisible(true);
-        //lbl_11.setIcon(new ImageIcon(bp));
+
     }//GEN-LAST:event_btn_novoActionPerformed
 
     private void lbl_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lbl_jogadaActionPerformed
@@ -1759,34 +1760,51 @@ public class Visual extends javax.swing.JFrame {
 
     private void btn_jogadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_jogadaActionPerformed
         String jogada = lbl_jogada.getText();
-        if ((jogada.length() == 4) || ((jogada.length() == 5)&& (jogada.charAt(2)=='x'))) {
-            control.controlaJogadas(jogada);
-            
+        if ((jogada.length() == 4) || ((jogada.length() == 5) && (jogada.charAt(2) == 'x'))) {
+            try {
+                control.controlaJogadas(jogada);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             atualizaTabuleiro();
-        }  else {
+        } else {
             switch (jogada) {
                 case "desistir":
                     opcao = JOptionPane.showConfirmDialog(null, "Deseja realmente DESISTIR???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
 
                     if (opcao == 0) {
                         fechaTela();
-                        control.controlaJogadas("desistir");
-                        control.iniciaMenu();
+                        try {
+                            control.controlaJogadas("desistir");
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        try {
+                            control.iniciaMenu();
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     } else {
                         lbl_jogada.setText("");
                     }
                     break;
                 case "empate":
-                    control.textual = false;
+                    control.setTextual(false);
                     control.alteraVez();
                     atualizaTabuleiro();
-                    if (control.vezBranco) {
+                    if (control.isVezBranco()) {
                         opcao = JOptionPane.showConfirmDialog(null, "##EMPATE##\n" + control.nomeJogador[0] + " deseja Aceitar o"
                                 + "\nempate proposto por " + control.nomeJogador[1], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
                         if (opcao == 0) {
                             fechaTela();
-                            control.controlaJogadas("empate");
-                            control.iniciaMenu();
+                            try {
+                                control.controlaJogadas("empate");
+                                control.iniciaMenu();
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+
                         } else {
                             control.alteraVez();
                             atualizaTabuleiro();
@@ -1797,8 +1815,13 @@ public class Visual extends javax.swing.JFrame {
                                 + "\nempate proposto por " + control.nomeJogador[0], "ATENÇÃO", JOptionPane.YES_NO_OPTION);
                         if (opcao == 0) {
                             fechaTela();
-                            control.controlaJogadas("empate");
-                            control.iniciaMenu();
+                            try {
+                                control.controlaJogadas("empate");
+                                control.iniciaMenu();
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
                         } else {
                             control.alteraVez();
                             atualizaTabuleiro();
@@ -1809,7 +1832,7 @@ public class Visual extends javax.swing.JFrame {
             }
             alertaOpcaoInvalida();
         }
-        
+
 
     }//GEN-LAST:event_btn_jogadaActionPerformed
 
@@ -1824,7 +1847,11 @@ public class Visual extends javax.swing.JFrame {
                 + "Deseja Sair mesmo assim???", "ATENÇÃO", JOptionPane.YES_NO_OPTION);
         if (opcao == 0) {
             fechaTela();
-             control.iniciaMenu();
+            try {
+                control.iniciaMenu();
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Visual.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btn_sairActionPerformed
 
@@ -2102,7 +2129,6 @@ public class Visual extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_jogada;
@@ -2423,7 +2449,7 @@ public class Visual extends javax.swing.JFrame {
         this.setVisible(false);
         limpaImagensLbl();
         tabuleiro.reiniciaTabuleiro();
-        
+
     }
 
     private void atualizaVez() {
@@ -5215,17 +5241,17 @@ public class Visual extends javax.swing.JFrame {
         lbl_jogada.setText("");
         JOptionPane.showMessageDialog(null, "####ERRO####\nMOVIMENTO INVÁLIDO", "Erro - Movimento", 1);
     }
-    
+
     public void alertaOpcaoInvalida() {
         lbl_jogada.setText("");
         JOptionPane.showMessageDialog(null, "####ERRO####\nOPCAO INVÁLIDO", "Erro - OPCAO", 3);
     }
-    
+
     public void alertaNaoEhSuaVez() {
         lbl_jogada.setText("");
         JOptionPane.showMessageDialog(null, "####ERRO####\nNÃO É A SUA VEZ", "Erro - VEZ", 2);
     }
-    
+
     public void alertaReiemXeque() {
         lbl_jogada.setText("");
         JOptionPane.showMessageDialog(null, "####XEQUE####\nATENÇÃO SEU REI ESTA EM XEQUE\n"
@@ -5233,7 +5259,7 @@ public class Visual extends javax.swing.JFrame {
     }
 
     private void limpaImagensLbl() {
-        
+
         lbl_11.setIcon(null);
         lbl_21.setIcon(null);
         lbl_31.setIcon(null);
@@ -5298,7 +5324,7 @@ public class Visual extends javax.swing.JFrame {
         lbl_68.setIcon(null);
         lbl_78.setIcon(null);
         lbl_88.setIcon(null);
-        
+
     }
 
 }//fimVISUAL

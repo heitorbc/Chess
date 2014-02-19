@@ -6,12 +6,27 @@
 
 package br.edu.ifes.poo1.CIH;
 
+import br.edu.ifes.poo1.CDP.Partida;
+import java.io.Serializable;
+
 /**
  *
  * @author Henrique
  */
-public class Mensagens {
+public class Mensagens implements Serializable {
     
+    public void imprimeEscolhaPartida(){
+        System.out.println("######### PARTIDAS SALVAS ##########");
+        System.out.println("Digite o número da partida desejada:");
+    }
+    
+    public void informaNomePartida(){
+        System.out.println("Digite o nome da partida a ser salva:");
+    }
+    
+    public void partidaSalva(){
+        System.out.println("Partida Salva com Sucesso!!!");
+    }
     
     public void empate(String Jogador1,String Jogador2,boolean vezBranco){
         String alerta="??EMPATE?? :";
@@ -84,6 +99,10 @@ public class Mensagens {
 
     public void imprimeFrase(String jog) {
         System.out.println(jog);
+    }
+
+    public void imprimeDadosPartida(int contador, Partida p) {
+        System.out.println(contador+" - "+p.getDataHoraPartida()+" | "+p.retornaNomesJodadores());
     }
     
     

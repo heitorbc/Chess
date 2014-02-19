@@ -7,12 +7,13 @@ package br.edu.ifes.poo1.CDP.Pecas;
 import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import java.io.Serializable;
 
 /**
  *
  * @author 20121BSI0082
  */
-public class Torre extends PecaAbstrata {
+public class Torre extends PecaAbstrata implements Serializable{
 
     public Torre(Cor cor) {
         super(cor, PecaNome.TORRE);

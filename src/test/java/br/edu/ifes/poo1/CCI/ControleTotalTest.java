@@ -44,7 +44,7 @@ public class ControleTotalTest {
      * Test of iniciaMenu method, of class ControleTotal.
      */
     @Test
-    public void testIniciaMenu() {
+    public void testIniciaMenu() throws ClassNotFoundException {
         System.out.println("iniciaMenu");
         ControleTotal instance = null;
         instance.iniciaMenu();
@@ -59,7 +59,7 @@ public class ControleTotalTest {
     
     
     
-    public void testControlaJogadas() {
+    public void testControlaJogadas() throws ClassNotFoundException {
         Tabuleiro inst = new Tabuleiro();
         System.out.println("controlaJogadas");
         String jog = "desistir";
@@ -83,7 +83,7 @@ public class ControleTotalTest {
     
     
     @Test
-    public void testIniciaJogada() {
+    public void testIniciaJogada() throws ClassNotFoundException {
         System.out.println("iniciaJogada");
         ControleTotal instance = null;
         instance.iniciaJogada();

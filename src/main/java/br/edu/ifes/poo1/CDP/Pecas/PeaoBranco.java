@@ -7,13 +7,14 @@ package br.edu.ifes.poo1.CDP.Pecas;
 import br.edu.ifes.poo1.CDP.PecaAbstrata;
 import br.edu.ifes.poo1.util.Cor;
 import br.edu.ifes.poo1.util.PecaNome;
+import java.io.Serializable;
 
 /**
  *
  * @author 20121BSI0082
  */
 //O controle verifica se pode podeAndar.
-public class PeaoBranco extends PecaAbstrata {
+public class PeaoBranco extends PecaAbstrata implements Serializable{
 
     public PeaoBranco(Cor cor) {
         super(cor, PecaNome.PEAO);

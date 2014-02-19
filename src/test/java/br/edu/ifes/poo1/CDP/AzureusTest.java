@@ -6,11 +6,11 @@
 
 package br.edu.ifes.poo1.CDP;
 
+import br.edu.ifes.poo1.CCI.ControleTotal;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
@@ -45,9 +45,10 @@ public class AzureusTest {
     public void testProcessaJogadaAzureus() {
         System.out.println("processaJogadaAzureus");
         Tabuleiro tabuleiro = null;
+        ControleTotal control = null;
         Azureus instance = new Azureus();
         String expResult = "";
-        String result = instance.processaJogadaAzureus(tabuleiro);
+        String result = instance.processaJogadaAzureus(tabuleiro,control);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

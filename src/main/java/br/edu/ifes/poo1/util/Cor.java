@@ -6,11 +6,13 @@
 
 package br.edu.ifes.poo1.util;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Henrique
  */
-public enum Cor {
+public enum Cor implements Serializable{
     BRANCO("(B)"),PRETO("(P)");
     
     public String getCorPeca() {

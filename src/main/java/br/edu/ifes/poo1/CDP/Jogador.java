@@ -4,6 +4,8 @@
  */
 package br.edu.ifes.poo1.CDP;
 
+import com.sun.org.apache.xml.internal.serializer.SerializerBase;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -12,18 +14,39 @@ import java.util.Set;
  *
  * @author 20121BSI0082
  */
-public class Jogador {
-      
-   
+public class Jogador implements Serializable {
 
-    ArrayList<Integer> pontos = new ArrayList<>();
-    public HashMap<String, ArrayList<Integer>> jogadores = new HashMap<>();
+    private ArrayList<Integer> pontos = new ArrayList<>();
+    private HashMap<String, ArrayList<Integer>> jogadores = new HashMap<>();
 
+    public HashMap<String, ArrayList<Integer>> getJogadores() {
+        return jogadores;
+    }
+
+    public void setJogadores(HashMap<String, ArrayList<Integer>> jogadores) {
+        this.jogadores = jogadores;
+    }
+
+    
     public void criaJogador(String nome) {
         for (int i = 0; i < 3; i++) {
             pontos.add(0);
         }
         jogadores.put(nome, pontos);
+    }
+
+    public ArrayList<Integer> retornaArrayPontos(String nome) {
+        ArrayList<Integer> pontuacao = new ArrayList<>();
+        Integer vitoria, derrota, empate;
+        pontuacao.add(jogadores.get(nome).get(0));
+        pontuacao.add(jogadores.get(nome).get(1));
+        pontuacao.add(jogadores.get(nome).get(2));
+//        vitoria = jogadores.get(nome).get(0);
+//        derrota = jogadores.get(nome).get(1);
+//        empate = jogadores.get(nome).get(2);
+//        ArrayList<Integer> pontuacao = null;
+//        pontuacao = jogadores.get(nome);
+        return pontuacao;
     }
 
     public String retornaPontos(String nome) {
@@ -34,25 +57,26 @@ public class Jogador {
         empate = jogadores.get(nome).get(2);
         return vitoria + "," + derrota + "," + empate;
     }
-    
+
     public String retornaVitoria(String nome) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
         Integer vitoria;
         vitoria = jogadores.get(nome).get(0);
-       return vitoria +"";
+        return vitoria + "";
     }
+
     public String retornaDerrota(String nome) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
         Integer derrota;
         derrota = jogadores.get(nome).get(1);
-       return derrota +"";
+        return derrota + "";
     }
-    
+
     public String retornaEmpate(String nome) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
         Integer empate;
         empate = jogadores.get(nome).get(2);
-       return empate +"";
+        return empate + "";
     }
 
     public void addPontuacao(String nome, String tipo) {
@@ -79,17 +103,19 @@ public class Jogador {
         jogadores.put(nome, pontuacao);
 
     }
-    public Set<String> imprimeJogador(){
+
+    public Set<String> imprimeJogador() {
         return jogadores.keySet();
-        
+
     }
-    
-    public void imprimeInformacoes(String nome){
+
+    public void imprimeInformacoes(String nome) {
         criaJogador(nome);
         System.out.println(jogadores);
     }
-    public void imprimiDados(){
+
+    public void imprimiDados() {
         System.out.println(jogadores);
-    }        
+    }
 
 }

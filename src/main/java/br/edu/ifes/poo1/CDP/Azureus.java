@@ -6,6 +6,7 @@
 package br.edu.ifes.poo1.CDP;
 
 import br.edu.ifes.poo1.CCI.ControleTotal;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -13,16 +14,16 @@ import java.util.Random;
  * @author Henrique
  */
 //Azureus é o nosso jogador burro.
-public class Azureus {
+public class Azureus implements Serializable {
 
     
     
-    Random gerador = new Random();
-    String posAtual, posProx, posicao, jogada;
-    int numAux;
-    boolean jogadaValida;
+    private Random gerador = new Random();
+    private String posAtual, posProx, posicao, jogada;
+    private int numAux;
+    private boolean jogadaValida;
 
-    public String processaJogadaAzureus(Tabuleiro tabuleiro) {
+    public String processaJogadaAzureus(Tabuleiro tabuleiro, ControleTotal control) {
         jogadaValida = false;
         while (!jogadaValida) {
             posAtual = geraPos();
@@ -32,7 +33,7 @@ public class Azureus {
                         posProx = geraPos();
                         if (tabuleiro.retornaPeca(posProx) == null) {//posição PROX = VAZIO
                             //testa movimento
-                            if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx))&&(new ControleTotal(tabuleiro).caminhoLivre(posAtual, posProx, tabuleiro.retornaPeca("" + posAtual.charAt(0) + posAtual.charAt(1)).getNome().getApelidoPeca().toString(), tabuleiro.retornaPeca("" + posAtual.charAt(0) + posAtual.charAt(1)).getCor().toString()))) {
+                            if ((tabuleiro.retornaPeca(posAtual).podeAndarQuanto(posAtual, posProx))&&(control.caminhoLivre(posAtual, posProx, tabuleiro.retornaPeca("" + posAtual.charAt(0) + posAtual.charAt(1)).getNome().getApelidoPeca().toString(), tabuleiro.retornaPeca("" + posAtual.charAt(0) + posAtual.charAt(1)).getCor().toString()))) {
                                 return posAtual + posProx;
                                 
                             }
