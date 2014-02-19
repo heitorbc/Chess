@@ -29,7 +29,6 @@ public class Impressao implements Serializable{
                     System.out.print(" [  ] ");
                 } else {
                     System.out.print(tab.retornaPeca("" + coluna + linha).getNome().getApelidoPeca());
-
                     if (tab.retornaPeca("" + coluna + linha).getCor() == Cor.BRANCO) {
                         System.out.print(Cor.BRANCO.getCorPeca());
                     } else {

@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package br.edu.ifes.poo1.CGD;
-
-import br.edu.ifes.poo1.CDP.Partida;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,10 +17,9 @@ import java.util.ArrayList;
  *
  * @author Henrique
  */
-public class Dados<T extends Serializable> {
+public class Dados <T extends Serializable> {
 
-    private ArrayList<Partida> dados = new ArrayList<Partida>();
-    private String nomesPartidas;
+    private ArrayList<T> dados = new ArrayList<T>();
 
     public void savePartida(T partida) throws ClassNotFoundException {
 

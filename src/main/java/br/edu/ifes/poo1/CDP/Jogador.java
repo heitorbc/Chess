@@ -4,7 +4,6 @@
  */
 package br.edu.ifes.poo1.CDP;
 
-import com.sun.org.apache.xml.internal.serializer.SerializerBase;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,18 +33,18 @@ public class Jogador implements Serializable {
         }
         jogadores.put(nome, pontos);
     }
+    public void setPontuacaoJogador(String nome, ArrayList<Integer> pontos){
+        jogadores.put(nome, pontos);
+    }
 
+     
     public ArrayList<Integer> retornaArrayPontos(String nome) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
         Integer vitoria, derrota, empate;
         pontuacao.add(jogadores.get(nome).get(0));
         pontuacao.add(jogadores.get(nome).get(1));
         pontuacao.add(jogadores.get(nome).get(2));
-//        vitoria = jogadores.get(nome).get(0);
-//        derrota = jogadores.get(nome).get(1);
-//        empate = jogadores.get(nome).get(2);
-//        ArrayList<Integer> pontuacao = null;
-//        pontuacao = jogadores.get(nome);
+
         return pontuacao;
     }
 
@@ -57,6 +56,8 @@ public class Jogador implements Serializable {
         empate = jogadores.get(nome).get(2);
         return vitoria + "," + derrota + "," + empate;
     }
+    
+    
 
     public String retornaVitoria(String nome) {
         ArrayList<Integer> pontuacao = new ArrayList<>();
@@ -117,5 +118,4 @@ public class Jogador implements Serializable {
     public void imprimiDados() {
         System.out.println(jogadores);
     }
-
 }

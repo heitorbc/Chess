@@ -84,9 +84,7 @@ public class ControleTotal implements Serializable {
     public void controlaJogadas(String jog) throws ClassNotFoundException {
         //CONTROLA JOGADAS TEXTUAIS
         if (jog.equals("salvar") || jog.equals("SALVAR")) {
-            // Salva de uma vez, tabuleiro com o estado atual + os Jogadores em questão.
-            //Como passar cada jogador?
-            Partida partidaAtual = new Partida(tabuleiro, nomeJogador[0], jogador.retornaPontos(nomeJogador[0]), nomeJogador[1], jogador.retornaPontos(nomeJogador[1]), vezBranco);
+            Partida partidaAtual = new Partida(this.tabuleiro, nomeJogador[0], jogador.retornaPontos(nomeJogador[0]), nomeJogador[1], jogador.retornaPontos(nomeJogador[1]), vezBranco);
             salvarPartida(partidaAtual);
             if (textual == true) {
                 scanner.nextLine();
@@ -220,10 +218,10 @@ public class ControleTotal implements Serializable {
         if (textual == true) {
             impresso.Impressao(tabuleiro);
             view.imprimeVez(vezBranco);
+            
             if ((!nomeJogador[1].equals("AZUREUS")) || (vezBranco)) {
                 processaJogada(nomeJogador[0], nomeJogador[1]);
             } else {
-
                 jog = az.processaJogadaAzureus(tabuleiro, this);
                 view.imprimeFrase(jog);
                 controlaJogadas(jog);
@@ -267,20 +265,36 @@ public class ControleTotal implements Serializable {
                     processaModoJogo(comando);
                     break;
                 case "2":
-                    //RETOMAR PARTIDA
-                    // 1 fazer load das partidas
-                    // 2 imprimir partidas disponiveis
-                    // 3 setar partida selecionada (tabuleiro, jogador, vez)
-                    int contador=1;
+                    int contador = 1;
                     partidas = dados.loadPartida();
                     view.imprimeEscolhaPartida();
-                        for(Partida p: partidas){
-                            view.imprimeDadosPartida(contador,p);
-                            contador++;
+                    for (Partida p : partidas) {
+                        view.imprimeDadosPartida(contador, p);
+                        contador++;
+                    }
+                    int opcao = scanner.nextInt();
+                    contador = 1;
+                    System.out.println(tabuleiro);
+                    impresso.Impressao(tabuleiro);
+                    //Problema esta no tabuleiro que foi salvo.
+                    for (Partida p : partidas) {
+                        if (contador == opcao) {
+                            this.tabuleiro = p.getTabuleiro();
+                            vezBranco = p.isVezBranco();
+                            System.out.println(tabuleiro);
+                            nomeJogador[0] = p.getJogadorBranco();
+                            System.out.println(nomeJogador[0]);
+                            nomeJogador[1] = p.getJogadorPreto();
+                            System.out.println(nomeJogador[1]);
+                            jogador.setPontuacaoJogador(nomeJogador[0],p.retornaArrayPontos("b"));
+                            jogador.setPontuacaoJogador(nomeJogador[1],p.retornaArrayPontos("p"));
+                            
+                            System.out.println("Pontuação"+""+p.retornaArrayPontos("p"));
                         }
-                    impresso.imprimeMenu();
-                    comando = scanner.nextLine();
-                    processaMenu(comando);
+                        contador++;
+                    }
+                    
+                    //iniciaJogada();
                     break;
                 case "3":
                     impresso.imprimeDados(jogador.getJogadores());
