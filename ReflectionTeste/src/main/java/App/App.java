@@ -1,4 +1,4 @@
-package com.mycompany.reflectionteste;
+package App;
 
 /**
  * Hello world!
@@ -19,7 +19,7 @@ public class App{
         
         try {
             
-            Class cls = Class.forName("App");
+            Class cls = Class.forName("App.App");
             Method methlist[] = cls.getDeclaredMethods();
             
             for (Method m : methlist){
